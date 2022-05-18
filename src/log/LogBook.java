@@ -28,21 +28,35 @@ public class LogBook {
         return instance;
     }
 
-    public void addEntry(UserAction entry){}
+    public void addEntry(String entry) throws IOException {
+        if(fileWritingEnabled == true){
+            writeFile(entry);
+        }
+    }
 
-    public UserAction getEntry(int index){
-        return null;
+    public String  getEntry(int index){
+        return entries.get(index);
     }
 
     public int getSize(){
         return entries.size();
     }
 
-    public void LogBookClose(){}
+    public void LogBookClose() throws IOException {
+            writer.close();
+    }
 
-    public void printLog(){}
+    public void printLog(){
+        for (String entry : entries) {
+            System.out.println(entry);
+        }
+    }
 
-    public void writeFile(){}
+    public void writeFile(String entry) throws IOException {
+        writer.append(entry);
+        writer.newLine();
+        writer.flush();
+    }
 
     public void readFile() throws IOException {
         while(reader.ready() == true){

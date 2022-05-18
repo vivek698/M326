@@ -33,6 +33,8 @@ public class HRPerson extends Person{
     public void writeLogEntry(int action, Person person) throws IOException {
         UserAction ua = new UserAction(this, person, action);
         LogBook log = LogBook.getLogBookInstace();
+        String entry = ua.getEntry();
+        log.addEntry(entry);
 
     }
 
