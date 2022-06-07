@@ -14,6 +14,11 @@ public class HRPerson extends Person{
         this.modus = modus;
     }
 
+
+    public void change(Person person, int modus){
+        //TODO
+    }
+
     public int getModus() {
         return modus;
     }
@@ -37,7 +42,5 @@ public class HRPerson extends Person{
         log.addEntry(entry);
 
     }
-
-    public void change(Person person, int modus){}
 
 }
