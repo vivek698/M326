@@ -1,14 +1,14 @@
-package company;
+package ch.bzz.Model.company;
 
-import employees.Person;
+import ch.bzz.Model.employees.Person;
 
 import java.util.ArrayList;
 
-public class JobFunction {
+public class Department {
     private String name;
     private ArrayList<Person> members;
 
-    public JobFunction(String name) {
+    public Department(String name) {
         this.name=name;
         members=new ArrayList<Person>();
     }
@@ -26,12 +26,10 @@ public class JobFunction {
     }
 
     public void addMember(Person person) {
-        person.getParticipation().addFunction(this);
         members.add(person);
     }
 
     public void removeMember(int index) {
-        members.get(index).getParticipation().removeFunction(this);
         members.remove(index);
     }
 

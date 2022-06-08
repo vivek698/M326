@@ -1,4 +1,4 @@
-package company;
+package ch.bzz.Model.company;
 
 import java.util.ArrayList;
 

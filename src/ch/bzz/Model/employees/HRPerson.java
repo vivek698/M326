@@ -1,7 +1,7 @@
-package employees;
+package ch.bzz.Model.employees;
 
-import log.LogBook;
-import log.UserAction;
+import ch.bzz.Model.log.LogBook;
+import ch.bzz.Model.log.UserAction;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ public class HRPerson extends Person{
     private int modus;
     private String pwd;
 
-    public HRPerson(int modus, String firstName, String lastName) {
+    public HRPerson(String firstName, String lastName,int modus) {
         super(firstName, lastName);
         this.modus = modus;
     }
@@ -40,7 +40,6 @@ public class HRPerson extends Person{
         LogBook log = LogBook.getLogBookInstace();
         String entry = ua.getEntry();
         log.addEntry(entry);
-
     }
 
 }

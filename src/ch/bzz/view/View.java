@@ -1,4 +1,4 @@
-package view;
+package ch.bzz.view;
 
 import javax.swing.*;
 import java.awt.event.*;

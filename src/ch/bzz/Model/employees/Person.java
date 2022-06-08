@@ -1,4 +1,4 @@
-package employees;
+package ch.bzz.Model.employees;
 
 public class Person {
     private String firstName;

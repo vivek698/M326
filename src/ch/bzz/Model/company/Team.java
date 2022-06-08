@@ -1,6 +1,6 @@
-package company;
+package ch.bzz.Model.company;
 
-import employees.Person;
+import ch.bzz.Model.employees.Person;
 
 import java.util.ArrayList;
 

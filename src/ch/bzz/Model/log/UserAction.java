@@ -1,7 +1,7 @@
-package log;
+package ch.bzz.Model.log;
 
-import employees.HRPerson;
-import employees.Person;
+import ch.bzz.Model.employees.HRPerson;
+import ch.bzz.Model.employees.Person;
 
 public class UserAction {
     public static int CREATE_PERSON = 0;

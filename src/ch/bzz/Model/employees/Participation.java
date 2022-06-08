@@ -1,7 +1,7 @@
-package employees;
+package ch.bzz.Model.employees;
 
-import company.JobFunction;
-import company.Team;
+import ch.bzz.Model.company.JobFunction;
+import ch.bzz.Model.company.Team;
 
 import java.util.ArrayList;
 
