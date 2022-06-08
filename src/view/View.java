@@ -13,22 +13,21 @@ class View implements ActionListener{
     JFrame assignmentFrame;
     JFrame personsFrame;
     JFrame basedatanFrame;
-    JFrame logbookFrame;
+    JFrame logFrame;
 
     JTextField test;
 
     JMenuBar mb;
-    JMenu overview,assignment,persons,basedata,logbook;
+    JMenu overview,assignment,persons,basedata,log;
     View(){
         f=new JFrame();
-        overviewFrame = new JFrame();
 
         mb=new JMenuBar();
         overview=new JMenu("Overview");
         assignment=new JMenu("Assignment");
         persons=new JMenu("Persons");
         basedata=new JMenu("Base Data");
-        logbook=new JMenu("Logbook");
+        log=new JMenu("Log");
 
 
 
@@ -36,32 +35,31 @@ class View implements ActionListener{
         assignment.addActionListener(this);
         persons.addActionListener(this);
         basedata.addActionListener(this);
-        logbook.addActionListener(this);
+        log.addActionListener(this);
 
 
-        mb.add(overview);mb.add(assignment);mb.add(persons);mb.add(basedata);mb.add(logbook);
+        mb.add(overview);mb.add(assignment);mb.add(persons);mb.add(basedata);mb.add(log);
         f.add(mb);
         f.setJMenuBar(mb);
         f.setLayout(null);
         f.setSize(400,400);
         f.setVisible(true);
 
+        overviewFrame = new JFrame();
+
 
     }
     public void actionPerformed(ActionEvent e) {
         if(overview.isSelected())
-
-                overviewFrame.setVisible(true);
-
-
+            overviewFrame.setVisible(true);
         if(e.getSource() == assignment)
             assignmentFrame = new JFrame();
         if(e.getSource() == persons)
             personsFrame = new JFrame();
         if(e.getSource() == basedata)
             basedatanFrame = new JFrame();
-        if(e.getSource() == logbook)
-            logbookFrame = new JFrame();
+        if(e.getSource() == log)
+            logFrame = new JFrame();
 
     }
     public static void main(String[] args) {
