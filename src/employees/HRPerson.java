@@ -9,7 +9,7 @@ public class HRPerson extends Person{
     private int modus;
     private String pwd;
 
-    public HRPerson(int modus, String firstName, String lastName) {
+    public HRPerson(String lastName, String firstName, int modus) {
         super(firstName, lastName);
         this.modus = modus;
     }
@@ -37,10 +37,12 @@ public class HRPerson extends Person{
 
     public void writeLogEntry(int action, Person person) throws IOException {
         UserAction ua = new UserAction(this, person, action);
-        LogBook log = LogBook.getLogBookInstace();
+        LogBook log = LogBook.getLogBookInstance();
         String entry = ua.getEntry();
         log.addEntry(entry);
 
     }
 
 }
+
+
