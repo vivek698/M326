@@ -9,58 +9,59 @@ import java.awt.event.*;
  */
 class View implements ActionListener{
     JFrame f;
-    JFrame uebersichtFrame;
-    JFrame zuordnungFrame;
-    JFrame personenFrame;
-    JFrame stammdatenFrame;
-    JFrame logbuchFrame;
+    JFrame overviewFrame;
+    JFrame assignmentFrame;
+    JFrame personsFrame;
+    JFrame basedatanFrame;
+    JFrame logbookFrame;
 
     JTextField test;
 
     JMenuBar mb;
-    JMenu uebersicht,zuordnung,personen,stammdaten,logbuch;
+    JMenu overview,assignment,persons,basedata,logbook;
     View(){
         f=new JFrame();
+        overviewFrame = new JFrame();
+
         mb=new JMenuBar();
-        uebersicht=new JMenu("Übersicht");
-        zuordnung=new JMenu("Zuordnung");
-        personen=new JMenu("Personen");
-        stammdaten=new JMenu("Stammdaten");
-        logbuch=new JMenu("Logbuch");
-
-        uebersicht.addActionListener(this);
-        zuordnung.addActionListener(this);
-        personen.addActionListener(this);
-        stammdaten.addActionListener(this);
-        logbuch.addActionListener(this);
+        overview=new JMenu("Overview");
+        assignment=new JMenu("Assignment");
+        persons=new JMenu("Persons");
+        basedata=new JMenu("Base Data");
+        logbook=new JMenu("Logbook");
 
 
-        mb.add(uebersicht);mb.add(zuordnung);mb.add(personen);mb.add(stammdaten);mb.add(logbuch);
+
+        overview.addActionListener(this);
+        assignment.addActionListener(this);
+        persons.addActionListener(this);
+        basedata.addActionListener(this);
+        logbook.addActionListener(this);
+
+
+        mb.add(overview);mb.add(assignment);mb.add(persons);mb.add(basedata);mb.add(logbook);
         f.add(mb);
         f.setJMenuBar(mb);
         f.setLayout(null);
         f.setSize(400,400);
         f.setVisible(true);
 
+
     }
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == uebersicht)
-            uebersichtFrame = new JFrame();
-                uebersichtFrame.add(mb);
-                uebersichtFrame.setJMenuBar(mb);
-                uebersichtFrame.setLayout(null);
-                uebersichtFrame.setSize(400,400);
-                uebersichtFrame.setVisible(true);
-                uebersichtFrame.add(test);
+        if(overview.isSelected())
 
-        if(e.getSource() == zuordnung)
-            zuordnungFrame = new JFrame();
-        if(e.getSource() == personen)
-            personenFrame = new JFrame();
-        if(e.getSource() == stammdaten)
-            stammdatenFrame = new JFrame();
-        if(e.getSource() == logbuch)
-            logbuchFrame = new JFrame();
+                overviewFrame.setVisible(true);
+
+
+        if(e.getSource() == assignment)
+            assignmentFrame = new JFrame();
+        if(e.getSource() == persons)
+            personsFrame = new JFrame();
+        if(e.getSource() == basedata)
+            basedatanFrame = new JFrame();
+        if(e.getSource() == logbook)
+            logbookFrame = new JFrame();
 
     }
     public static void main(String[] args) {
