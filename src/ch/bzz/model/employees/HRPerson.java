@@ -1,15 +1,16 @@
-package ch.bzz.Model.employees;
+package ch.bzz.model.employees;
 
-import ch.bzz.Model.log.LogBook;
-import ch.bzz.Model.log.UserAction;
+import ch.bzz.model.log.LogBook;
+import ch.bzz.model.log.UserAction;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.IOException;
 
 public class HRPerson extends Person{
     private int modus;
     private String pwd;
-
-    public HRPerson(String firstName, String lastName,int modus) {
+    //TODO ask Lorenzo
+    public HRPerson(@JsonProperty("firstName")String firstName,@JsonProperty("lastName") String lastName,@JsonProperty("modus")int modus) {
         super(firstName, lastName);
         this.modus = modus;
     }
@@ -37,7 +38,7 @@ public class HRPerson extends Person{
 
     public void writeLogEntry(int action, Person person) throws IOException {
         UserAction ua = new UserAction(this, person, action);
-        LogBook log = LogBook.getLogBookInstace();
+        LogBook log = LogBook.getLogBookInstance();
         String entry = ua.getEntry();
         log.addEntry(entry);
     }

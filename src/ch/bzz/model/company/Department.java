@@ -1,14 +1,17 @@
-package ch.bzz.Model.company;
+package ch.bzz.model.company;
 
-import ch.bzz.Model.employees.Person;
+import ch.bzz.model.employees.Person;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class JobFunction {
+public class Department {
     private String name;
-    private ArrayList<Person> members;
+    private List<Person> members;
 
-    public JobFunction(String name) {
+    public Department(@JsonProperty("name")String name) {
         this.name=name;
         members=new ArrayList<Person>();
     }
@@ -26,15 +29,22 @@ public class JobFunction {
     }
 
     public void addMember(Person person) {
-        person.getParticipation().addFunction(this);
         members.add(person);
     }
 
     public void removeMember(int index) {
-        members.get(index).getParticipation().removeFunction(this);
         members.remove(index);
     }
 
+    public List<Person> getListOfPersons(){
+        return members;
+    }
+
+    public void setListOfPersons(List<Person> members){
+        this.members=members;
+    }
+
+    @JsonIgnore
     public int getSize(){
         return members.size();
     }

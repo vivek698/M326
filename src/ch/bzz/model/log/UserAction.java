@@ -1,7 +1,7 @@
-package ch.bzz.Model.log;
+package ch.bzz.model.log;
 
-import ch.bzz.Model.employees.HRPerson;
-import ch.bzz.Model.employees.Person;
+import ch.bzz.model.employees.HRPerson;
+import ch.bzz.model.employees.Person;
 
 import java.time.LocalDate;
 

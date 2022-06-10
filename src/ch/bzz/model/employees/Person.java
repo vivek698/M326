@@ -1,4 +1,6 @@
-package ch.bzz.Model.employees;
+package ch.bzz.model.employees;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Person {
     private String firstName;
@@ -9,10 +11,10 @@ public class Person {
 
     private Participation participation;
 
-    public Person(String firstName, String lastName) {
+    public Person(@JsonProperty("firstName")String firstName,@JsonProperty("lastName") String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        participation=new Participation(this);
+        participation=new Participation();
     }
 
     public String getFirstName() {
@@ -30,8 +32,6 @@ public class Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-
 
     public Participation getParticipation() {
         return participation;

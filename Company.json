@@ -1,0 +1,48 @@
+{
+  "companyName" : "NukufelGMBH",
+  "jobFunctions" : {
+    "listOfJobFunctions" : [ "Geschäftsleitung", "HR-Person" ]
+  },
+  "teams" : {
+    "listOfTeams" : [ "Team1", "Team2", "Team3", "Team4" ]
+  },
+  "listofDepartment" : [ {
+    "name" : "IT-Abteilung",
+    "listOfPersons" : [ {
+      "firstName" : "Max",
+      "lastName" : "Mustermann",
+      "participation" : {
+        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ],
+        "listOfTeams" : [ "Team1", "Team2" ]
+      }
+    }, {
+      "firstName" : "Lorenzo",
+      "lastName" : "Lorenzo",
+      "participation" : {
+        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ],
+        "listOfTeams" : [ "Team1", "Team2" ]
+      },
+      "modus" : 1,
+      "pwd" : "passwort1"
+    } ]
+  }, {
+    "name" : "Verwaltungs Abteilung",
+    "listOfPersons" : [ {
+      "firstName" : "Max",
+      "lastName" : "Mustermann",
+      "participation" : {
+        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ],
+        "listOfTeams" : [ "Team1", "Team2" ]
+      }
+    }, {
+      "firstName" : "Lorenzo",
+      "lastName" : "Lorenzo",
+      "participation" : {
+        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ],
+        "listOfTeams" : [ "Team1", "Team2" ]
+      },
+      "modus" : 1,
+      "pwd" : "passwort1"
+    } ]
+  } ]
+}

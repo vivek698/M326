@@ -1,9 +1,9 @@
-package test;
+package ch.bzz.test;
 
-import employees.HRPerson;
-import employees.Person;
-import log.LogBook;
-import log.UserAction;
+import ch.bzz.model.employees.HRPerson;
+import ch.bzz.model.employees.Person;
+import ch.bzz.model.log.LogBook;
+import ch.bzz.model.log.UserAction;
 
 import java.io.IOException;
 

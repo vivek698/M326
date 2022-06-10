@@ -1,10 +1,13 @@
-package ch.bzz.Model.log;
+package ch.bzz.model.log;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 import java.util.Vector;
 
 public class LogBook {
-    private Vector<String> entries = new Vector<>();
+    private List<String> entries = new Vector<>();
     static LogBook instance;
     private File file;
     private BufferedReader reader;
@@ -17,7 +20,14 @@ public class LogBook {
      * @throws IOException
      */
     private LogBook() {
-        File f = new File("logbook.log");
+        File f = new File("/asas/logbook.log");
+        if (new File("Path").exists()) {
+            try {
+                Files.createDirectory(Paths.get("path"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         try {
             if (f.createNewFile() == false) {
                 reader = new BufferedReader(new FileReader(f));
