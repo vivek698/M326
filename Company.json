@@ -22,7 +22,6 @@
         "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ],
         "listOfTeams" : [ "Team1", "Team2" ]
       },
-      "modus" : 1,
       "pwd" : "passwort1"
     } ]
   }, {
@@ -41,7 +40,6 @@
         "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ],
         "listOfTeams" : [ "Team1", "Team2" ]
       },
-      "modus" : 1,
       "pwd" : "passwort1"
     } ]
   } ]
