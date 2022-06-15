@@ -18,7 +18,7 @@ class View implements ActionListener{
     JMenuBar mb;
     JMenu overview,assignment,persons,basedata,log;
     View(){
-        f=new JFrame();
+        f=new JFrame("Welcome");
 
         mb=new JMenuBar();
         overview=new JMenu("Overview");
@@ -56,8 +56,9 @@ class View implements ActionListener{
             personsFrame = new JFrame();
         if(e.getSource() == basedata)
             basedataFrame = new JFrame();
-        if(e.getSource() == log)
-            logBookView = new LogBookView();
+        if(log.isSelected()) {
+            final LogBookView logBookView = new LogBookView();
+        };
 
     }
     public static void main(String[] args) {
