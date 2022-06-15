@@ -9,44 +9,28 @@ import java.awt.event.*;
  */
 class View implements ActionListener{
     JFrame f;
-    JFrame overviewFrame;
-    JFrame assignmentFrame;
-    JFrame personsFrame;
-    JFrame basedataFrame;
+    JTabbedPane tabbedPane;
     private LogBookView logBookView;
 
-    JMenuBar mb;
-    JMenu overview,assignment,persons,basedata,log;
+    JMenuItem test;
+
     View(){
         f=new JFrame("Welcome");
 
-        mb=new JMenuBar();
-        overview=new JMenu("Overview");
-        assignment=new JMenu("Assignment");
-        persons=new JMenu("Persons");
-        basedata=new JMenu("Base Data");
-        log=new JMenu("Log");
+        tabbedPane = new JTabbedPane();
+        tabbedPane.add("LogBook", logBookView);
 
 
-
-        overview.addActionListener(this);
-        assignment.addActionListener(this);
-        persons.addActionListener(this);
-        basedata.addActionListener(this);
-        log.addActionListener(this);
-
-
-        mb.add(overview);mb.add(assignment);mb.add(persons);mb.add(basedata);mb.add(log);
-        f.add(mb);
-        f.setJMenuBar(mb);
+        f.add(tabbedPane);
         f.setLayout(null);
         f.setSize(400,400);
         f.setVisible(true);
 
-        overviewFrame = new JFrame();
 
 
     }
+
+    /**
     public void actionPerformed(ActionEvent e) {
         if(overview.isSelected())
             overviewFrame.setVisible(true);
@@ -56,12 +40,17 @@ class View implements ActionListener{
             personsFrame = new JFrame();
         if(e.getSource() == basedata)
             basedataFrame = new JFrame();
-        if(log.isSelected()) {
+        if(log.isMenuComponent(log)) {
             final LogBookView logBookView = new LogBookView();
         };
 
-    }
+    }*/
     public static void main(String[] args) {
         new View();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 }
