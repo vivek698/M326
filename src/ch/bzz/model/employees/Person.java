@@ -1,7 +1,21 @@
 package ch.bzz.model.employees;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
+/**
+ *
+ *
+ * @version 1.0
+ */
+/* start @author Lorenzo Giuntini (Medox36) */
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        property = "type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = HRPerson.class)})
+/* end @author Lorenzo Giuntini (Medox36) */
 public class Person {
     private String firstName;
     private String lastName;

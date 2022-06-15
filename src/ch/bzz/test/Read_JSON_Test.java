@@ -14,12 +14,15 @@ import static org.junit.Assert.assertArrayEquals;
 
 public class Read_JSON_Test {
     static Company company;
+
     @Before
     public void init(){
+        Write_JSON_Test.main(new String[0]);
         DataHandler dataHandler=DataHandler.getInstance();
         dataHandler.readCompanyJSON();
         company=dataHandler.getCompany();
     }
+
     @Test
     public void testListJobFunctions(){
         List<String> list=company.getJobFunctions().getListOfJobFunctions();

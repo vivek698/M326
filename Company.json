@@ -9,6 +9,7 @@
   "listofDepartment" : [ {
     "name" : "IT-Abteilung",
     "listOfPersons" : [ {
+      "type" : "Person",
       "firstName" : "Max",
       "lastName" : "Mustermann",
       "participation" : {
@@ -16,8 +17,10 @@
         "listOfTeams" : [ "Team1", "Team2" ]
       }
     }, {
+      "type" : "HRPerson",
       "firstName" : "Lorenzo",
       "lastName" : "Lorenzo",
+      "modus" : 1,
       "participation" : {
         "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ],
         "listOfTeams" : [ "Team1", "Team2" ]
@@ -27,6 +30,7 @@
   }, {
     "name" : "Verwaltungs Abteilung",
     "listOfPersons" : [ {
+      "type" : "Person",
       "firstName" : "Max",
       "lastName" : "Mustermann",
       "participation" : {
@@ -34,8 +38,10 @@
         "listOfTeams" : [ "Team1", "Team2" ]
       }
     }, {
+      "type" : "HRPerson",
       "firstName" : "Lorenzo",
       "lastName" : "Lorenzo",
+      "modus" : 1,
       "participation" : {
         "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ],
         "listOfTeams" : [ "Team1", "Team2" ]

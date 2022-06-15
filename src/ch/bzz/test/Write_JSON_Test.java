@@ -9,6 +9,9 @@ import ch.bzz.model.employees.Person;
 
 public class Write_JSON_Test {
     public static void main(String[] args) {
+       run();
+    }
+    public static void run(){
         Company company = new Company("NukufelGMBH");
         setCompanyDepartments(company);
         setCompanyTeams(company);
