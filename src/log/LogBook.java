@@ -53,10 +53,10 @@ public class LogBook {
             writer.close();
     }
 
-    public void printLog(){
+    public String printLog(){
         for (String entry : entries) {
             System.out.println(entry);
-        }
+        }return null;
     }
 
     public void writeFile(String entry) throws IOException {
