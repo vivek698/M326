@@ -19,8 +19,6 @@ public class Write_JSON_Test {
 
         DataHandler dataHandler=DataHandler.getInstance();
         dataHandler.setCompany(company);
-
-        dataHandler.writeCompanyJSON();
     }
 
     public static void setCompanyDepartments(Company company){

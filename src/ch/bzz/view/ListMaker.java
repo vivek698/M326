@@ -37,9 +37,8 @@ public class ListMaker extends JPanel{
         this.add(buttonPanel, BorderLayout.SOUTH);
         this.setVisible(true);
 
-        //list.setListData(data);
 
-        list.setModel(new TestListModel());
+        list.setModel(new TestListModel(data));
     }
 
 }

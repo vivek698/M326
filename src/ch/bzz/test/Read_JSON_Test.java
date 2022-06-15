@@ -6,8 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-import javax.swing.*;
-
 import java.util.List;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -19,7 +17,6 @@ public class Read_JSON_Test {
     public void init(){
         Write_JSON_Test.main(new String[0]);
         DataHandler dataHandler=DataHandler.getInstance();
-        dataHandler.readCompanyJSON();
         company=dataHandler.getCompany();
     }
 
