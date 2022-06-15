@@ -12,7 +12,7 @@ class View implements ActionListener{
     JFrame overviewFrame;
     JFrame assignmentFrame;
     JFrame personsFrame;
-    JFrame basedatanFrame;
+    JFrame basedataFrame;
     private LogBookView logBookView;
 
     JMenuBar mb;
@@ -55,7 +55,7 @@ class View implements ActionListener{
         if(e.getSource() == persons)
             personsFrame = new JFrame();
         if(e.getSource() == basedata)
-            basedatanFrame = new JFrame();
+            basedataFrame = new JFrame();
         if(e.getSource() == log)
             logBookView = new LogBookView();
 
