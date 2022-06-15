@@ -38,6 +38,13 @@ public class LogBook {
         return entries.get(index);
     }
 
+    public Vector<String> getAllEntries(int index){
+        for (int i = 0; i < index; i++) {
+            entries.get(index);
+        }
+        return entries;
+    }
+
     public int getSize(){
         return entries.size();
     }
