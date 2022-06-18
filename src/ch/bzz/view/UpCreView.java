@@ -2,6 +2,7 @@ package ch.bzz.view;
 
 import ch.bzz.facade.*;
 import ch.bzz.model.company.Department;
+import ch.bzz.model.employees.Person;
 
 import javax.swing.*;
 import java.awt.*;
@@ -112,7 +113,7 @@ public class UpCreView extends JDialog{
                         ViewComponent.getInstance().addTeam(textField.getText());
                         break;
                     case "Person":
-
+                            ViewComponent.getInstance().addPerson((String) comboBox.getSelectedItem(), new Person(textField.getText().split(" ")[0],textField.getText().split(" ")[1]));
                         break;
                 }
                 }else if(modus == "correct"){

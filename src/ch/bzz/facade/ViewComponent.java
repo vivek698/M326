@@ -4,6 +4,7 @@ import ch.bzz.dataHandler.DataHandler;
 import ch.bzz.model.company.Company;
 import ch.bzz.model.company.Department;
 import ch.bzz.model.company.JobFunctions;
+import ch.bzz.model.employees.Person;
 import ch.bzz.view.TestListModel;
 
 import java.util.ArrayList;
@@ -42,8 +43,10 @@ public class ViewComponent {
         changer();
     }
 
-    public void addPerson(String departmentName, String fullname){
-        //companyInstance.getDepartment(companyInstance.getDepartmentbyName(departmentName)).addMember();
+    public void addPerson(String departmentName, Person person){
+        companyInstance.getDepartmentbyName(departmentName).addMember(person);
+        DataHandler.getInstance().setCompany(companyInstance);
+        changer();
     }
 
     public void correctDepartment(String name, int index){

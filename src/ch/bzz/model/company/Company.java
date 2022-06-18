@@ -90,15 +90,16 @@ public class Company {
         departments.remove(index);
     }
 
-    public int getDepartmentbyName(String name){
+    public Department getDepartmentbyName(String name){
         int ret = 0;
         for (int i = 0; i<departments.size(); i++) {
             if(departments.get(i).getName()==name){
               ret = i;
             }
         }
-        return ret;
+        return departments.get(ret);
     }
+
 
     /**
      * get amount of department
