@@ -44,7 +44,7 @@ public class Company {
     /**
      * sets the Company Name
      *
-     * @param companyName
+     * @param companyName the value to set
      */
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
@@ -66,7 +66,7 @@ public class Company {
      * sets a department
      *
      * @param index of Department
-     * @param department replace Department
+     * @param department the value to set
      */
     public void setDepartment(int index,Department department) {
         departments.set(index,department);
@@ -112,7 +112,7 @@ public class Company {
     /**
      * sets all departments
      *
-     * @param departments list of departments
+     * @param departments the value to set
      */
     public void setListofDepartment(List<Department> departments){
         this.departments = departments;
@@ -133,7 +133,7 @@ public class Company {
     /**
      * set teams
      *
-     * @param teams
+     * @param teams the value to set
      */
     public void setTeams(Teams teams){
         this.teams=teams;
@@ -153,7 +153,7 @@ public class Company {
      * sets a team
      *
      * @param index of team
-     * @param team
+     * @param team the value to set
      */
     public void setTeams(int index,String team) {
         teams.setDesignation(index,team);
@@ -202,7 +202,7 @@ public class Company {
     /**
      * sets JobFunction
      *
-     * @param jobFunctions
+     * @param jobFunctions the value to set
      */
     public void setJobFunctions(JobFunctions jobFunctions){
         this.jobFunctions=jobFunctions;
@@ -222,7 +222,7 @@ public class Company {
      * sets a jobFunction
      *
      * @param index of a jobFunction
-     * @param jobFunction
+     * @param jobFunction the value to set
      */
     public void setJobFunctions(int index,String jobFunction) {
         jobFunctions.setDesignation(index,jobFunction);
@@ -231,7 +231,7 @@ public class Company {
     /**
      * adds a new jobFunction
      *
-     * @param function
+     * @param function the new jobFunction
      */
     public void addJobFunction(String  function) {
         jobFunctions.addDesignation(function);
@@ -255,6 +255,8 @@ public class Company {
     public int getNumberOfJobFunction(){
         return jobFunctions.getSize();
     }
+
+
 
     /**
      * get all Person of this Company

@@ -13,34 +13,67 @@ import java.io.IOException;
  * @version 1.0
  */
 public class HRPerson extends Person{
-    private int modus;
-    private String pwd;
-    //TODO ask Lorenzo
-    public HRPerson(@JsonProperty("firstName")String firstName,@JsonProperty("lastName") String lastName,@JsonProperty("modus")int modus) {
+    private int mode;
+    private String password;
+
+    /**
+     * create HR-Person
+     * @param firstName value of first name
+     * @param lastName value of last name
+     * @param mode value of modus
+     */
+    public HRPerson(@JsonProperty("firstName")String firstName,@JsonProperty("lastName") String lastName,@JsonProperty("mode")int mode) {
         super(firstName, lastName);
-        this.modus = modus;
+        this.mode = mode;
     }
 
-    public void change(Person person, int modus){
+    //TODO comment
+    public void change(Person person, int mode){
         //TODO
     }
 
-    public int getModus() {
-        return modus;
+    /**
+     * gets the mode
+     *
+     * @return mode
+     */
+    public int getMode() {
+        return mode;
     }
 
-    public void setModus(int modus) {
-        this.modus = modus;
+    /**
+     * sets the mode
+     *
+     * @param mode value of mode
+     */
+    public void setMode(int mode) {
+        this.mode = mode;
     }
 
-    public String getPwd() {
-        return pwd;
+    /**
+     * gets the password
+     *
+     * @return password
+     */
+    public String getPassword() {
+        return password;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    /**
+     * sets the passwort
+     *
+     * @param password
+     */
+    public void setPassword(String password) {
+        this.password = password;
     }
 
+    /**
+     * writes the log Entry
+     * @param action action that was made
+     * @param person who has done it
+     * @throws IOException
+     */
     public void writeLogEntry(int action, Person person) throws IOException {
         UserAction ua = new UserAction(this, person, action);
         LogBook log = LogBook.getLogBookInstance();

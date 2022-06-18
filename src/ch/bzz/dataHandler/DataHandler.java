@@ -51,7 +51,7 @@ public class DataHandler {
     /**
      * sets company and writes the JSON-FIle new
      *
-     * @param company
+     * @param company the value to set
      */
     public void setCompany(Company company) {
         this.company = company;
