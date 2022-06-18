@@ -1,6 +1,5 @@
 package ch.bzz.test;
 
-import ch.bzz.dataHandler.DataHandler;
 import ch.bzz.view.ListMaker;
 
 import javax.swing.*;
