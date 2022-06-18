@@ -17,13 +17,12 @@ public class ListMaker extends JPanel{
     private JButton corectButton = new JButton("/");
     private JList<String> list = new JList<>();
     private JPanel buttonPanel = new JPanel();
-    private Vector<String> data = new Vector<>();
     private ListMaker listMaker;
 
     //Speicher GUI
 
 
-    public ListMaker(List<String> data, String art){
+    public ListMaker(String art){
         listMaker = this;
 
         scrollPane = new JScrollPane(list, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);

@@ -1,7 +1,7 @@
 {
   "companyName" : "NukufelGMBH",
   "jobFunctions" : {
-    "listOfJobFunctions" : [ "Geschäftsleitung", "HR-Person", "asdf", "asfdasf", "sdfasf", "sadfasf", "adsfasdfasdfadsf" ]
+    "listOfJobFunctions" : [ "Geschäftsleitung", "HR-Person" ]
   },
   "teams" : {
     "listOfTeams" : [ "Team1", "Team2", "Team3", "Team4" ]

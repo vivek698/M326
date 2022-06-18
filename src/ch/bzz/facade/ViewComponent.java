@@ -84,6 +84,7 @@ public class ViewComponent {
         for (TestListModel tml: models){
             tml.fireContentsChanged(this,0,-1);
         }
+        DataHandler.getInstance().setCompany(companyInstance);
     }
 
     public List<Department> getDepartmentList(){
