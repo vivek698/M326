@@ -90,6 +90,16 @@ public class Company {
         departments.remove(index);
     }
 
+    public int getDepartmentbyName(String name){
+        int ret = 0;
+        for (int i = 0; i<departments.size(); i++) {
+            if(departments.get(i).getName()==name){
+              ret = i;
+            }
+        }
+        return ret;
+    }
+
     /**
      * get amount of department
      *
@@ -145,7 +155,7 @@ public class Company {
      * @param index from the Team name
      * @return team name
      */
-    public String getTeams(int index) {
+    public String getTeam(int index) {
         return teams.getDesignation(index);
     }
 
@@ -155,7 +165,7 @@ public class Company {
      * @param index of team
      * @param team
      */
-    public void setTeams(int index,String team) {
+    public void setTeam(int index,String team) {
         teams.setDesignation(index,team);
     }
 
@@ -173,7 +183,7 @@ public class Company {
      *
      * @param index removes this team
      */
-    public void removeTeams(int index) {
+    public void removeTeam(int index) {
         teams.removeDesignation(index);
     }
 
@@ -214,6 +224,10 @@ public class Company {
      * @param index of the designation
      * @return jobFunction desigantion
      */
+    public void setJobFunction(String name, int index){
+        jobFunctions.setDesignation(name, index);
+    }
+
     public String getJobFunction(int index) {
         return jobFunctions.getDesignation(index);
     }
