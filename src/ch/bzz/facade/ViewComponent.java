@@ -51,7 +51,7 @@ public class ViewComponent {
     }
 
     public void correctJobFunction( int index, String name){
-        companyInstance.setJobFunctions(index,name);
+        companyInstance.setJobFunction(index,name);
         changer();
     }
 
