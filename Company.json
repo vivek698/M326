@@ -6,18 +6,18 @@
   "teams" : {
     "listOfTeams" : [ "Team1", "Team2", "Team3", "Team4" ]
   },
-  "listofDepartment" : [ {
+  "listOfDepartment" : [ {
     "name" : "General Management",
     "listOfPersons" : [ {
       "type" : "HRPerson",
       "firstName" : "Lorenzo",
       "lastName" : "Giuntini",
-      "modus" : 1,
+      "mode" : 1,
       "participation" : {
         "listOfJobFunctions" : [ "Team Leader" ],
         "listOfTeams" : [ "Team1" ]
       },
-      "pwd" : "passwort1"
+      "password" : "passwort1"
     }, {
       "type" : "Person",
       "firstName" : "Max",

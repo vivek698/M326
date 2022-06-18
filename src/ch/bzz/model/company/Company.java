@@ -105,7 +105,7 @@ public class Company {
      *
      * @return list of departments
      */
-    public List<Department> getListofDepartment(){
+    public List<Department> getListOfDepartment(){
         return departments;
     }
 
@@ -114,7 +114,7 @@ public class Company {
      *
      * @param departments the value to set
      */
-    public void setListofDepartment(List<Department> departments){
+    public void setListOfDepartment(List<Department> departments){
         this.departments = departments;
     }
 
@@ -212,7 +212,7 @@ public class Company {
      * get jobFunction designation
      *
      * @param index of the designation
-     * @return jobFunction desigantion
+     * @return jobFunction designation
      */
     public String getJobFunction(int index) {
         return jobFunctions.getDesignation(index);
@@ -272,107 +272,29 @@ public class Company {
         return allPerson;
     }
 
-
-    public List<Person> getAllPersonSort(String sortType){
-        return sortListOfPerson(getAllPerson(),sortType);
-    }
-
-
-
-    public List<Person> getAllPersonFilteredByDepartment(String departmentName){
-        return filterListOfPersonByDepartment(departmentName);
-    }
-
-    public List<Person> getAllPersonFilteredByFunktion(String funktion){
-        return filterListOfPersonByFunction(getAllPerson(),funktion);
-    }
-
-    public List<Person> getAllPersonFilteredByTeams(String teams){
-        return filterListOfPersonByTeams(getAllPerson(),teams);
-    }
-
-    public List<Person> getAllPersonFilteredByDepartmentAndFunction(String departmentName, String function){
-        List<Person> filteredPerson= filterListOfPersonByDepartment(departmentName);
-        filteredPerson= filterListOfPersonByFunction(filteredPerson,function);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonFilteredByDepartmentAndTeams(String departmentName, String teams){
-        List<Person> filteredPerson= filterListOfPersonByDepartment(departmentName);
-        filteredPerson= filterListOfPersonByTeams(filteredPerson,teams);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonFilteredByFunctionAndTeams(String function, String teams){
-        List<Person> filteredPerson= filterListOfPersonByFunction(getAllPerson(),function);
-        filteredPerson= filterListOfPersonByTeams(filteredPerson,teams);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonFilteredByDepartmentAndFunctionAndTeams(String departmentName,String function,String teams){
-        List<Person> filteredPerson= filterListOfPersonByDepartment(departmentName);
-        filteredPerson= filterListOfPersonByTeams(filteredPerson,teams);
-        filteredPerson= filterListOfPersonByTeams(filteredPerson,teams);
-        return filteredPerson;
-    }
-
-
-
-    public List<Person> getAllPersonSortedFilteredByDepartment(String departmentName,String sortType){
-        List<Person> filteredPerson = getAllPersonFilteredByDepartment(departmentName);
-        sortListOfPerson(filteredPerson,sortType);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonSortedFilteredByFunktion(String funktion,String sortType){
-        List<Person> filteredPerson = getAllPersonFilteredByFunktion(funktion);
-        sortListOfPerson(filteredPerson,sortType);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonSortedFilteredByTeams(String teams,String sortType){
-        List<Person> filteredPerson = getAllPersonFilteredByTeams(teams);
-        sortListOfPerson(filteredPerson,sortType);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonSortedFilteredByDepartmentAndFunction(String departmentName, String function,String sortType){
-        List<Person> filteredPerson = getAllPersonFilteredByDepartmentAndFunction(departmentName,function);
-        sortListOfPerson(filteredPerson,sortType);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonSortedFilteredByDepartmentAndTeams(String departmentName, String teams,String sortType){
-        List<Person> filteredPerson = getAllPersonFilteredByDepartmentAndTeams(departmentName,teams);
-        sortListOfPerson(filteredPerson,sortType);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonSortedFilteredByFunctionAndTeams(String function, String teams,String sortType){
-        List<Person> filteredPerson = getAllPersonFilteredByFunctionAndTeams(function,teams);
-        sortListOfPerson(filteredPerson,sortType);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonSortedFilteredByDepartmentAndFunctionAndTeams(String departmentName,String function,String teams,String sortType){
-        List<Person> filteredPerson = getAllPersonFilteredByDepartmentAndFunctionAndTeams(departmentName,function,teams);
-        sortListOfPerson(filteredPerson,sortType);
-        return filteredPerson;
-    }
-
-
-
-
-    private List<Person> sortListOfPerson(List<Person> listOfPerson, String sortType){
-        Collections.sort(listOfPerson);
-
-        if (sortType.equals("asc")){
-            return listOfPerson;
-        }else if (sortType.equals("desc")){
-            return listOfPerson;
+    /**
+     * get all Filters and
+     * @param departmentName
+     * @param function
+     * @param teams
+     * @param sortType
+     * @return
+     */
+    public List<Person> getPersonFilteredAndSorted(String departmentName,String function, String teams,String sortType){
+        List<Person> personList=getAllPerson();
+        if (departmentName!=null){
+            personList=filterListOfPersonByDepartment(departmentName);
+        }else if(function!=null){
+            personList=filterListOfPersonByFunction(personList,function);
+        }else if (teams!=null){
+            personList=filterListOfPersonByTeams(personList,teams);
+        }else if (sortType!=null){
+            sortListOfPerson(personList,sortType);
         }
-        return null;
+        return personList;
     }
+
+
 
     private List<Person> filterListOfPersonByDepartment(String departmentName){
         for (Department department:departments) {
@@ -386,7 +308,7 @@ public class Company {
     private List<Person> filterListOfPersonByFunction(List<Person> listOfPerson, String jobFunction){
         ArrayList<Person>filteredPerson=new ArrayList<>();
         for (Person person:listOfPerson) {
-            if (person.getParticipation().getListOfTeams().contains(jobFunction)){
+            if (person.getParticipation().getListOfJobFunctions().contains(jobFunction)){
                 filteredPerson.add(person);
             }
         }
@@ -403,4 +325,41 @@ public class Company {
         return filteredPerson;
     }
 
+    private List<Person> sortListOfPerson(List<Person> listOfPerson, String sortType){
+        Collections.sort(listOfPerson);
+
+        if (sortType.equals("asc")){
+            return listOfPerson;
+        }else if (sortType.equals("desc")){
+            return listOfPerson;
+        }
+        return null;
+    }
+
+
+    private boolean isDepartmentAllowedToDelete(String departmentName){
+        return departments.contains(departmentName);
+    }
+
+    private boolean isTeamAllowedToDelete(String team){
+        boolean allowed=true;
+        for (Person person:getAllPerson()) {
+            if (person.getParticipation().getListOfTeams().contains(team)){
+                allowed=false;
+                break;
+            }
+        }
+        return allowed;
+    }
+
+    private boolean isJobFunctionAllowedToDelete(String jobFunction){
+        boolean allowed=true;
+        for (Person person:getAllPerson()) {
+            if (person.getParticipation().getListOfJobFunctions().contains(jobFunction)) {
+                allowed = false;
+                break;
+            }
+        }
+        return allowed;
+    }
 }

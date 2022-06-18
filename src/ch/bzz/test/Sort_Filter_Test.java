@@ -21,19 +21,59 @@ public class Sort_Filter_Test {
         company=dataHandler.getCompany();
     }
 
-    @Test
-    public void getAllMembers(){
-        List<Person> allPerson=company.getAllPerson();
-        String[] actuals = new String[allPerson.size()];
 
-        for (int i = 0; i < allPerson.size(); i++) {
-            actuals[i]=allPerson.get(i).getFullName();
+    private static String[] arrayToList(List<Person> list){
+        String[] array = new String[list.size()];
+
+        for (int i = 0; i < list.size(); i++) {
+            array[i]=list.get(i).getFullName();
         }
+        return array;
+    }
+
+
+    @Test
+    public void getAllPerson(){
+        String[] actuals =arrayToList(company.getAllPerson());
 
         String[]expected={"Lorenzo Giuntini","Max Mustermann","Mikaela Hinton","Genesis Patrick"};
 
         assertArrayEquals(expected,actuals);
-
     }
 
+    @Test
+    public void getAllPersonSort(){
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,null,null,"asc"));
+
+        String[]expected={"Genesis Patrick","Lorenzo Giuntini","Max Mustermann","Mikaela Hinton"};
+
+        assertArrayEquals(expected,actuals);
+    }
+
+    @Test
+    public void getAllPersonFilteredByDepartment(){
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted("General Management",null,null,null));
+
+        String[]expected={"Lorenzo Giuntini","Max Mustermann"};
+
+        assertArrayEquals(expected,actuals);
+    }
+
+    @Test
+    public void getAllPersonFilteredByFunction(){
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,"Team Leader",null,null));
+
+        String[]expected={"Lorenzo Giuntini","Mikaela Hinton"};
+
+        assertArrayEquals(expected,actuals);
+    }
+
+    @Test
+    public void getAllPersonFilteredByTeam(){
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,null,"Team4",null));
+
+        String[]expected={"Max Mustermann","Genesis Patrick"};
+
+        assertArrayEquals(expected,actuals);
+    }
 }
