@@ -5,9 +5,6 @@ import ch.bzz.model.company.Company;
 import org.junit.Before;
 import org.junit.Test;
 
-
-import javax.swing.*;
-
 import java.util.List;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -17,7 +14,7 @@ public class Read_JSON_Test {
 
     @Before
     public void init(){
-        Write_JSON_Test.main(new String[0]);
+        Write_JSON_Test_Data.main(new String[0]);
         DataHandler dataHandler=DataHandler.getInstance();
         dataHandler.readCompanyJSON();
         company=dataHandler.getCompany();
@@ -30,8 +27,25 @@ public class Read_JSON_Test {
         String[] actuals = new String[list.size()];
         list.toArray(actuals);
 
-        String[] expected={"Geschäftsleitung", "HR-Person"};
+        String[] expected={"Team Leader","Executive","Controller","Front-End developer","Back-End developer"};
 
         assertArrayEquals(expected,actuals);
     }
+
+    @Test
+    public void testListTeams(){
+        List<String> list=company.getTeams().getListOfTeams();
+
+        String[] actuals = new String[list.size()];
+        list.toArray(actuals);
+
+        String[] expected={"Team1","Team2","Team3","Team4"};
+
+        assertArrayEquals(expected,actuals);
+    }
+
+    //TODO Check Company
+    //TODO Check Departments
+    //TODO Check Members
+    //TODO Check Participations
 }

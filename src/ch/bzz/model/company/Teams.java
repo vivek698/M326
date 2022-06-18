@@ -32,7 +32,6 @@ public class Teams {
         this.designations=designations;
     }
 
-
     @JsonIgnore
     public int getSize(){
         return designations.size();

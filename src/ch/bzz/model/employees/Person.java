@@ -1,5 +1,6 @@
 package ch.bzz.model.employees;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -9,14 +10,13 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
  *
  * @version 1.0
  */
-/* start @author Lorenzo Giuntini (Medox36) */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         property = "type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = HRPerson.class)})
-/* end @author Lorenzo Giuntini (Medox36) */
-public class Person {
+
+public class Person  implements Comparable{
     private String firstName;
     private String lastName;
 
@@ -53,5 +53,16 @@ public class Person {
 
     public void setParticipation(Participation participation) {
         this.participation = participation;
+    }
+
+    @JsonIgnore
+    public String getFullName() {
+        return firstName+" "+lastName;
+    }
+
+    @Override
+    public int compareTo(Object obj) {
+        Person person2=(Person)obj;
+        return this.getFullName()   .compareTo(   person2.getFullName());
     }
 }
