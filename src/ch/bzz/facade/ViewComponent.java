@@ -43,7 +43,7 @@ public class ViewComponent {
     }
 
     public void addPerson(String departmentName, String fullname){
-        companyInstance.getDepartment(companyInstance.getDepartmentbyName(departmentName)).addMember();
+        //companyInstance.getDepartment(companyInstance.getDepartmentbyName(departmentName)).addMember();
     }
 
     public void correctDepartment(String name, int index){
@@ -57,7 +57,7 @@ public class ViewComponent {
     }
 
     public void correctTeam(int index, String name){
-        companyInstance.setTeam(name, index);
+        companyInstance.setTeam(index, name);
         changer();
     }
 

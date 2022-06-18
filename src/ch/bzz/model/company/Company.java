@@ -155,7 +155,7 @@ public class Company {
      * @param index from the Team name
      * @return team name
      */
-    public String getTeams(int index) {
+    public String getTeam(int index) {
         return teams.getDesignation(index);
     }
 
@@ -165,7 +165,7 @@ public class Company {
      * @param index of team
      * @param team
      */
-    public void setTeams(int index,String team) {
+    public void setTeam(int index,String team) {
         teams.setDesignation(index,team);
     }
 
@@ -183,7 +183,7 @@ public class Company {
      *
      * @param index removes this team
      */
-    public void removeTeams(int index) {
+    public void removeTeam(int index) {
         teams.removeDesignation(index);
     }
 
