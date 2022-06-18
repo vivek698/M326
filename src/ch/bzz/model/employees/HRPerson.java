@@ -6,6 +6,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.IOException;
 
+/**
+ * The Model-Class HR-Person is storing data.
+ *
+ * @author Vivek Viruthiyel
+ * @version 1.0
+ */
 public class HRPerson extends Person{
     private int modus;
     private String pwd;
@@ -14,7 +20,6 @@ public class HRPerson extends Person{
         super(firstName, lastName);
         this.modus = modus;
     }
-
 
     public void change(Person person, int modus){
         //TODO

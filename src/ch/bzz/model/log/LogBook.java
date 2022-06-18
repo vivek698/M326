@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Vector;
 
+
 public class LogBook {
     private List<String> entries = new Vector<>();
     static LogBook instance;
@@ -15,7 +16,7 @@ public class LogBook {
     private boolean fileWritingEnabled = false;
 
     /**
-     * Construktor
+     * Constructor
      * Creates a File for the LogBook, a BufferedReader and a BufferedWriter
      * @throws IOException
      */

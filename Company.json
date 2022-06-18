@@ -14,8 +14,8 @@
       "lastName" : "Giuntini",
       "modus" : 1,
       "participation" : {
-        "listOfJobFunctions" : [ "Team Leader" ],
-        "listOfTeams" : [ "Team1" ]
+        "listOfTeams" : [ "Team1" ],
+        "listOfJobFunctions" : [ "Team Leader" ]
       },
       "pwd" : "passwort1"
     }, {
@@ -23,8 +23,8 @@
       "firstName" : "Max",
       "lastName" : "Mustermann",
       "participation" : {
-        "listOfJobFunctions" : [ "Executive", "Controller" ],
-        "listOfTeams" : [ "Team3", "Team4" ]
+        "listOfTeams" : [ "Team3", "Team4" ],
+        "listOfJobFunctions" : [ "Executive", "Controller" ]
       }
     } ]
   }, {
@@ -34,16 +34,16 @@
       "firstName" : "Mikaela",
       "lastName" : "Hinton",
       "participation" : {
-        "listOfJobFunctions" : [ "Team Leader", "Front-End developer" ],
-        "listOfTeams" : [ "Team1" ]
+        "listOfTeams" : [ "Team1" ],
+        "listOfJobFunctions" : [ "Team Leader", "Front-End developer" ]
       }
     }, {
       "type" : "Person",
       "firstName" : "Genesis",
       "lastName" : "Patrick",
       "participation" : {
-        "listOfJobFunctions" : [ "Back-End developer" ],
-        "listOfTeams" : [ "Team1", "Team4" ]
+        "listOfTeams" : [ "Team1", "Team4" ],
+        "listOfJobFunctions" : [ "Back-End developer" ]
       }
     } ]
   } ]

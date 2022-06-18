@@ -7,6 +7,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The Model-Class Department is storing data.
+ *
+ * @author Vivek Viruthiyel
+ * @version 1.0
+ */
 public class Department {
     private String name;
     private List<Person> members;

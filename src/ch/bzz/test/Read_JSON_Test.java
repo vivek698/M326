@@ -14,9 +14,8 @@ public class Read_JSON_Test {
 
     @Before
     public void init(){
-        Write_JSON_Test_Data.main(new String[0]);
+        Write_JSON_Test_Data.run();
         DataHandler dataHandler=DataHandler.getInstance();
-        dataHandler.readCompanyJSON();
         company=dataHandler.getCompany();
     }
 

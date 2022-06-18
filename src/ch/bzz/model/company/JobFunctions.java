@@ -5,6 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The Model-Class JobFunction is storing data.
+ *
+ * @author Vivek Viruthiyel
+ * @version 1.0
+ */
 public class JobFunctions {
     private List<String> designations;
 
@@ -14,6 +20,10 @@ public class JobFunctions {
 
     public String getDesignation(int index) {
         return designations.get(index);
+    }
+
+    public void setDesignation(int index,String designation) {
+        designations.set(index,designation);
     }
 
     public void addDesignation(String name) {

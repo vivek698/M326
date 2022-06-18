@@ -6,8 +6,9 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 /**
+ * The Model-Class Person is storing data.
  *
- *
+ * @author Vivek Viruthiyel
  * @version 1.0
  */
 @JsonTypeInfo(

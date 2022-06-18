@@ -5,6 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The Model-Class Participation is storing data.
+ *
+ * @author Vivek Viruthiyel
+ * @version 1.0
+ */
 public class Participation {
     private List<String> jobFunctions;
     private List<String> teams;
