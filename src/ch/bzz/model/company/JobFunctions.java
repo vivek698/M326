@@ -15,7 +15,7 @@ public class JobFunctions {
     private List<String> designations;
 
     public JobFunctions() {
-        designations=new ArrayList<String>();
+        designations = new ArrayList<String>();
     }
 
     public String getDesignation(int index) {
@@ -42,8 +42,13 @@ public class JobFunctions {
         this.designations=designations;
     }
 
+    public void setDesignation(String name, int index){
+        designations.set(index, name);
+    }
+
     @JsonIgnore
     public int getSize(){
         return designations.size();
     }
+
 }

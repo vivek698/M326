@@ -90,6 +90,16 @@ public class Company {
         departments.remove(index);
     }
 
+    public int getDepartmentbyName(String name){
+        int ret = 0;
+        for (int i = 0; i<departments.size(); i++) {
+            if(departments.get(i).getName()==name){
+              ret = i;
+            }
+        }
+        return ret;
+    }
+
     /**
      * get amount of department
      *
@@ -214,6 +224,10 @@ public class Company {
      * @param index of the designation
      * @return jobFunction desigantion
      */
+    public void setJobFunction(String name, int index){
+        jobFunctions.setDesignation(name, index);
+    }
+
     public String getJobFunction(int index) {
         return jobFunctions.getDesignation(index);
     }

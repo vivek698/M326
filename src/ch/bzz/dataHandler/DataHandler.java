@@ -61,7 +61,7 @@ public class DataHandler {
     /**
      * reads the company from the JSON-file
      */
-    public void readCompanyJSON() {
+    private void readCompanyJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get("Company.json")
@@ -76,7 +76,7 @@ public class DataHandler {
     /**
      * writes the company to the JSON-file
      */
-    public void writeCompanyJSON() {
+    private void writeCompanyJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
         FileOutputStream fileOutputStream;

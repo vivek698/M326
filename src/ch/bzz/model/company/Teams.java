@@ -43,6 +43,12 @@ public class Teams {
         this.designations=designations;
     }
 
+    public void setTeam(String name, int index){
+        designations.set(index, name);
+    }
+
+
+
     @JsonIgnore
     public int getSize(){
         return designations.size();
