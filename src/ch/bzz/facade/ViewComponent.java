@@ -42,6 +42,10 @@ public class ViewComponent {
         changer();
     }
 
+    public void addPerson(String departmentName, String fullname){
+        companyInstance.getDepartment(companyInstance.getDepartmentbyName(departmentName)).addMember();
+    }
+
     public void correctDepartment(String name, int index){
         companyInstance.getDepartment(index).setName(name);
         changer();
@@ -79,6 +83,7 @@ public class ViewComponent {
     public void removeModel(TestListModel tml){
         models.remove(tml);
     }
+
 
     public void changer(){
         for (TestListModel tml: models){

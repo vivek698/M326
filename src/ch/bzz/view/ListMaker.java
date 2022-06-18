@@ -73,6 +73,8 @@ public class ListMaker extends JPanel{
                     case "Team":
                         ViewComponent.getInstance().deleteTeam(getIndex());
                         break;
+                    case "Person":
+
                 }
             }
         });

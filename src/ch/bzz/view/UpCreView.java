@@ -1,20 +1,32 @@
 package ch.bzz.view;
 
 import ch.bzz.facade.*;
+import ch.bzz.model.company.Department;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.awt.BorderLayout.*;
 
 public class UpCreView extends JDialog{
+    private List<Department> departmentNameList = new ArrayList<>(ViewComponent.getInstance().getDepartmentList());
+
     private JPanel panel = new JPanel();
     private JLabel label = new JLabel("Bezeichnung:  ");
     private JButton abbrechen = new JButton("Abbrechen");
     private JButton speichern = new JButton("Speichern");
     private JTextField textField = new JTextField();
-    private JLabel infoLabel = new JLabel("Funktion erfassen/bearbeiten");
+    private JLabel infoLabel = new JLabel();
+
+    private JLabel comboLabel = new JLabel("Department:    ");
+    private JComboBox<String> comboBox = new JComboBox<>();
+    private JPanel labelComboPanel1 = new JPanel(new BorderLayout());
+    private JPanel labelComboPanel2 = new JPanel(new BorderLayout());
+    private JPanel extraPanel = new JPanel(new GridLayout(2,1,5,10));
 
 
     private JPanel buttonPanel1 = new JPanel();
@@ -23,7 +35,13 @@ public class UpCreView extends JDialog{
     private JPanel labelTextPanel2= new JPanel();
 
     public UpCreView(String what, String modus, ListMaker owner){
-        setTitle("Funktion erfassen/bearbeiten");
+        for (int i = 0; i<departmentNameList.size(); i++){
+            comboBox.addItem(departmentNameList.get(i).getName());
+        }
+
+
+        setTitle(what+" erfassen/bearbeiten");
+        infoLabel.setText(what+" erfassen/bearbeiten");
 
         textField.setColumns(30);
 
@@ -45,12 +63,29 @@ public class UpCreView extends JDialog{
         panel.add(labelTextPanel2, CENTER);
         panel.add(infoLabel, NORTH);
 
+        setSize(300,100);
+
+
+        if(what == "Person") {
+
+
+            labelComboPanel1.add(comboLabel, WEST);
+            labelComboPanel1.add(comboBox, CENTER);
+            labelComboPanel2.add(labelComboPanel1, NORTH);
+
+            extraPanel.add(labelComboPanel2);
+            extraPanel.add(labelTextPanel2);
+
+            panel.add(extraPanel, CENTER);
+            setSize(300,150);
+        }
+
 
         add(panel);
 
         setUndecorated(true);
         setVisible(true);
-        setSize(300,100);
+
 
 
 
@@ -76,6 +111,9 @@ public class UpCreView extends JDialog{
                     case "Team":
                         ViewComponent.getInstance().addTeam(textField.getText());
                         break;
+                    case "Person":
+
+                        break;
                 }
                 }else if(modus == "correct"){
                     switch (what) {
@@ -87,6 +125,8 @@ public class UpCreView extends JDialog{
                             break;
                         case "Team":
                             ViewComponent.getInstance().correctTeam(owner.getIndex(), textField.getText());
+                            break;
+                        case "Person":
                             break;
                 }
             }
