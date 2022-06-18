@@ -1,50 +1,52 @@
 {
   "companyName" : "NukufelGMBH",
   "jobFunctions" : {
-    "listOfJobFunctions" : [ "Team Leader", "Executive", "Controller", "Front-End developer", "Back-End developer" ]
+    "listOfJobFunctions" : [ "Geschäftsleitung", "HR-Person" ]
   },
   "teams" : {
     "listOfTeams" : [ "Team1", "Team2", "Team3", "Team4" ]
   },
   "listOfDepartment" : [ {
-    "name" : "General Management",
+    "name" : "IT-Abteilung",
     "listOfPersons" : [ {
-      "type" : "HRPerson",
-      "firstName" : "Lorenzo",
-      "lastName" : "Giuntini",
-      "mode" : 1,
-      "participation" : {
-        "listOfJobFunctions" : [ "Team Leader" ],
-        "listOfTeams" : [ "Team1" ]
-      },
-      "password" : "passwort1"
-    }, {
       "type" : "Person",
       "firstName" : "Max",
       "lastName" : "Mustermann",
       "participation" : {
-        "listOfJobFunctions" : [ "Executive", "Controller" ],
-        "listOfTeams" : [ "Team3", "Team4" ]
-      }
-    } ]
-  }, {
-    "name" : "IT",
-    "listOfPersons" : [ {
-      "type" : "Person",
-      "firstName" : "Mikaela",
-      "lastName" : "Hinton",
-      "participation" : {
-        "listOfJobFunctions" : [ "Team Leader", "Front-End developer" ],
-        "listOfTeams" : [ "Team1" ]
+        "listOfTeams" : [ "Team1", "Team2" ],
+        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ]
       }
     }, {
-      "type" : "Person",
-      "firstName" : "Genesis",
-      "lastName" : "Patrick",
+      "type" : "HRPerson",
+      "firstName" : "Lorenzo",
+      "lastName" : "Lorenzo",
+      "mode" : 1,
       "participation" : {
-        "listOfJobFunctions" : [ "Back-End developer" ],
-        "listOfTeams" : [ "Team1", "Team4" ]
+        "listOfTeams" : [ "Team1", "Team2" ],
+        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ]
+      },
+      "password" : "passwort1"
+    } ]
+  }, {
+    "name" : "Verwaltungs Abteilung",
+    "listOfPersons" : [ {
+      "type" : "Person",
+      "firstName" : "Max",
+      "lastName" : "Mustermann",
+      "participation" : {
+        "listOfTeams" : [ "Team1", "Team2" ],
+        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ]
       }
+    }, {
+      "type" : "HRPerson",
+      "firstName" : "Lorenzo",
+      "lastName" : "Lorenzo",
+      "mode" : 1,
+      "participation" : {
+        "listOfTeams" : [ "Team1", "Team2" ],
+        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ]
+      },
+      "password" : "passwort1"
     } ]
   } ]
 }

@@ -37,7 +37,7 @@ public class Write_JSON_Test {
 
         setPersonParticipation(person1);
         setPersonParticipation(person2);
-        person2.setPwd("passwort1");
+        person2.setPassword("passwort1");
 
         department.addMember(person1);
         department.addMember(person2);

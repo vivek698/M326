@@ -93,7 +93,7 @@ public class ViewComponent {
     }
 
     public List<Department> getDepartmentList(){
-        return companyInstance.getListofDepartment();
+        return companyInstance.getListOfDepartment();
     }
 
     public List<String> getJobFunctionList(){
