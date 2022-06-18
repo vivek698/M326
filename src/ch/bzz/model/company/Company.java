@@ -100,6 +100,12 @@ public class Company {
         return departments.get(ret);
     }
 
+    public Person getPersonbyName(String name ,String firstName, String lastName){
+        for (int i = 0; i<getDepartmentbyName(name).getSize(); i++) {
+        }
+        return null;
+    }
+
 
     /**
      * get amount of department

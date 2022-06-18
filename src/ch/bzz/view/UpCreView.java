@@ -128,6 +128,7 @@ public class UpCreView extends JDialog{
                             ViewComponent.getInstance().correctTeam(owner.getIndex(), textField.getText());
                             break;
                         case "Person":
+                            //ViewComponent.getInstance().correctParson();
                             break;
                 }
             }

@@ -50,7 +50,6 @@ public class ListMaker extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 new UpCreView(art,"add",listMaker);
-
             }
         });
 
@@ -74,6 +73,7 @@ public class ListMaker extends JPanel{
                         ViewComponent.getInstance().deleteTeam(getIndex());
                         break;
                     case "Person":
+
 
                 }
             }

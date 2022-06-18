@@ -49,6 +49,9 @@ public class ViewComponent {
         changer();
     }
 
+    public void correctParson(String departmentName, Person person){
+    }
+
     public void correctDepartment(String name, int index){
         companyInstance.getDepartment(index).setName(name);
         changer();
