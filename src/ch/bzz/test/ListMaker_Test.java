@@ -14,7 +14,7 @@ public class ListMaker_Test {
         JFrame jFrame = new JFrame();
 
 
-        ListMaker listMaker = new ListMaker(DataHandler.getInstance().getCompany().getJobFunctions().getListOfJobFunctions());
+        ListMaker listMaker = new ListMaker(DataHandler.getInstance().getCompany().getJobFunctions().getListOfJobFunctions(), "Department");
         jFrame.add(listMaker);
 
 

@@ -2,6 +2,8 @@ package ch.bzz.view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Vector;
 
@@ -18,7 +20,7 @@ public class ListMaker extends JPanel{
     //Speicher GUI
 
 
-    public ListMaker(List<String> data){
+    public ListMaker(List<String> data, String art){
 
         scrollPane = new JScrollPane(list, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
@@ -39,6 +41,20 @@ public class ListMaker extends JPanel{
 
 
         list.setModel(new TestListModel(data));
+
+
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new UpCreView(art);
+            }
+        });
+
+        corectButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new UpCreView(art);
+            }
+        });
     }
 
 }
