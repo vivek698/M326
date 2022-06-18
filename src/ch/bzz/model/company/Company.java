@@ -216,7 +216,7 @@ public class Company {
      *
      * @param jobFunctions the value to set
      */
-    public void setJobFunctions(JobFunctions jobFunctions){
+    public void setJobFunction(JobFunctions jobFunctions){
         this.jobFunctions=jobFunctions;
     }
 
@@ -236,7 +236,7 @@ public class Company {
      * @param index of a jobFunction
      * @param jobFunction the value to set
      */
-    public void setJobFunctions(int index,String jobFunction) {
+    public void setJobFunction(int index, String jobFunction) {
         jobFunctions.setDesignation(index,jobFunction);
     }
 

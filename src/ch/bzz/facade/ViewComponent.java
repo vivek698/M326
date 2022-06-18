@@ -3,7 +3,6 @@ package ch.bzz.facade;
 import ch.bzz.dataHandler.DataHandler;
 import ch.bzz.model.company.Company;
 import ch.bzz.model.company.Department;
-import ch.bzz.model.company.JobFunctions;
 import ch.bzz.view.TestListModel;
 
 import java.util.ArrayList;
