@@ -285,7 +285,7 @@ public class Company {
         if (departmentName!=null){
             personList=filterListOfPersonByDepartment(departmentName);
         }else if(function!=null){
-            personList=filterListOfPersonByFunction(personList,function);
+            personList= filterListOfPersonByJobFunction(personList,function);
         }else if (teams!=null){
             personList=filterListOfPersonByTeams(personList,teams);
         }else if (sortType!=null){
@@ -305,7 +305,7 @@ public class Company {
         return null;
     }
 
-    private List<Person> filterListOfPersonByFunction(List<Person> listOfPerson, String jobFunction){
+    private List<Person> filterListOfPersonByJobFunction(List<Person> listOfPerson, String jobFunction){
         ArrayList<Person>filteredPerson=new ArrayList<>();
         for (Person person:listOfPerson) {
             if (person.getParticipation().getListOfJobFunctions().contains(jobFunction)){
@@ -331,35 +331,26 @@ public class Company {
         if (sortType.equals("asc")){
             return listOfPerson;
         }else if (sortType.equals("desc")){
+            Collections.reverse(listOfPerson);
             return listOfPerson;
         }
         return null;
     }
 
 
-    private boolean isDepartmentAllowedToDelete(String departmentName){
-        return departments.contains(departmentName);
+
+    public boolean isDepartmentAllowedToDelete(String departmentName){
+        List<Person>filteredList=filterListOfPersonByDepartment(departmentName);
+        return filteredList.size()==0;
     }
 
-    private boolean isTeamAllowedToDelete(String team){
-        boolean allowed=true;
-        for (Person person:getAllPerson()) {
-            if (person.getParticipation().getListOfTeams().contains(team)){
-                allowed=false;
-                break;
-            }
-        }
-        return allowed;
+    public boolean isTeamAllowedToDelete(String team){
+        List<Person>filteredList=filterListOfPersonByTeams(getAllPerson(),team);
+        return filteredList.size()==0;
     }
 
-    private boolean isJobFunctionAllowedToDelete(String jobFunction){
-        boolean allowed=true;
-        for (Person person:getAllPerson()) {
-            if (person.getParticipation().getListOfJobFunctions().contains(jobFunction)) {
-                allowed = false;
-                break;
-            }
-        }
-        return allowed;
+    public boolean isJobFunctionAllowedToDelete(String jobFunction){
+        List<Person>filteredList=filterListOfPersonByJobFunction(getAllPerson(),jobFunction);
+        return filteredList.size()==0;
     }
 }
