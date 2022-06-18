@@ -1,5 +1,7 @@
 package ch.bzz.view;
 
+import ch.bzz.facade.ViewComponent;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,11 +18,13 @@ public class ListMaker extends JPanel{
     private JList<String> list = new JList<>();
     private JPanel buttonPanel = new JPanel();
     private Vector<String> data = new Vector<>();
+    private ListMaker listMaker;
 
     //Speicher GUI
 
 
     public ListMaker(List<String> data, String art){
+        listMaker = this;
 
         scrollPane = new JScrollPane(list, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
@@ -40,21 +44,45 @@ public class ListMaker extends JPanel{
         this.setVisible(true);
 
 
-        list.setModel(new TestListModel(data));
+        list.setModel(new TestListModel(art));
 
 
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new UpCreView(art);
+                new UpCreView(art,"add",listMaker);
+
             }
         });
 
         corectButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new UpCreView(art);
+                new UpCreView(art, "correct",listMaker);
             }
         });
+
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                switch (art) {
+                    case "Department":
+                       ViewComponent.getInstance().deleteDepartment(getIndex());
+                        break;
+                    case "JobFunction":
+                        ViewComponent.getInstance().deleteJobFunction(getIndex());
+                        break;
+                    case "Team":
+                        ViewComponent.getInstance().deleteTeam(getIndex());
+                        break;
+                }
+            }
+        });
+
     }
+
+    public int getIndex(){
+        return list.getSelectedIndex();
+    }
+
 
 }

@@ -74,7 +74,11 @@ public class Company {
         teams.addDesignation(function);
     }
 
-    public void removeTeams(int index) {
+    public void setTeam(String name, int index){
+        teams.setTeam(name, index);
+    }
+
+    public void removeTeam(int index) {
         teams.removeDesignation(index);
     }
 
@@ -85,13 +89,16 @@ public class Company {
 
 
 
-
     public JobFunctions getJobFunctions(){
         return jobFunctions;
     }
 
     public void setJobFunctions( JobFunctions jobFunctions){
         this.jobFunctions=jobFunctions;
+    }
+
+    public void setJobFunction(String name, int index){
+        jobFunctions.setDesignation(name, index);
     }
 
     public String getJobFunction(int index) {

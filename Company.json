@@ -1,52 +1,31 @@
 {
   "companyName" : "NukufelGMBH",
   "jobFunctions" : {
-    "listOfJobFunctions" : [ "Geschäftsleitung", "HR-Person" ]
+    "listOfJobFunctions" : [ "Geschäftsleitung", "HR-Person", "asdf", "asfdasf", "sdfasf", "sadfasf", "adsfasdfasdfadsf" ]
   },
   "teams" : {
     "listOfTeams" : [ "Team1", "Team2", "Team3", "Team4" ]
   },
   "listofDepartment" : [ {
-    "name" : "IT-Abteilung",
-    "listOfPersons" : [ {
-      "type" : "Person",
-      "firstName" : "Max",
-      "lastName" : "Mustermann",
-      "participation" : {
-        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ],
-        "listOfTeams" : [ "Team1", "Team2" ]
-      }
-    }, {
-      "type" : "HRPerson",
-      "firstName" : "Lorenzo",
-      "lastName" : "Lorenzo",
-      "modus" : 1,
-      "participation" : {
-        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ],
-        "listOfTeams" : [ "Team1", "Team2" ]
-      },
-      "pwd" : "passwort1"
-    } ]
+    "name" : "dsasfsa",
+    "listOfPersons" : [ ]
   }, {
-    "name" : "Verwaltungs Abteilung",
-    "listOfPersons" : [ {
-      "type" : "Person",
-      "firstName" : "Max",
-      "lastName" : "Mustermann",
-      "participation" : {
-        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ],
-        "listOfTeams" : [ "Team1", "Team2" ]
-      }
-    }, {
-      "type" : "HRPerson",
-      "firstName" : "Lorenzo",
-      "lastName" : "Lorenzo",
-      "modus" : 1,
-      "participation" : {
-        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ],
-        "listOfTeams" : [ "Team1", "Team2" ]
-      },
-      "pwd" : "passwort1"
-    } ]
+    "name" : "dsasfsa",
+    "listOfPersons" : [ ]
+  }, {
+    "name" : "dsasfsa",
+    "listOfPersons" : [ ]
+  }, {
+    "name" : "dsasfsa",
+    "listOfPersons" : [ ]
+  }, {
+    "name" : "dsasfsa",
+    "listOfPersons" : [ ]
+  }, {
+    "name" : "dsasfsa",
+    "listOfPersons" : [ ]
+  }, {
+    "name" : "dsasfsa",
+    "listOfPersons" : [ ]
   } ]
 }
