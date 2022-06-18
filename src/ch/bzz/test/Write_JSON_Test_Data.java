@@ -39,7 +39,7 @@ public class Write_JSON_Test_Data {
 
         setD1Person1Participation(person1);
         setD1Person2Participation(person2);
-        person1.setPwd("passwort1");
+        person1.setPassword("passwort1");
 
         department.addMember(person1);
         department.addMember(person2);
