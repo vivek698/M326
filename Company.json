@@ -1,52 +1,50 @@
 {
   "companyName" : "NukufelGMBH",
   "jobFunctions" : {
-    "listOfJobFunctions" : [ "Geschäftsleitung", "HR-Person" ]
+    "listOfJobFunctions" : [ "Team Leader", "Executive", "Controller", "Front-End developer", "Back-End developer" ]
   },
   "teams" : {
     "listOfTeams" : [ "Team1", "Team2", "Team3", "Team4" ]
   },
   "listOfDepartment" : [ {
-    "name" : "IT-Abteilung",
+    "name" : "General Management",
     "listOfPersons" : [ {
+      "type" : "HRPerson",
+      "firstName" : "Lorenzo",
+      "lastName" : "Giuntini",
+      "mode" : 1,
+      "participation" : {
+        "listOfTeams" : [ "Team1" ],
+        "listOfJobFunctions" : [ "Team Leader" ]
+      },
+      "password" : "passwort1"
+    }, {
       "type" : "Person",
       "firstName" : "Max",
       "lastName" : "Mustermann",
       "participation" : {
-        "listOfTeams" : [ "Team1", "Team2" ],
-        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ]
+        "listOfTeams" : [ "Team3", "Team4" ],
+        "listOfJobFunctions" : [ "Executive", "Controller" ]
       }
-    }, {
-      "type" : "HRPerson",
-      "firstName" : "Lorenzo",
-      "lastName" : "Lorenzo",
-      "mode" : 1,
-      "participation" : {
-        "listOfTeams" : [ "Team1", "Team2" ],
-        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ]
-      },
-      "password" : "passwort1"
     } ]
   }, {
-    "name" : "Verwaltungs Abteilung",
+    "name" : "IT",
     "listOfPersons" : [ {
       "type" : "Person",
-      "firstName" : "Max",
-      "lastName" : "Mustermann",
+      "firstName" : "Mikaela",
+      "lastName" : "Hinton",
       "participation" : {
-        "listOfTeams" : [ "Team1", "Team2" ],
-        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ]
+        "listOfTeams" : [ "Team1" ],
+        "listOfJobFunctions" : [ "Team Leader", "Front-End developer" ]
       }
     }, {
-      "type" : "HRPerson",
-      "firstName" : "Lorenzo",
-      "lastName" : "Lorenzo",
-      "mode" : 1,
+      "type" : "Person",
+      "firstName" : "Genesis",
+      "lastName" : "Patrick",
       "participation" : {
-        "listOfTeams" : [ "Team1", "Team2" ],
-        "listOfJobFunctions" : [ "IT-Abteilung", "Verwaltungs Abteilung" ]
-      },
-      "password" : "passwort1"
+        "listOfTeams" : [ "Team1", "Team4" ],
+        "listOfJobFunctions" : [ "Back-End developer" ]
+      }
     } ]
   } ]
 }

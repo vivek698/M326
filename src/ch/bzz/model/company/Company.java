@@ -224,8 +224,8 @@ public class Company {
      * @param index of the designation
      * @return jobFunction designation
      */
-    public void setJobFunction(String name, int index){
-        jobFunctions.setDesignation(name, index);
+    public void setJobFunction(int index, String name){
+        jobFunctions.setDesignation(index, name);
     }
 
     public String getJobFunction(int index) {
