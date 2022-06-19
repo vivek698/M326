@@ -24,13 +24,14 @@ public class Write_JSON_Test_Data {
     public static void setCompanyDepartments(Company company){
         Department department1=new Department("General Management");
         Department department2=new Department("IT");
-
+        Department department3=new Department("Finance");
 
         setDepartment1Person(department1);
         setDepartment2Person(department2);
 
         company.addDepartment(department1);
         company.addDepartment(department2);
+        company.addDepartment(department3);
     }
 
     public static void setDepartment1Person(Department department){
@@ -101,6 +102,8 @@ public class Write_JSON_Test_Data {
         company.addTeams("Team2");
         company.addTeams("Team3");
         company.addTeams("Team4");
+        company.addTeams("Team5");
+
     }
 
     public static void setCompanyJobFunction(Company company){
@@ -109,5 +112,6 @@ public class Write_JSON_Test_Data {
         company.addJobFunction("Controller");
         company.addJobFunction("Front-End developer");
         company.addJobFunction("Back-End developer");
+        company.addJobFunction("Fullstack developer");
     }
 }

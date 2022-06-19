@@ -79,6 +79,16 @@ public class JobFunctions {
     }
 
     /**
+     * look if a designation exist
+     *
+     * @param designation value of searching designation
+     * @return if it exists
+     */
+    public boolean contains(String designation){
+        return designations.contains(designation);
+    }
+
+    /**
      * get amount of job function
      *
      * @return amount of job functions
