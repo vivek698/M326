@@ -1,6 +1,10 @@
 package ch.bzz.model.company;
 
 import ch.bzz.model.employees.Person;
+import ch.bzz.exception.NotExistingDepartmentException;
+import ch.bzz.exception.NotExistingJobFunctionException;
+import ch.bzz.exception.NotExistingTeamException;
+import ch.bzz.exception.SortTypeException;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -90,7 +94,7 @@ public class Company {
         departments.remove(index);
     }
 
-    //TODO comment
+    //TODO comment and Exception
     public int getDepartmentbyName(String name){
         int ret = 0;
         for (int i = 0; i<departments.size(); i++) {
@@ -99,6 +103,21 @@ public class Company {
             }
         }
         return ret;
+    }
+
+    /**
+     * gets a Department by name
+     * @param departmentName the searching department
+     * @return department
+     * @throws NotExistingDepartmentException Department with this department Name doesn't exist
+     */
+    public Department getDepartmentByName(String departmentName) throws NotExistingDepartmentException {
+        for (Department department:departments) {
+            if (department.getName().equals(departmentName)){
+                return department;
+            }
+        }
+        throw new NotExistingDepartmentException();
     }
 
 
@@ -290,10 +309,14 @@ public class Company {
      * @param departmentName filter after department  (null if not filtered)
      * @param function filter after function (null if not filtered)
      * @param teams filter after teams (null if not filtered)
-     * @param sortType sort (asc for ascending, desc for descending)
+     * @param sortType sort ("asc" for ascending, "desc" for descending, null if not sorted)
      * @return list of person filtered by parameter
+     * @throws NotExistingDepartmentException Department with this name doesn't exist
+     * @throws NotExistingJobFunctionException Job Function with this name doesn't exist
+     * @throws NotExistingTeamException Team with this name doesn't exist
+     * @throws SortTypeException sortType not equals "asc" or "desc" or null
      */
-    public List<Person> getPersonFilteredAndSorted(String departmentName,String function, String teams,String sortType){
+    public List<Person> getPersonFilteredAndSorted(String departmentName,String function, String teams,String sortType) throws NotExistingDepartmentException, NotExistingJobFunctionException, NotExistingTeamException, SortTypeException {
         List<Person> personList=getAllPerson();
         if (departmentName!=null){
             personList=filterListOfPersonByDepartment(departmentName);
@@ -314,19 +337,22 @@ public class Company {
     }
 
 
+
     /**
      * filter logic for Department
      *
      * @param departmentName filter after department
      * @return list of person filtered by department
+     * @throws NotExistingDepartmentException Department with this name doesn't exist
      */
-    private List<Person> filterListOfPersonByDepartment(String departmentName){
-        for (Department department:departments) {
-            if (department.getName().equals(departmentName)){
-                return department.getListOfPersons();
-            }
+    private List<Person> filterListOfPersonByDepartment(String departmentName) throws NotExistingDepartmentException {
+        if (!departmentExist(departmentName)){
+            throw new NotExistingDepartmentException();
         }
-        return null;
+
+        Department department = getDepartmentByName(departmentName);
+
+        return department.getListOfPersons();
     }
 
     /**
@@ -335,8 +361,13 @@ public class Company {
      * @param listOfPerson list that will be filtered
      * @param jobFunction filter after jobFunction
      * @return list of person filtered by jobFunction
+     * @throws NotExistingJobFunctionException Job Function with this name doesn't exist
      */
-    private List<Person> filterListOfPersonByJobFunction(List<Person> listOfPerson, String jobFunction){
+    private List<Person> filterListOfPersonByJobFunction(List<Person> listOfPerson, String jobFunction) throws NotExistingJobFunctionException{
+        if (!jobFunctionExist(jobFunction)){
+            throw new NotExistingJobFunctionException();
+        }
+
         ArrayList<Person>filteredPerson=new ArrayList<>();
         for (Person person:listOfPerson) {
             if (person.getParticipation().getListOfJobFunctions().contains(jobFunction)){
@@ -352,8 +383,12 @@ public class Company {
      * @param listOfPerson list that will be filtered
      * @param team filter after team
      * @return list of person filtered by team
+     * @throws NotExistingTeamException Team with this name doesn't exist
      */
-    private List<Person> filterListOfPersonByTeams(List<Person> listOfPerson, String team){
+    private List<Person> filterListOfPersonByTeams(List<Person> listOfPerson, String team) throws NotExistingTeamException {
+        if (!teamExist(team)){
+            throw new NotExistingTeamException();
+        }
         ArrayList<Person>filteredPerson=new ArrayList<>();
         for (Person person:listOfPerson) {
             if (person.getParticipation().getListOfTeams().contains(team)){
@@ -364,13 +399,14 @@ public class Company {
     }
 
     /**
-     * filter logic for jobFunction
+     * sort logic
      *
      * @param listOfPerson list that will be sorted
-     * @param sortType
+     * @param sortType sort (asc for ascending, desc for descending, null for not sorted)
      * @return list of person filtered by jobFunction
+     * @throws SortTypeException sortType not equals "asc" or "desc" or null
      */
-    private List<Person> sortListOfPerson(List<Person> listOfPerson, String sortType){
+    private List<Person> sortListOfPerson(List<Person> listOfPerson, String sortType) throws SortTypeException {
         Collections.sort(listOfPerson);
 
         if (sortType.equals("asc")){
@@ -378,9 +414,11 @@ public class Company {
         }else if (sortType.equals("desc")){
             Collections.reverse(listOfPerson);
             return listOfPerson;
+        }else {
+            throw new SortTypeException();
         }
-        return null;
     }
+
 
 
     /**
@@ -388,20 +426,11 @@ public class Company {
      *
      * @param departmentName name of the department
      * @return deletable of department
+     * @throws NotExistingDepartmentException Department with this name doesn't exist
      */
-    public boolean isDepartmentDeletable(String departmentName){
+    public boolean isDepartmentDeletable(String departmentName) throws NotExistingDepartmentException {
+        departmentExist(departmentName);
         List<Person>filteredList=filterListOfPersonByDepartment(departmentName);
-        return filteredList.size()==0;
-    }
-
-    /**
-     * is this team allowed to delete
-     *
-     * @param team name of the team
-     * @return deletable of team
-     */
-    public boolean isTeamDeletable(String team){
-        List<Person>filteredList=filterListOfPersonByTeams(getAllPerson(),team);
         return filteredList.size()==0;
     }
 
@@ -410,9 +439,56 @@ public class Company {
      *
      * @param jobFunction name of the jobFunction
      * @return deletable of jobFunction
+     * @throws NotExistingJobFunctionException Job Function with this name doesn't exist
      */
-    public boolean isJobFunctionDeletable(String jobFunction){
+    public boolean isJobFunctionDeletable(String jobFunction) throws NotExistingJobFunctionException {
+        jobFunctionExist(jobFunction);
         List<Person>filteredList=filterListOfPersonByJobFunction(getAllPerson(),jobFunction);
         return filteredList.size()==0;
+    }
+
+    /**
+     * is this team allowed to delete
+     *
+     * @param team name of the team
+     * @return deletable of team
+     * @throws NotExistingTeamException Team with this name doesn't exist
+     */
+    public boolean isTeamDeletable(String team) throws NotExistingTeamException {
+        teamExist(team);
+        List<Person>filteredList=filterListOfPersonByTeams(getAllPerson(),team);
+        return filteredList.size()==0;
+    }
+
+    /**
+     * does the department with name exist
+     * @param departmentName name of the department
+     * @return true if exist
+     */
+    public boolean departmentExist(String departmentName) {
+        try {
+            getDepartmentByName(departmentName);
+            return true;
+        }catch (NotExistingDepartmentException e){
+            return false;
+        }
+    }
+
+    /**
+     * does a Job function with this designation exist
+     * @param jobFunction designation of the jobFunction
+     * @return true if exist
+     */
+    public boolean jobFunctionExist(String jobFunction){
+        return jobFunctions.contains(jobFunction);
+    }
+
+    /**
+     * does a team with this designation exist
+     * @param team designation of the team
+     * @return true if exist
+     */
+    public boolean teamExist(String team) {
+        return teams.contains(team);
     }
 }

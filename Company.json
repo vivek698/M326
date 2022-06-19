@@ -1,10 +1,10 @@
 {
   "companyName" : "NukufelGMBH",
   "jobFunctions" : {
-    "listOfJobFunctions" : [ "Team Leader", "Executive", "Controller", "Front-End developer", "Back-End developer" ]
+    "listOfJobFunctions" : [ "Team Leader", "Executive", "Controller", "Front-End developer", "Back-End developer", "Fullstack developer" ]
   },
   "teams" : {
-    "listOfTeams" : [ "Team1", "Team2", "Team3", "Team4" ]
+    "listOfTeams" : [ "Team1", "Team2", "Team3", "Team4", "Team5" ]
   },
   "listOfDepartment" : [ {
     "name" : "General Management",
@@ -46,5 +46,8 @@
         "listOfTeams" : [ "Team1", "Team4" ]
       }
     } ]
+  }, {
+    "name" : "Finance",
+    "listOfPersons" : [ ]
   } ]
 }

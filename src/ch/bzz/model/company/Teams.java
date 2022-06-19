@@ -78,6 +78,16 @@ public class Teams {
     }
 
     /**
+     * look if a designation exist
+     *
+     * @param designation value of searching designation
+     * @return if it exists
+     */
+    public boolean contains(String designation){
+        return designations.contains(designation);
+    }
+
+    /**
      * get amount of teams
      *
      * @return amount of teams
