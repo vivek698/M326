@@ -81,7 +81,7 @@ public class Write_JSON_Test_Data {
         participation.addFunction("Team Leader");
         participation.addFunction("Front-End developer");
 
-        participation.addTeams("Team1");
+        participation.addTeams("Team2");
 
         person.setParticipation(participation);
     }

@@ -90,7 +90,7 @@ public class Company {
         departments.remove(index);
     }
 
-
+    //TODO comment
     public int getDepartmentbyName(String name){
         int ret = 0;
         for (int i = 0; i<departments.size(); i++) {
@@ -285,29 +285,41 @@ public class Company {
     }
 
     /**
-     * get all Filters and
-     * @param departmentName
-     * @param function
-     * @param teams
-     * @param sortType
-     * @return
+     * gets filtered and sortered list of Person
+     *
+     * @param departmentName filter after department  (null if not filtered)
+     * @param function filter after function (null if not filtered)
+     * @param teams filter after teams (null if not filtered)
+     * @param sortType sort (asc for ascending, desc for descending)
+     * @return list of person filtered by parameter
      */
     public List<Person> getPersonFilteredAndSorted(String departmentName,String function, String teams,String sortType){
         List<Person> personList=getAllPerson();
         if (departmentName!=null){
             personList=filterListOfPersonByDepartment(departmentName);
-        }else if(function!=null){
+        }
+
+        if(function!=null){
             personList= filterListOfPersonByJobFunction(personList,function);
-        }else if (teams!=null){
+        }
+
+        if (teams!=null){
             personList=filterListOfPersonByTeams(personList,teams);
-        }else if (sortType!=null){
+        }
+
+        if (sortType!=null){
             sortListOfPerson(personList,sortType);
         }
         return personList;
     }
 
 
-
+    /**
+     * filter logic for Department
+     *
+     * @param departmentName filter after department
+     * @return list of person filtered by department
+     */
     private List<Person> filterListOfPersonByDepartment(String departmentName){
         for (Department department:departments) {
             if (department.getName().equals(departmentName)){
@@ -317,6 +329,13 @@ public class Company {
         return null;
     }
 
+    /**
+     * filter logic for jobFunction
+
+     * @param listOfPerson list that will be filtered
+     * @param jobFunction filter after jobFunction
+     * @return list of person filtered by jobFunction
+     */
     private List<Person> filterListOfPersonByJobFunction(List<Person> listOfPerson, String jobFunction){
         ArrayList<Person>filteredPerson=new ArrayList<>();
         for (Person person:listOfPerson) {
@@ -327,6 +346,13 @@ public class Company {
         return filteredPerson;
     }
 
+    /**
+     * filter logic for teams
+
+     * @param listOfPerson list that will be filtered
+     * @param team filter after team
+     * @return list of person filtered by team
+     */
     private List<Person> filterListOfPersonByTeams(List<Person> listOfPerson, String team){
         ArrayList<Person>filteredPerson=new ArrayList<>();
         for (Person person:listOfPerson) {
@@ -337,6 +363,13 @@ public class Company {
         return filteredPerson;
     }
 
+    /**
+     * filter logic for jobFunction
+     *
+     * @param listOfPerson list that will be sorted
+     * @param sortType
+     * @return list of person filtered by jobFunction
+     */
     private List<Person> sortListOfPerson(List<Person> listOfPerson, String sortType){
         Collections.sort(listOfPerson);
 
@@ -350,17 +383,34 @@ public class Company {
     }
 
 
-
-    public boolean isDepartmentAllowedToDelete(String departmentName){
+    /**
+     * is this department allowed to delete
+     *
+     * @param departmentName name of the department
+     * @return deletable of department
+     */
+    public boolean isDepartmentDeletable(String departmentName){
         List<Person>filteredList=filterListOfPersonByDepartment(departmentName);
         return filteredList.size()==0;
     }
 
+    /**
+     * is this team allowed to delete
+     *
+     * @param team name of the team
+     * @return deletable of team
+     */
     public boolean isTeamAllowedToDelete(String team){
         List<Person>filteredList=filterListOfPersonByTeams(getAllPerson(),team);
         return filteredList.size()==0;
     }
 
+    /**
+     * is this jobFunction allowed to delete
+     *
+     * @param jobFunction name of the jobFunction
+     * @return deletable of jobFunction
+     */
     public boolean isJobFunctionAllowedToDelete(String jobFunction){
         List<Person>filteredList=filterListOfPersonByJobFunction(getAllPerson(),jobFunction);
         return filteredList.size()==0;

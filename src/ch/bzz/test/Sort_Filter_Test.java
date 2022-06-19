@@ -76,4 +76,32 @@ public class Sort_Filter_Test {
 
         assertArrayEquals(expected,actuals);
     }
+
+    @Test
+    public void getAllPersonFilteredByTwo(){
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,"Team Leader","Team1",null));
+
+        String[]expected={"Lorenzo Giuntini"};
+
+        assertArrayEquals(expected,actuals);
+    }
+
+    @Test
+    public void getAllPersonFilteredAndSorted(){
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,null,"Team1","asc"));
+
+        String[]expected={"Genesis Patrick","Lorenzo Giuntini"};
+
+        assertArrayEquals(expected,actuals);
+    }
+
+    @Test
+    public void getAllPersonFilteredByTree(){
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted("General Management","Team Leader","Team1",null));
+
+        String[]expected={"Lorenzo Giuntini"};
+
+        assertArrayEquals(expected,actuals);
+    }
+
 }
