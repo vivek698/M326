@@ -3,7 +3,6 @@ package ch.bzz.facade;
 import ch.bzz.dataHandler.DataHandler;
 import ch.bzz.model.company.Company;
 import ch.bzz.model.company.Department;
-import ch.bzz.model.company.JobFunctions;
 import ch.bzz.model.employees.Person;
 import ch.bzz.view.TestListModel;
 
@@ -49,7 +48,17 @@ public class ViewComponent {
         changer();
     }
 
-    public void correctParson(String departmentName, Person person){
+    public void correctParson(String firstName, String lastName, String newFirstName, String newLastName, String departmentName){
+        Person person = companyInstance.getPerson(companyInstance.getDepartmentIndexByPerson(firstName, lastName),companyInstance.getPersonIndexByName(firstName, lastName));
+
+        companyInstance.getDepartment(companyInstance.getDepartmentIndexByPerson(firstName, lastName)).removeMember(companyInstance.getPersonIndexByName(firstName, lastName));
+        companyInstance.getDepartmentbyName(departmentName).addMember(person);
+
+        person.setFirstName(newFirstName);
+        person.setLastName(newLastName);
+
+        DataHandler.getInstance().setCompany(companyInstance);
+        changer();
     }
 
     public void correctDepartment(String name, int index){
@@ -77,8 +86,13 @@ public class ViewComponent {
         changer();
     }
 
-    public void deleteTeam(int index){
+    public void  deleteTeam(int index){
         companyInstance.removeTeam(index);
+        changer();
+    }
+
+    public void deletePerson(String firstname, String lastName){
+        companyInstance.getDepartment(companyInstance.getDepartmentIndexByPerson(firstname, lastName)).removeMember(companyInstance.getPersonIndexByName(firstname, lastName));
         changer();
     }
 
@@ -89,7 +103,6 @@ public class ViewComponent {
     public void removeModel(TestListModel tml){
         models.remove(tml);
     }
-
 
     public void changer(){
         for (TestListModel tml: models){
@@ -108,6 +121,10 @@ public class ViewComponent {
 
     public  List<String> getTeamList(){
         return companyInstance.getTeams().getListOfTeams();
+    }
+
+    public List<Person> getAllPersonOfCompany(){
+        return companyInstance.getAllPerson();
     }
 
 

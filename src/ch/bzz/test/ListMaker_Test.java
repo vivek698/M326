@@ -14,7 +14,7 @@ public class ListMaker_Test {
         JFrame jFrame = new JFrame();
 
 
-        ListMaker listMaker = new ListMaker("JobFunction");
+        ListMaker listMaker = new ListMaker("Person");
         jFrame.add(listMaker);
 
 

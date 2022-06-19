@@ -128,13 +128,23 @@ public class UpCreView extends JDialog{
                             ViewComponent.getInstance().correctTeam(owner.getIndex(), textField.getText());
                             break;
                         case "Person":
-                            //ViewComponent.getInstance().correctParson();
+                            ViewComponent.getInstance().correctParson(owner.getFirstName(), owner.getLastName(), getNewFirstName(),getNewLastName(),(String) comboBox.getSelectedItem());
                             break;
                 }
             }
             dispose();
         }
         });
+    }
+
+    public String getNewLastName(){
+        String name = textField.getText().split(" ")[1];
+        return name;
+    }
+
+    public String getNewFirstName(){
+        String name = textField.getText().split(" ")[0];
+        return name;
     }
 
 }

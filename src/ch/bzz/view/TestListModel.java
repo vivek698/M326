@@ -24,6 +24,10 @@ public class TestListModel extends AbstractListModel<String> {
                return ViewComponent.getInstance().getJobFunctionList().size();
            case "Team":
                return ViewComponent.getInstance().getTeamList().size();
+           case "Person":
+               return ViewComponent.getInstance().getAllPersonOfCompany().size();
+
+
        }
        return 0;
     }
@@ -37,6 +41,8 @@ public class TestListModel extends AbstractListModel<String> {
                 return ViewComponent.getInstance().getJobFunctionList().get(index);
             case "Team":
                 return ViewComponent.getInstance().getTeamList().get(index);
+            case "Person":
+                return ViewComponent.getInstance().getAllPersonOfCompany().get(index).getFullName();
         }
         return null;
     }
@@ -49,6 +55,8 @@ public class TestListModel extends AbstractListModel<String> {
             super.fireContentsChanged(source, index0, index1);
         }
     }
+
+
 
 
 

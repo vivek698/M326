@@ -91,7 +91,7 @@ public class Company {
     }
 
     public Department getDepartmentbyName(String name){
-        int ret = 0;
+        int ret = -1;
         for (int i = 0; i<departments.size(); i++) {
             if(departments.get(i).getName()==name){
               ret = i;
@@ -100,10 +100,26 @@ public class Company {
         return departments.get(ret);
     }
 
-    public Person getPersonbyName(String name ,String firstName, String lastName){
-        for (int i = 0; i<getDepartmentbyName(name).getSize(); i++) {
+    public int getPersonIndexByName(String firstName, String lastName){
+        for (int j = 0; j<departments.size(); j++) {
+            for (int i = 0; i < getDepartment(j).getSize(); i++) {
+                if ((firstName+" "+lastName).equals(departments.get(j).getMember(i).getFullName())){
+                    return i;
+                }
+            }
         }
-        return null;
+        return -1;
+    }
+
+    public int getDepartmentIndexByPerson(String firstName, String lastName){
+        for (int j = 0; j<departments.size(); j++) {
+            for (int i = 0; i < getDepartment(j).getSize(); i++) {
+                if ((firstName+" "+lastName).equals(departments.get(j).getMember(i).getFullName())){
+                    return j;
+                }
+            }
+        }
+        return -1;
     }
 
 
@@ -289,6 +305,10 @@ public class Company {
             allPerson.addAll(departments.get(i).getListOfPersons());
         }
         return allPerson;
+    }
+
+    public Person getPerson(int index1, int index2){
+        return departments.get(index1).getMember(index2);
     }
 
 

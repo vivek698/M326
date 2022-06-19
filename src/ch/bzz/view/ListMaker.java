@@ -73,7 +73,8 @@ public class ListMaker extends JPanel{
                         ViewComponent.getInstance().deleteTeam(getIndex());
                         break;
                     case "Person":
-
+                        ViewComponent.getInstance().deletePerson(getFirstName(), getLastName());
+                        break;
 
                 }
             }
@@ -84,6 +85,22 @@ public class ListMaker extends JPanel{
     public int getIndex(){
         return list.getSelectedIndex();
     }
+
+    public String getFirstName(){
+        String firstName = list.getSelectedValue();
+        firstName = firstName.split(" ")[0];
+        return firstName;
+    }
+
+    public String getLastName(){
+        String lastName = list.getSelectedValue();
+        lastName = lastName.split(" ")[1];
+        return lastName;
+    }
+
+
+
+
 
 
 }
