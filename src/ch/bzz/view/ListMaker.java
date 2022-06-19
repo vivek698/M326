@@ -3,11 +3,11 @@ package ch.bzz.view;
 import ch.bzz.facade.ViewComponent;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
-import java.util.Vector;
 
 
 public class ListMaker extends JPanel{
@@ -24,6 +24,8 @@ public class ListMaker extends JPanel{
 
     public ListMaker(String art){
         listMaker = this;
+
+        list.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
 
         scrollPane = new JScrollPane(list, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
@@ -72,13 +74,15 @@ public class ListMaker extends JPanel{
                     case "Team":
                         ViewComponent.getInstance().deleteTeam(getIndex());
                         break;
-                    case "Person":
+                    case "PersonView":
                         ViewComponent.getInstance().deletePerson(getFirstName(), getLastName());
                         break;
 
                 }
             }
         });
+
+
 
     }
 
@@ -92,15 +96,24 @@ public class ListMaker extends JPanel{
         return firstName;
     }
 
-    public String getLastName(){
+    public String getLastName() {
         String lastName = list.getSelectedValue();
         lastName = lastName.split(" ")[1];
         return lastName;
     }
 
+    public String getSelectedFullName(){
+        if (list.getSelectedValue()==null){
+            return "Vorname Nachname";
+        }else {
+            return (String) list.getSelectedValue();
+        }
+    }
 
 
 
 
-
+    public void addListSelectionListener(ListSelectionListener listSelectionListener) {
+        list.addListSelectionListener(listSelectionListener);
+    }
 }

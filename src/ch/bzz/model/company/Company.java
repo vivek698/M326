@@ -294,9 +294,9 @@ public class Company {
     }
 
     /**
-     * get all Person of this Company
+     * get all PersonView of this Company
      *
-     * @return list of all Person
+     * @return list of all PersonView
      */
     @JsonIgnore
     public List<Person> getAllPerson(){

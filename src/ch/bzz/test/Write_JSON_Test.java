@@ -63,6 +63,6 @@ public class Write_JSON_Test {
 
     public static void setCompanyJobFunction(Company company){
         company.addJobFunction("Geschäftsleitung");
-        company.addJobFunction("HR-Person");
+        company.addJobFunction("HR-PersonView");
     }
 }

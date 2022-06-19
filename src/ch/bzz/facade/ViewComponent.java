@@ -5,6 +5,7 @@ import ch.bzz.model.company.Company;
 import ch.bzz.model.company.Department;
 import ch.bzz.model.employees.Person;
 import ch.bzz.view.TestListModel;
+import ch.bzz.view.PersonView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,6 +127,7 @@ public class ViewComponent {
     public List<Person> getAllPersonOfCompany(){
         return companyInstance.getAllPerson();
     }
+
 
 
 

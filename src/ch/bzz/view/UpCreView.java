@@ -67,7 +67,7 @@ public class UpCreView extends JDialog{
         setSize(300,100);
 
 
-        if(what == "Person") {
+        if(what == "PersonView") {
 
 
             labelComboPanel1.add(comboLabel, WEST);
@@ -112,7 +112,7 @@ public class UpCreView extends JDialog{
                     case "Team":
                         ViewComponent.getInstance().addTeam(textField.getText());
                         break;
-                    case "Person":
+                    case "PersonView":
                             ViewComponent.getInstance().addPerson((String) comboBox.getSelectedItem(), new Person(textField.getText().split(" ")[0],textField.getText().split(" ")[1]));
                         break;
                 }
@@ -127,7 +127,7 @@ public class UpCreView extends JDialog{
                         case "Team":
                             ViewComponent.getInstance().correctTeam(owner.getIndex(), textField.getText());
                             break;
-                        case "Person":
+                        case "PersonView":
                             ViewComponent.getInstance().correctParson(owner.getFirstName(), owner.getLastName(), getNewFirstName(),getNewLastName(),(String) comboBox.getSelectedItem());
                             break;
                 }

@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.IOException;
 
 /**
- * The Model-Class HR-Person is storing data.
+ * The Model-Class HR-PersonView is storing data.
  *
  * @author Vivek Viruthiyel
  * @version 1.0
