@@ -6,7 +6,6 @@ import ch.bzz.model.employees.Person;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -96,7 +95,7 @@ public class Sort_Filter_Test {
     }
 
     @Test
-    public void getAllPersonFilteredByTree(){
+    public void getAllPersonFilteredByThree(){
         String[] actuals =arrayToList(company.getPersonFilteredAndSorted("General Management","Team Leader","Team1",null));
 
         String[]expected={"Lorenzo Giuntini"};

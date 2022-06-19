@@ -400,7 +400,7 @@ public class Company {
      * @param team name of the team
      * @return deletable of team
      */
-    public boolean isTeamAllowedToDelete(String team){
+    public boolean isTeamDeletable(String team){
         List<Person>filteredList=filterListOfPersonByTeams(getAllPerson(),team);
         return filteredList.size()==0;
     }
@@ -411,7 +411,7 @@ public class Company {
      * @param jobFunction name of the jobFunction
      * @return deletable of jobFunction
      */
-    public boolean isJobFunctionAllowedToDelete(String jobFunction){
+    public boolean isJobFunctionDeletable(String jobFunction){
         List<Person>filteredList=filterListOfPersonByJobFunction(getAllPerson(),jobFunction);
         return filteredList.size()==0;
     }
