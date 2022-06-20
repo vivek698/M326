@@ -303,6 +303,18 @@ public class Company {
         return allPerson;
     }
 
+    //TODO Test
+    //TODO Comment
+    public List<Person> getPersonSearch(String search){
+        List<Person> allPerson=new ArrayList<>();
+        for (Person person:getAllPerson()) {
+            if (person.getFullName().contains(search)){
+                allPerson.add(person);
+            }
+        }
+        return allPerson;
+    }
+
     /**
      * gets filtered and sortered list of Person
      *
