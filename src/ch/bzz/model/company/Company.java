@@ -1,5 +1,6 @@
 package ch.bzz.model.company;
 
+import ch.bzz.model.employees.HRPerson;
 import ch.bzz.model.employees.Person;
 import ch.bzz.exception.NotExistingDepartmentException;
 import ch.bzz.exception.NotExistingJobFunctionException;
@@ -526,5 +527,16 @@ public class Company {
      */
     public boolean teamExist(String team) {
         return teams.contains(team);
+    }
+
+    @JsonIgnore
+    public List<HRPerson> getListOfHRPerson(){
+        List<HRPerson> hrPersonList=new ArrayList<>();
+        for (Person person:getAllPerson()) {
+            if (HRPerson.class==person.getClass()){
+                hrPersonList.add((HRPerson) person);
+            }
+        }
+        return hrPersonList;
     }
 }

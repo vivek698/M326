@@ -1,6 +1,8 @@
 package ch.bzz.view;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class MainView extends JFrame {
     private JTabbedPane tabbedPane = new JTabbedPane();
@@ -17,6 +19,13 @@ public class MainView extends JFrame {
 
 
         add(tabbedPane);
+
+        tabbedPane.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                new Login();
+            }
+        });
 
         pack();
         setSize(700,700);

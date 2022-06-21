@@ -4,6 +4,7 @@ import ch.bzz.dataHandler.DataHandler;
 import ch.bzz.exception.NotExistingDepartmentException;
 import ch.bzz.model.company.Company;
 import ch.bzz.model.company.Department;
+import ch.bzz.model.employees.HRPerson;
 import ch.bzz.model.employees.Person;
 import ch.bzz.view.LogBookView;
 import ch.bzz.view.TestListModel;
@@ -164,6 +165,9 @@ public class ViewComponent {
         return companyInstance.getPerson(index1,index2).getImgPath();
     }
 
+    public List<HRPerson> getAllHRPerson(){
+        return companyInstance.getListOfHRPerson();
+    }
 
 
 
