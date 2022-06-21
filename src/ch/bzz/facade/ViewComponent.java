@@ -3,10 +3,13 @@ package ch.bzz.facade;
 import ch.bzz.dataHandler.DataHandler;
 import ch.bzz.model.company.Company;
 import ch.bzz.model.company.Department;
+import ch.bzz.model.employees.Person;
 import ch.bzz.view.TestListModel;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ViewComponent {
     private List<TestListModel> models = new ArrayList<>();
@@ -103,7 +106,19 @@ public class ViewComponent {
         return companyInstance.getTeams().getListOfTeams();
     }
 
+    /**
+     * get Image as ImageIcon
+     *
+     * @return image
+     */
+    private ImageIcon getImage(Person person){
+        ImageIcon houseIcon = new ImageIcon(
+                Objects.requireNonNull(
+                        this.getClass()
+                                .getResource(person.getImgPath())));
 
+        return new ImageIcon(String.valueOf(houseIcon));
+    }
 
 
 }
