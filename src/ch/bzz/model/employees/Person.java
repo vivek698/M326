@@ -108,12 +108,18 @@ public class Person  implements Comparable{
 
     /**
      * gets image
+     * if return = null then there is no picture
      *
      * @return Image
      */
     public ImageIcon getImage() {
-        return new ImageIcon(Objects.requireNonNull(this.getClass().getResource(getImgPath())));
+        if (getImgPath()!=null){
+            return new ImageIcon(Objects.requireNonNull(this.getClass().getResource(getImgPath())));
+        }else {
+            return null;
+        }
     }
+
 
     /**
      * gets Participation
