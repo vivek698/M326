@@ -1,6 +1,7 @@
 package ch.bzz.view;
 
 import ch.bzz.model.log.LogBook;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -16,17 +17,20 @@ public class LogBookView extends JPanel {
           scrollPane = new JScrollPane(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
           scrollPane.add(textArea);
           textArea.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+          textArea.setEditable(false);
           add(scrollPane, BorderLayout.CENTER);
+          add(textArea);
           setVisible(true);
       }
 
       public void setLogBook() throws IOException {
           String text = "";
           for (int i = 0; i< LogBook.getLogBookInstance().getSize();i++){
-              text += LogBook.getLogBookInstance().getEntry(i);
+              text = LogBook.getLogBookInstance().getEntry(i);
           }
           textArea.setText(text);
       }
+
 
 
 
