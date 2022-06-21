@@ -329,18 +329,6 @@ public class Company {
         return departments.get(index1).getMember(index2);
     }
 
-    //TODO Test
-    //TODO Comment
-    public List<Person> getPersonSearch(String search){
-        List<Person> allPerson=new ArrayList<>();
-        for (Person person:getAllPerson()) {
-            if (person.getFullName().contains(search)){
-                allPerson.add(person);
-            }
-        }
-        return allPerson;
-    }
-
     /**
      * gets filtered and sortered list of Person
      *
@@ -354,7 +342,7 @@ public class Company {
      * @throws NotExistingTeamException Team with this name doesn't exist
      * @throws SortTypeException sortType not equals "asc" or "desc" or null
      */
-    public List<Person> getPersonFilteredAndSorted(String departmentName,String function, String teams,String sortType) throws NotExistingDepartmentException, NotExistingJobFunctionException, NotExistingTeamException, SortTypeException {
+    public List<Person> getPersonFilteredAndSorted(String departmentName,String function, String teams,String sortType, String search) throws NotExistingDepartmentException, NotExistingJobFunctionException, NotExistingTeamException, SortTypeException {
         List<Person> personList=getAllPerson();
         if (departmentName!=null){
             personList=filterListOfPersonByDepartment(departmentName);
@@ -371,6 +359,11 @@ public class Company {
         if (sortType!=null){
             sortListOfPerson(personList,sortType);
         }
+
+        if (search!=null){
+            searchPerson(personList,sortType);
+        }
+
         return personList;
     }
 
@@ -457,6 +450,21 @@ public class Company {
         }
     }
 
+    /**
+     * search a Person by Fullname
+     * @param listOfPerson the list where it search
+     * @param search text it searches
+     * @return list of Person searched by text
+     */
+    private List<Person> searchPerson(List<Person> listOfPerson, String search){
+        List<Person> allPerson=new ArrayList<>();
+        for (Person person:listOfPerson) {
+            if (person.getFullName().contains(search)){
+                allPerson.add(person);
+            }
+        }
+        return allPerson;
+    }
 
 
     /**

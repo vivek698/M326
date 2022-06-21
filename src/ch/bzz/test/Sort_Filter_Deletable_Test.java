@@ -46,17 +46,8 @@ public class Sort_Filter_Deletable_Test {
     }
 
     @Test
-    public void getPersonSearch(){
-        String[] actuals =arrayToList(company.getPersonSearch("Max"));
-
-        String[]expected={"Max Mustermann"};
-
-        assertArrayEquals(expected,actuals);
-    }
-
-    @Test
     public void getAllPersonSortASC() throws NotExistingDepartmentException, NotExistingJobFunctionException,NotExistingTeamException, SortTypeException {
-        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,null,null,"asc"));
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,null,null,"asc", null));
 
         String[]expected={"Genesis Patrick","Lorenzo Giuntini","Max Mustermann","Mikaela Hinton"};
 
@@ -65,7 +56,7 @@ public class Sort_Filter_Deletable_Test {
 
     @Test
     public void getAllPersonSortDESC() throws NotExistingDepartmentException, NotExistingJobFunctionException,NotExistingTeamException, SortTypeException {
-        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,null,null,"desc"));
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,null,null,"desc", null));
 
         String[]expected={"Mikaela Hinton","Max Mustermann","Lorenzo Giuntini","Genesis Patrick"};
 
@@ -74,14 +65,14 @@ public class Sort_Filter_Deletable_Test {
 
     @Test (expected = SortTypeException.class)
     public void getAllPersonSortException() throws NotExistingDepartmentException, NotExistingJobFunctionException,NotExistingTeamException, SortTypeException {
-        company.getPersonFilteredAndSorted(null,null,null,"falsch");
+        company.getPersonFilteredAndSorted(null,null,null,"falsch", null);
     }
 
 
 
     @Test
     public void getAllPersonFilteredByDepartment() throws NotExistingDepartmentException, NotExistingJobFunctionException,NotExistingTeamException, SortTypeException {
-        String[] actuals =arrayToList(company.getPersonFilteredAndSorted("General Management",null,null,null));
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted("General Management",null,null,null, null));
 
         String[]expected={"Lorenzo Giuntini","Max Mustermann"};
 
@@ -90,7 +81,7 @@ public class Sort_Filter_Deletable_Test {
 
     @Test
     public void getAllPersonFilteredByFunction() throws NotExistingDepartmentException, NotExistingJobFunctionException,NotExistingTeamException, SortTypeException {
-        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,"Team Leader",null,null));
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,"Team Leader",null,null, null));
 
         String[]expected={"Lorenzo Giuntini","Mikaela Hinton"};
 
@@ -99,7 +90,7 @@ public class Sort_Filter_Deletable_Test {
 
     @Test
     public void getAllPersonFilteredByTeam() throws NotExistingDepartmentException, NotExistingJobFunctionException,NotExistingTeamException, SortTypeException {
-        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,null,"Team4",null));
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,null,"Team4",null, null));
 
         String[]expected={"Max Mustermann","Genesis Patrick"};
 
@@ -107,8 +98,17 @@ public class Sort_Filter_Deletable_Test {
     }
 
     @Test
+    public void getPersonSearch() throws NotExistingJobFunctionException, SortTypeException, NotExistingDepartmentException, NotExistingTeamException {
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,null,null,null, "Max"));
+
+        String[]expected={"Max Mustermann"};
+
+        assertArrayEquals(expected,actuals);
+    }
+
+    @Test
     public void getAllPersonFilteredByTwo() throws NotExistingDepartmentException, NotExistingJobFunctionException,NotExistingTeamException, SortTypeException {
-        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,"Team Leader","Team1",null));
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,"Team Leader","Team1",null, null));
 
         String[]expected={"Lorenzo Giuntini"};
 
@@ -117,7 +117,7 @@ public class Sort_Filter_Deletable_Test {
 
     @Test
     public void getAllPersonFilteredAndSorted() throws NotExistingDepartmentException, NotExistingJobFunctionException,NotExistingTeamException, SortTypeException {
-        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,null,"Team1","asc"));
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,null,"Team1","asc", null));
 
         String[]expected={"Genesis Patrick","Lorenzo Giuntini"};
 
@@ -126,7 +126,7 @@ public class Sort_Filter_Deletable_Test {
 
     @Test
     public void getAllPersonFilteredByThree() throws NotExistingDepartmentException, NotExistingJobFunctionException,NotExistingTeamException, SortTypeException {
-        String[] actuals =arrayToList(company.getPersonFilteredAndSorted("General Management","Team Leader","Team1",null));
+        String[] actuals =arrayToList(company.getPersonFilteredAndSorted("General Management","Team Leader","Team1",null, null));
 
         String[]expected={"Lorenzo Giuntini"};
 
@@ -138,17 +138,17 @@ public class Sort_Filter_Deletable_Test {
 
     @Test (expected = NotExistingDepartmentException.class)
     public void getAllPersonFilteredByDepartmentException() throws NotExistingDepartmentException, NotExistingJobFunctionException,NotExistingTeamException, SortTypeException {
-        company.getPersonFilteredAndSorted("falsch",null,null,null);
+        company.getPersonFilteredAndSorted("falsch",null,null,null, null);
     }
 
     @Test (expected = NotExistingJobFunctionException.class)
     public void getAllPersonFilteredByJobFunctionException() throws NotExistingDepartmentException, NotExistingJobFunctionException,NotExistingTeamException, SortTypeException {
-        company.getPersonFilteredAndSorted(null,"falsch",null,null);
+        company.getPersonFilteredAndSorted(null,"falsch",null,null, null);
     }
 
     @Test (expected = NotExistingTeamException.class)
     public void getAllPersonFilteredByTeamException() throws NotExistingDepartmentException, NotExistingJobFunctionException,NotExistingTeamException, SortTypeException {
-        company.getPersonFilteredAndSorted(null,null,"falsch",null);
+        company.getPersonFilteredAndSorted(null,null,"falsch",null, null);
     }
 
 

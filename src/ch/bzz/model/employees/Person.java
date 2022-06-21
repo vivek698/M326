@@ -100,10 +100,14 @@ public class Person  implements Comparable{
     /**
      * sets image Name
      *
-     * @return  set Image Name
+     * @return set Image Name
      */
     public void setImgName(String imgName) {
         this.imgName=imgName;
+    }
+
+    public ImageIcon getImage() {
+        return new ImageIcon(Objects.requireNonNull(this.getClass().getResource(getImgPath())));
     }
 
     /**
