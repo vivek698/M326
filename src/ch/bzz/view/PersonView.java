@@ -1,11 +1,8 @@
 package ch.bzz.view;
 
-import javax.print.attribute.HashPrintJobAttributeSet;
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+
 import java.awt.*;
-import ch.bzz.facade.ViewComponent;
 
 
 import static java.awt.BorderLayout.*;
