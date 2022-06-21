@@ -5,10 +5,15 @@ import javax.swing.*;
 public class MainView extends JFrame {
     private JTabbedPane tabbedPane = new JTabbedPane();
 
+
     public MainView(){
         setTitle("MainGUI");
 
+        tabbedPane.add("Zuordnen", new ZuordenenView());
+        tabbedPane.add("Personen", new PersonView());
         tabbedPane.addTab("Stammdaten", new Stammdaten());
+        tabbedPane.addTab("Logbuch", new LogBookView());
+
 
         add(tabbedPane);
 

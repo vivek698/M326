@@ -4,20 +4,22 @@ import ch.bzz.dataHandler.DataHandler;
 import ch.bzz.model.company.Company;
 import ch.bzz.model.company.Department;
 import ch.bzz.model.employees.Person;
+import ch.bzz.view.LogBookView;
 import ch.bzz.view.TestListModel;
+import ch.bzz.view.PersonView;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ViewComponent {
     private List<TestListModel> models = new ArrayList<>();
     private static ViewComponent instance = null;
     private Company companyInstance;
-    private ViewComponent(){
+    private LogBookView logBookView = null;
+    public ViewComponent(){
         companyInstance = DataHandler.getInstance().getCompany();
     }
+
 
     public static ViewComponent getInstance(){
         if(instance == null){
@@ -44,8 +46,23 @@ public class ViewComponent {
         changer();
     }
 
-    public void addPerson(String departmentName, String fullname){
-        //companyInstance.getDepartment(companyInstance.getDepartmentbyName(departmentName)).addMember();
+    public void addPerson(String departmentName, Person person){
+        companyInstance.getDepartmentbyName(departmentName).addMember(person);
+        DataHandler.getInstance().setCompany(companyInstance);
+        changer();
+    }
+
+    public void correctParson(String firstName, String lastName, String newFirstName, String newLastName, String departmentName){
+        Person person = companyInstance.getPerson(companyInstance.getDepartmentIndexByPerson(firstName, lastName),companyInstance.getPersonIndexByName(firstName, lastName));
+
+        companyInstance.getDepartment(companyInstance.getDepartmentIndexByPerson(firstName, lastName)).removeMember(companyInstance.getPersonIndexByName(firstName, lastName));
+        companyInstance.getDepartmentbyName(departmentName).addMember(person);
+
+        person.setFirstName(newFirstName);
+        person.setLastName(newLastName);
+
+        DataHandler.getInstance().setCompany(companyInstance);
+        changer();
     }
 
     public void correctDepartment(String name, int index){
@@ -73,8 +90,13 @@ public class ViewComponent {
         changer();
     }
 
-    public void deleteTeam(int index){
+    public void  deleteTeam(int index){
         companyInstance.removeTeam(index);
+        changer();
+    }
+
+    public void deletePerson(String firstname, String lastName){
+        companyInstance.getDepartment(companyInstance.getDepartmentIndexByPerson(firstname, lastName)).removeMember(companyInstance.getPersonIndexByName(firstname, lastName));
         changer();
     }
 
@@ -85,7 +107,6 @@ public class ViewComponent {
     public void removeModel(TestListModel tml){
         models.remove(tml);
     }
-
 
     public void changer(){
         for (TestListModel tml: models){
@@ -106,19 +127,17 @@ public class ViewComponent {
         return companyInstance.getTeams().getListOfTeams();
     }
 
-    /**
-     * get Image as ImageIcon
-     *
-     * @return image
-     */
-    private ImageIcon getImage(Person person){
-        ImageIcon houseIcon = new ImageIcon(
-                Objects.requireNonNull(
-                        this.getClass()
-                                .getResource(person.getImgPath())));
-
-        return new ImageIcon(String.valueOf(houseIcon));
+    public List<Person> getAllPersonOfCompany(){
+        return companyInstance.getAllPerson();
     }
+
+    public void setLogBookView(LogBookView logBookView){
+        this.logBookView = logBookView;
+
+    }
+
+
+
 
 
 }

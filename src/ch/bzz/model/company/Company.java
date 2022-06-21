@@ -94,16 +94,38 @@ public class Company {
         departments.remove(index);
     }
 
-    //TODO comment and Exception
-    public int getDepartmentbyName(String name){
-        int ret = 0;
+    public Department getDepartmentbyName(String name){
+        int ret = -1;
         for (int i = 0; i<departments.size(); i++) {
             if(departments.get(i).getName()==name){
                 ret = i;
             }
         }
-        return ret;
+        return departments.get(ret);
     }
+
+    public int getPersonIndexByName(String firstName, String lastName){
+        for (int j = 0; j<departments.size(); j++) {
+            for (int i = 0; i < getDepartment(j).getNumberOfMembers(); i++) {
+                if ((firstName+" "+lastName).equals(departments.get(j).getMember(i).getFullName())){
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
+    public int getDepartmentIndexByPerson(String firstName, String lastName){
+        for (int j = 0; j<departments.size(); j++) {
+            for (int i = 0; i < getDepartment(j).getNumberOfMembers(); i++) {
+                if ((firstName+" "+lastName).equals(departments.get(j).getMember(i).getFullName())){
+                    return j;
+                }
+            }
+        }
+        return -1;
+    }
+
 
     /**
      * gets a Department by name
@@ -301,6 +323,10 @@ public class Company {
             allPerson.addAll(departments.get(i).getListOfPersons());
         }
         return allPerson;
+    }
+
+    public Person getPerson(int index1, int index2){
+        return departments.get(index1).getMember(index2);
     }
 
     //TODO Test

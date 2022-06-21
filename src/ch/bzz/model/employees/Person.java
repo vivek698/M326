@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.util.Objects;
 
 /**
- * The Model-Class Person is storing data.
+ * The Model-Class PersonView is storing data.
  *
  * @author Vivek Viruthiyel
  * @version 1.0
