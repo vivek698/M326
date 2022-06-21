@@ -21,6 +21,8 @@ public class MainView extends JFrame {
         setSize(700,700);
 
         setVisible(true);
+
+
     }
 
     public static void main(String[] args) {

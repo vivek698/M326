@@ -1,16 +1,14 @@
 package ch.bzz.view;
 
+import ch.bzz.facade.ViewComponent;
+
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-import ch.bzz.facade.ViewComponent;
-
-
 import static java.awt.BorderLayout.*;
 
-public class PersonView extends JPanel {
-
+public class PersonComponent extends JPanel{
     private JLabel pltzh1 = new JLabel(" ");
     private JLabel pltzh2 = new JLabel(" ");
 
@@ -36,22 +34,10 @@ public class PersonView extends JPanel {
     private JTextField nameField = new JTextField();
     private JTextField abteilungField = new JTextField();
 
-    private JSeparator separator = new JSeparator();
-    private JPanel inDetailPanel2 = new JPanel(new BorderLayout(10,10));
+    //private JPanel extentionPanel = new JPanel();
 
-    private JCheckBox hrPerson  = new JCheckBox("HR-Person");
-    private JCheckBox admin = new JCheckBox("Admin");
-    private JPanel checkboxPanel = new JPanel(new GridLayout(2,1,5,5));
-    private JPanel inCheckBoxPanel = new JPanel(new BorderLayout());
-
-
-    public PersonView(){
+    public PersonComponent(JPanel extentionPanel){
         setLayout(new BorderLayout());
-
-        checkboxPanel.add(hrPerson);
-        checkboxPanel.add(admin);
-        inCheckBoxPanel.add(checkboxPanel, NORTH);
-
         personPanel.setBorder(BorderFactory.createTitledBorder("Personen"));
 
         uebersicht.setBackground(Color.GRAY);
@@ -83,10 +69,8 @@ public class PersonView extends JPanel {
         inDeatilPabel.add(abteilungPanel);
         inDeatilPabel.add(abteilungField);
 
-        inDetailPanel2.add(inDeatilPabel, NORTH);
-        inDetailPanel2.add(separator,CENTER);
-        inDetailPanel2.add(inCheckBoxPanel, SOUTH);
-        detailPanel.add(inDetailPanel2, NORTH);
+        detailPanel.add(inDeatilPabel, NORTH);
+        detailPanel.add(extentionPanel, CENTER);
         detailPanel.setBorder(BorderFactory.createTitledBorder("Detail:"));
 
 
@@ -103,18 +87,15 @@ public class PersonView extends JPanel {
                 setFieldText();
             }
         });
-
-
     }
 
     public void setFieldText(){
         nameField.setText(listMaker.getSelectedFullName());
 
-
-        for (int i = 0; i<ViewComponent.getInstance().getDepartmentList().size(); i++) {
+        for (int i = 0; i< ViewComponent.getInstance().getDepartmentList().size(); i++) {
             for (int j = 0; j<ViewComponent.getInstance().getDepartmentList().get(i).getNumberOfMembers(); j++)
                 if(ViewComponent.getInstance().getDepartmentList().get(i).getMember(j).getFullName().equals(listMaker.getSelectedFullName()))
-                abteilungField.setText(ViewComponent.getInstance().getDepartmentList().get(i).getName());
+                    abteilungField.setText(ViewComponent.getInstance().getDepartmentList().get(i).getName());
         }
         ViewComponent.getInstance().changer();
     }

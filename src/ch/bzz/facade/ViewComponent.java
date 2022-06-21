@@ -133,8 +133,8 @@ public class ViewComponent {
 
     public void setLogBookView(LogBookView logBookView){
         this.logBookView = logBookView;
-
     }
+
 
 
 
