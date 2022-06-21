@@ -52,14 +52,18 @@ public class ViewComponent {
         changer();
     }
 
-    public void correctParson(String firstName, String lastName, String newFirstName, String newLastName, String departmentName) throws NotExistingDepartmentException {
+    public void correctParson(String firstName, String lastName, String newFirstName, String newLastName, String departmentName, String path) throws NotExistingDepartmentException {
         Person person = companyInstance.getPerson(companyInstance.getDepartmentIndexByPerson(firstName, lastName),companyInstance.getPersonIndexByName(firstName, lastName));
 
         companyInstance.getDepartment(companyInstance.getDepartmentIndexByPerson(firstName, lastName)).removeMember(companyInstance.getPersonIndexByName(firstName, lastName));
         companyInstance.getDepartmentByName(departmentName).addMember(person);
 
+
         person.setFirstName(newFirstName);
         person.setLastName(newLastName);
+        person.setImage(path);
+
+
 
         DataHandler.getInstance().setCompany(companyInstance);
         changer();
@@ -82,13 +86,13 @@ public class ViewComponent {
 
     //TODO
     public void correctJobFunctionForZuordnung( int index, String name){
-        companyInstance.setJobFunction(name, index);
+        companyInstance.setJobFunction(index, name);
         changer();
     }
 
     //TODO
     public void correctTeamForZuordnung( int index, String name){
-        companyInstance.setJobFunction(name, index);
+        companyInstance.setJobFunction(index, name);
         changer();
     }
 
@@ -158,6 +162,8 @@ public class ViewComponent {
     public void setLogBookView(LogBookView logBookView){
         this.logBookView = logBookView;
     }
+
+
 
 
 

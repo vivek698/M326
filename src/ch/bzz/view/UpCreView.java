@@ -1,5 +1,6 @@
 package ch.bzz.view;
 
+import ch.bzz.dataHandler.DataHandler;
 import ch.bzz.exception.NotExistingDepartmentException;
 import ch.bzz.facade.*;
 import ch.bzz.model.company.Department;
@@ -10,12 +11,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static java.awt.BorderLayout.*;
 
 public class UpCreView extends JDialog{
     private List<Department> departmentNameList = new ArrayList<>(ViewComponent.getInstance().getDepartmentList());
+    private JDialog pictureDialog = new JDialog();
 
     private JPanel panel = new JPanel();
     private JLabel label = new JLabel("Bezeichnung:  ");
@@ -28,13 +31,20 @@ public class UpCreView extends JDialog{
     private JComboBox<String> comboBox = new JComboBox<>();
     private JPanel labelComboPanel1 = new JPanel(new BorderLayout());
     private JPanel labelComboPanel2 = new JPanel(new BorderLayout());
-    private JPanel extraPanel = new JPanel(new GridLayout(2,1,5,10));
+    private JPanel extraPanel = new JPanel(new GridLayout(3,1,5,10));
+
+    private JPanel picturePanel = new JPanel(new BorderLayout());
+    private JLabel pictureLabel = new JLabel();
+    private JButton picturButton = new JButton("/");
+    private JPanel pictureButtenPanel = new JPanel(new BorderLayout());
 
 
     private JPanel buttonPanel1 = new JPanel();
     private JPanel buttonPanel2 = new JPanel();
     private JPanel labelTextPanel1 = new JPanel();
     private JPanel labelTextPanel2= new JPanel();
+
+    private String path = "";
 
     public UpCreView(String what, String modus, ListMaker owner){
         for (int i = 0; i<departmentNameList.size(); i++){
@@ -70,16 +80,22 @@ public class UpCreView extends JDialog{
 
         if(what == "PersonView") {
 
+            picturMaker();
+
 
             labelComboPanel1.add(comboLabel, WEST);
             labelComboPanel1.add(comboBox, CENTER);
             labelComboPanel2.add(labelComboPanel1, NORTH);
 
-            extraPanel.add(labelComboPanel2);
             extraPanel.add(labelTextPanel2);
+            extraPanel.add(picturMaker());
+            extraPanel.add(labelComboPanel2);
+
 
             panel.add(extraPanel, CENTER);
             setSize(300,150);
+
+
         }
 
 
@@ -134,7 +150,7 @@ public class UpCreView extends JDialog{
                             break;
                         case "PersonView":
                             try {
-                                ViewComponent.getInstance().correctParson(owner.getFirstName(), owner.getLastName(), getNewFirstName(),getNewLastName(),(String) comboBox.getSelectedItem());
+                                ViewComponent.getInstance().correctParson(owner.getFirstName(), owner.getLastName(), getNewFirstName(),getNewLastName(),(String) comboBox.getSelectedItem(), path);
                             } catch (NotExistingDepartmentException ex) {
                                 ex.printStackTrace();
                             }
@@ -143,6 +159,17 @@ public class UpCreView extends JDialog{
             }
             dispose();
         }
+        });
+
+        picturButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser("data/img/"  );
+                fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+                if (fileChooser.showOpenDialog(pictureDialog) == JFileChooser.APPROVE_OPTION){
+                    path = fileChooser.getSelectedFile().getPath();
+                }
+            }
         });
     }
 
@@ -155,5 +182,15 @@ public class UpCreView extends JDialog{
         String name = textField.getText().split(" ")[0];
         return name;
     }
+
+    public JPanel picturMaker(){
+         picturePanel.add(pictureLabel, CENTER);
+         pictureButtenPanel.add(picturButton, SOUTH);
+         picturePanel.add(pictureButtenPanel, EAST);
+         return picturePanel;
+    }
+
+
+
 
 }

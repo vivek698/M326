@@ -21,6 +21,7 @@ public class PersonView extends JPanel {
     private JPanel inCheckBoxPanel = new JPanel(new BorderLayout());
 
 
+
     public PersonView(){
         personComponent = new PersonComponent(inDetailPanel2);
         setLayout(new BorderLayout());
@@ -36,4 +37,6 @@ public class PersonView extends JPanel {
         setVisible(true);
 
     }
+
+
 }
