@@ -91,7 +91,7 @@ public class ZuordenenView extends JPanel {
         nameField.setText(listMaker.getSelectedFullName());
 
         for (int i = 0; i< ViewComponent.getInstance().getDepartmentList().size(); i++) {
-            for (int j = 0; j<ViewComponent.getInstance().getDepartmentList().get(i).getSize(); j++)
+            for (int j = 0; j<ViewComponent.getInstance().getDepartmentList().get(i).getNumberOfMembers(); j++)
                 if(ViewComponent.getInstance().getDepartmentList().get(i).getMember(j).getFullName().equals(listMaker.getSelectedFullName()))
                     abteilungField.setText(ViewComponent.getInstance().getDepartmentList().get(i).getName());
         }

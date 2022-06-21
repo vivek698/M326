@@ -106,7 +106,7 @@ public class Company {
 
     public int getPersonIndexByName(String firstName, String lastName){
         for (int j = 0; j<departments.size(); j++) {
-            for (int i = 0; i < getDepartment(j).getSize(); i++) {
+            for (int i = 0; i < getDepartment(j).getNumberOfMembers(); i++) {
                 if ((firstName+" "+lastName).equals(departments.get(j).getMember(i).getFullName())){
                     return i;
                 }
@@ -117,7 +117,7 @@ public class Company {
 
     public int getDepartmentIndexByPerson(String firstName, String lastName){
         for (int j = 0; j<departments.size(); j++) {
-            for (int i = 0; i < getDepartment(j).getSize(); i++) {
+            for (int i = 0; i < getDepartment(j).getNumberOfMembers(); i++) {
                 if ((firstName+" "+lastName).equals(departments.get(j).getMember(i).getFullName())){
                     return j;
                 }
