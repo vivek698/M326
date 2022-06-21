@@ -24,13 +24,14 @@ public class Write_JSON_Test_Data {
     public static void setCompanyDepartments(Company company){
         Department department1=new Department("General Management");
         Department department2=new Department("IT");
-
+        Department department3=new Department("Finance");
 
         setDepartment1Person(department1);
         setDepartment2Person(department2);
 
         company.addDepartment(department1);
         company.addDepartment(department2);
+        company.addDepartment(department3);
     }
 
     public static void setDepartment1Person(Department department){
@@ -39,7 +40,7 @@ public class Write_JSON_Test_Data {
 
         setD1Person1Participation(person1);
         setD1Person2Participation(person2);
-        person1.setPwd("passwort1");
+        person1.setPassword("passwort1");
 
         department.addMember(person1);
         department.addMember(person2);
@@ -81,7 +82,7 @@ public class Write_JSON_Test_Data {
         participation.addFunction("Team Leader");
         participation.addFunction("Front-End developer");
 
-        participation.addTeams("Team1");
+        participation.addTeams("Team2");
 
         person.setParticipation(participation);
     }
@@ -101,6 +102,8 @@ public class Write_JSON_Test_Data {
         company.addTeams("Team2");
         company.addTeams("Team3");
         company.addTeams("Team4");
+        company.addTeams("Team5");
+
     }
 
     public static void setCompanyJobFunction(Company company){
@@ -109,5 +112,6 @@ public class Write_JSON_Test_Data {
         company.addJobFunction("Controller");
         company.addJobFunction("Front-End developer");
         company.addJobFunction("Back-End developer");
+        company.addJobFunction("Fullstack developer");
     }
 }

@@ -51,7 +51,7 @@ public class DataHandler {
     /**
      * sets company and writes the JSON-FIle new
      *
-     * @param company
+     * @param company the value to set
      */
     public void setCompany(Company company) {
         this.company = company;
@@ -64,7 +64,7 @@ public class DataHandler {
     private void readCompanyJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
-                    Paths.get("Company.json")
+                    Paths.get("data/Company.json")
             );
             ObjectMapper objectMapper = new ObjectMapper();
             company = objectMapper.readValue(jsonData,Company.class);
@@ -82,7 +82,7 @@ public class DataHandler {
         FileOutputStream fileOutputStream;
         Writer fileWriter;
 
-        String companyPath = "Company.json";
+        String companyPath = "data/Company.json";
         try {
             fileOutputStream = new FileOutputStream(companyPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
@@ -91,5 +91,4 @@ public class DataHandler {
             ex.printStackTrace();
         }
     }
-
 }

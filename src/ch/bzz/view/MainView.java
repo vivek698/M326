@@ -9,6 +9,7 @@ public class MainView extends JFrame {
     public MainView(){
         setTitle("MainGUI");
 
+        tabbedPane.add("Übersicht", new UebersichtView());
         tabbedPane.add("Zuordnen", new ZuordenenView());
         tabbedPane.add("Personen", new PersonView());
         tabbedPane.addTab("Stammdaten", new Stammdaten());
@@ -21,6 +22,8 @@ public class MainView extends JFrame {
         setSize(700,700);
 
         setVisible(true);
+
+
     }
 
     public static void main(String[] args) {
