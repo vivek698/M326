@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
+import javax.swing.*;
+import java.util.Objects;
+
 /**
  * The Model-Class PersonView is storing data.
  *
@@ -19,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 public class Person  implements Comparable{
     private String firstName;
     private String lastName;
+    private String imgName;
     private Participation participation;
 
     /**
@@ -70,13 +74,49 @@ public class Person  implements Comparable{
     }
 
     /**
+     * gets the fullname
+     *
+     * @return prename name
+     */
+    @JsonIgnore
+    public String getFullName() {
+        return firstName+" "+lastName;
+    }
+
+    /**
      * gets image Path
+     * if null, then there is no img
      *
      * @return path of Image
      */
-    @JsonIgnore
     public String getImgPath() {
-        return "data/img/"+getFullName()+".jpg";
+        if(imgName!=null && !imgName.equals("")){
+            return "data/img/"+imgName;
+        }else{
+            return null;
+        }
+    }
+
+    /**
+     * sets image Name
+     *
+     * @return set Image Name
+     */
+    public void setImgName(String imgName) {
+        this.imgName=imgName;
+    }
+
+    /**
+     * gets image
+     *
+     * @return Image
+     */
+    public ImageIcon getImage() {
+        if (getImgPath()!=null){
+            return new ImageIcon(Objects.requireNonNull(this.getClass().getResource(getImgPath())));
+        }else {
+            return null;
+        }
     }
 
     /**
@@ -95,16 +135,6 @@ public class Person  implements Comparable{
      */
     public void setParticipation(Participation participation) {
         this.participation = participation;
-    }
-
-    /**
-     * gets the fullname
-     *
-     * @return prename name
-     */
-    @JsonIgnore
-    public String getFullName() {
-        return firstName+" "+lastName;
     }
 
     /**
