@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 public class Person  implements Comparable{
     private String firstName;
     private String lastName;
+    private String imgName;
     private Participation participation;
 
     /**
@@ -71,12 +72,25 @@ public class Person  implements Comparable{
 
     /**
      * gets image Path
+     * if null, then there is no img
      *
      * @return path of Image
      */
-    @JsonIgnore
     public String getImgPath() {
-        return "data/img/"+getFullName()+".jpg";
+        if(imgName!=null && !imgName.equals("")){
+            return "data/img/"+imgName;
+        }else{
+            return null;
+        }
+    }
+
+    /**
+     * sets image Name
+     *
+     * @return  set Image Name
+     */
+    public String setImgName(String imgName) {
+        return imgName;
     }
 
     /**
