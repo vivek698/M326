@@ -1,35 +1,12 @@
 {
   "companyName" : "NukufelGMBH",
   "jobFunctions" : {
-    "listOfJobFunctions" : [ "Team Leader", "Executive", "Controller", "Front-End developer", "Back-End developer", "Fullstack developer" ]
+    "listOfJobFunctions" : [ ]
   },
   "teams" : {
     "listOfTeams" : [ "Team1", "Team2", "Team3", "Team4", "Team5" ]
   },
   "listOfDepartment" : [ {
-    "name" : "General Management",
-    "listOfPersons" : [ {
-      "type" : "HRPerson",
-      "firstName" : "Lorenzo",
-      "lastName" : "Giuntini",
-      "mode" : 1,
-      "imgPath" : null,
-      "participation" : {
-        "listOfTeams" : [ "Team1" ],
-        "listOfJobFunctions" : [ "Team Leader" ]
-      },
-      "password" : "passwort1"
-    }, {
-      "type" : "Person",
-      "firstName" : "Max",
-      "lastName" : "Mustermann",
-      "imgPath" : null,
-      "participation" : {
-        "listOfTeams" : [ "Team3", "Team4" ],
-        "listOfJobFunctions" : [ "Executive", "Controller" ]
-      }
-    } ]
-  }, {
     "name" : "IT",
     "listOfPersons" : [ {
       "type" : "Person",
@@ -37,8 +14,8 @@
       "lastName" : "Hinton",
       "imgPath" : null,
       "participation" : {
-        "listOfTeams" : [ "Team2" ],
-        "listOfJobFunctions" : [ "Team Leader", "Front-End developer" ]
+        "listOfJobFunctions" : [ "Team Leader", "Front-End developer" ],
+        "listOfTeams" : [ "Team2" ]
       }
     }, {
       "type" : "Person",
@@ -46,12 +23,12 @@
       "lastName" : "Patrick",
       "imgPath" : null,
       "participation" : {
-        "listOfTeams" : [ "Team1", "Team4" ],
-        "listOfJobFunctions" : [ "Back-End developer" ]
+        "listOfJobFunctions" : [ "Back-End developer" ],
+        "listOfTeams" : [ "Team1", "Team4" ]
       }
     } ]
   }, {
-    "name" : "Finance",
+    "name" : "Abarcus",
     "listOfPersons" : [ ]
   } ]
 }

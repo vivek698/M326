@@ -19,13 +19,13 @@ public class MainView extends JFrame {
 
 
         add(tabbedPane);
-
+/*
         tabbedPane.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
                 new Login();
             }
-        });
+        });*/
 
         pack();
         setSize(700,700);
