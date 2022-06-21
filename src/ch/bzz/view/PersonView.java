@@ -26,6 +26,10 @@ public class PersonView extends JPanel {
         personComponent = new PersonComponent(inDetailPanel2, 1);
         setLayout(new BorderLayout());
 
+        //TODO Checkboxes
+        personComponent.listMaker.getSelectedFullName();
+
+
         checkboxPanel.add(hrPerson);
         checkboxPanel.add(admin);
         inCheckBoxPanel.add(checkboxPanel, NORTH);
