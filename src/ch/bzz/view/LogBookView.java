@@ -1,8 +1,6 @@
 package ch.bzz.view;
 
 import ch.bzz.model.log.LogBook;
-import ch.bzz.facade.ViewComponent;
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;

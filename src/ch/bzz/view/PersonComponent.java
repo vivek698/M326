@@ -34,8 +34,6 @@ public class PersonComponent extends JPanel{
     private JTextField nameField = new JTextField();
     private JTextField abteilungField = new JTextField();
 
-    //private JPanel extentionPanel = new JPanel();
-
     public PersonComponent(JPanel extentionPanel){
         setLayout(new BorderLayout());
         personPanel.setBorder(BorderFactory.createTitledBorder("Personen"));
