@@ -19,14 +19,11 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 public class Person  implements Comparable{
     private String firstName;
     private String lastName;
-
-    //TODO decide
-    private String photoPath;
-
     private Participation participation;
 
     /**
      * Creates Person
+     *
      * @param firstName value of firstname
      * @param lastName value of lastname
      */
@@ -48,7 +45,7 @@ public class Person  implements Comparable{
     /**
      * sets first Name
      *
-     * @param firstName
+     * @param firstName value of firstname
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -66,16 +63,26 @@ public class Person  implements Comparable{
     /**
      * sets last Name
      *
-     * @param lastName
+     * @param lastName value of last name
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
     /**
+     * gets image Path
+     *
+     * @return path of Image
+     */
+    @JsonIgnore
+    public String getImgPath() {
+        return "data/img/"+getFullName()+".jpg";
+    }
+
+    /**
      * gets Participation
      *
-     * @return Paricipation
+     * @return Participation
      */
     public Participation getParticipation() {
         return participation;
@@ -84,7 +91,7 @@ public class Person  implements Comparable{
     /**
      * sets Participation
      *
-     * @param participation
+     * @param participation value of Participation
      */
     public void setParticipation(Participation participation) {
         this.participation = participation;

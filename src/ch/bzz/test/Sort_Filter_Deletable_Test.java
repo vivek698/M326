@@ -46,6 +46,15 @@ public class Sort_Filter_Deletable_Test {
     }
 
     @Test
+    public void getPersonSearch(){
+        String[] actuals =arrayToList(company.getPersonSearch("Max"));
+
+        String[]expected={"Max Mustermann"};
+
+        assertArrayEquals(expected,actuals);
+    }
+
+    @Test
     public void getAllPersonSortASC() throws NotExistingDepartmentException, NotExistingJobFunctionException,NotExistingTeamException, SortTypeException {
         String[] actuals =arrayToList(company.getPersonFilteredAndSorted(null,null,null,"asc"));
 
