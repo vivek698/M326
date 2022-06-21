@@ -65,6 +65,7 @@ public class ViewComponent {
 
 
 
+
         DataHandler.getInstance().setCompany(companyInstance);
         changer();
     }
@@ -159,9 +160,11 @@ public class ViewComponent {
         return companyInstance.getAllPerson();
     }
 
-    public void setLogBookView(LogBookView logBookView){
-        this.logBookView = logBookView;
+    public String getPicture(int index1, int index2){
+        return companyInstance.getPerson(index1,index2).getImgPath();
     }
+
+
 
 
 

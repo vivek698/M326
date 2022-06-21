@@ -21,9 +21,9 @@ public class Stammdaten extends JPanel {
     private JLabel funktionen = new JLabel("Funktionen:");
     private JLabel teams = new JLabel("Teams:");
 
-    private ListMaker listAbteilungen = new ListMaker("Department");
-    private ListMaker listFunctions = new ListMaker("JobFunction");
-    private ListMaker listTeams = new ListMaker("Team");
+    private ListMaker listAbteilungen = new ListMaker("Department", 1);
+    private ListMaker listFunctions = new ListMaker("JobFunction", 1);
+    private ListMaker listTeams = new ListMaker("Team", 1);
 
     private JPanel panelName = new JPanel(new FlowLayout(FlowLayout.LEFT));
     private JPanel panel = new JPanel(new GridLayout(3,2,2,10));

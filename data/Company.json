@@ -1,59 +1,55 @@
 {
   "companyName" : "NukufelGMBH",
   "jobFunctions" : {
-    "listOfJobFunctions" : [ "Team Leader", "Executive", "Controller", "Front-End developer", "Back-End developer", "Fullstack developer" ]
+    "listOfJobFunctions" : [ "Team Leader", "Executive", "Controller", "Front-End developer", "Back-End developer" ]
   },
   "teams" : {
-    "listOfTeams" : [ "Team1", "Team2", "Team3", "Team4", "Team5" ]
+    "listOfTeams" : [ "Team1", "Team2", "Team3", "Team4" ]
   },
   "listOfDepartment" : [ {
     "name" : "General Management",
     "listOfPersons" : [ {
-      "type" : "HRPerson",
-      "firstName" : "Lorenzo",
-      "lastName" : "Giuntini",
-      "mode" : 1,
-      "participation" : {
-        "listOfJobFunctions" : [ "Team Leader" ],
-        "listOfTeams" : [ "Team1" ]
-      },
-      "password" : "passwort1",
-      "image" : null,
-      "imgPath" : null
-    }, {
       "type" : "Person",
       "firstName" : "Max",
       "lastName" : "Mustermann",
+      "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ "Executive", "Controller" ],
-        "listOfTeams" : [ "Team3", "Team4" ]
-      },
-      "image" : null,
-      "imgPath" : null
-    } ]
-  }, {
-    "name" : "IT",
-    "listOfPersons" : [ {
-      "type" : "Person",
-      "firstName" : "Mikaela",
-      "lastName" : "Hinton",
-      "participation" : {
-        "listOfJobFunctions" : [ "Team Leader", "Front-End developer" ],
-        "listOfTeams" : [ "Team2" ]
-      },
-      "image" : null,
-      "imgPath" : null
+        "listOfTeams" : [ "Team3", "Team4" ],
+        "listOfJobFunctions" : [ "Executive", "Controller" ]
+      }
     }, {
       "type" : "Person",
       "firstName" : "Genesis",
       "lastName" : "Patrick",
+      "imgPath" : "C:\\Users\\nikla\\OneDrive\\Documents\\Schule\\Informatik\\Module\\M326\\Aufgabe4\\data\\img\\Genesis_Patrick.jpg",
       "participation" : {
-        "listOfJobFunctions" : [ "Back-End developer" ],
-        "listOfTeams" : [ "Team1", "Team4" ]
+        "listOfTeams" : [ "Team1", "Team4" ],
+        "listOfJobFunctions" : [ "Back-End developer" ]
+      }
+    }, {
+      "type" : "Person",
+      "firstName" : "sfsdafsad",
+      "lastName" : "sf",
+      "imgPath" : "C:\\Users\\nikla\\OneDrive\\Documents\\Schule\\Informatik\\Module\\M326\\Aufgabe4\\data\\img\\Lorenzo_Giuntini.jpg",
+      "participation" : {
+        "listOfTeams" : [ "Team2" ],
+        "listOfJobFunctions" : [ "Team Leader", "Front-End developer" ]
+      }
+    }, {
+      "type" : "HRPerson",
+      "firstName" : "xsdf",
+      "lastName" : "sdfs",
+      "mode" : 1,
+      "imgPath" : "C:\\Users\\nikla\\OneDrive\\Documents\\Schule\\Informatik\\Module\\M326\\Aufgabe4\\data\\img\\Lorenzo_Giuntini.jpg",
+      "participation" : {
+        "listOfTeams" : [ "Team1" ],
+        "listOfJobFunctions" : [ "Team Leader" ]
       },
-      "image" : null,
-      "imgPath" : null
+      "password" : "passwort1"
     } ]
+  }, {
+    "name" : "IT",
+    "listOfPersons" : [ ]
   }, {
     "name" : "Finance",
     "listOfPersons" : [ ]

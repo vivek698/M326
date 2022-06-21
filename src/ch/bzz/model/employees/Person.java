@@ -90,7 +90,6 @@ public class Person  implements Comparable{
      *
      * @return path of Image
      */
-    @JsonIgnore
     public String getImgPath() {
         return imgPath;
     }
@@ -100,19 +99,6 @@ public class Person  implements Comparable{
         this.imgPath = path;
     }
 
-    /**
-     * gets image
-     *
-     * @return Image
-     */
-    @JsonIgnore
-    public ImageIcon getImage() {
-        if (getImgPath()!=null){
-            return new ImageIcon(Objects.requireNonNull(this.getClass().getResource(getImgPath())));
-        }else {
-            return null;
-        }
-    }
 
     /**
      * gets Participation

@@ -10,6 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,8 +37,9 @@ public class UpCreView extends JDialog{
 
     private JPanel picturePanel = new JPanel(new BorderLayout());
     private JLabel pictureLabel = new JLabel();
-    private JButton picturButton = new JButton("/");
+    private JButton picturButton = new JButton("Change picture");
     private JPanel pictureButtenPanel = new JPanel(new BorderLayout());
+    private JPanel picturePanel2 = new JPanel(new BorderLayout());
 
 
     private JPanel buttonPanel1 = new JPanel();
@@ -45,11 +48,13 @@ public class UpCreView extends JDialog{
     private JPanel labelTextPanel2= new JPanel();
 
     private String path = "";
+    private ListMaker owner;
 
     public UpCreView(String what, String modus, ListMaker owner){
         for (int i = 0; i<departmentNameList.size(); i++){
             comboBox.addItem(departmentNameList.get(i).getName());
         }
+        this.owner = owner;
 
 
         setTitle(what+" erfassen/bearbeiten");
@@ -79,10 +84,6 @@ public class UpCreView extends JDialog{
 
 
         if(what == "PersonView") {
-
-            picturMaker();
-
-
             labelComboPanel1.add(comboLabel, WEST);
             labelComboPanel1.add(comboBox, CENTER);
             labelComboPanel2.add(labelComboPanel1, NORTH);
@@ -91,9 +92,8 @@ public class UpCreView extends JDialog{
             extraPanel.add(picturMaker());
             extraPanel.add(labelComboPanel2);
 
-
             panel.add(extraPanel, CENTER);
-            setSize(300,150);
+            setSize(300,300);
 
 
         }
@@ -149,6 +149,11 @@ public class UpCreView extends JDialog{
                             ViewComponent.getInstance().correctTeam(owner.getIndex(), textField.getText());
                             break;
                         case "PersonView":
+                                if(ViewComponent.getInstance().getAllPersonOfCompany().get(owner.getIndex()).getImgPath()==null || !Files.exists(Paths.get(ViewComponent.getInstance().getAllPersonOfCompany().get(owner.getIndex()).getImgPath()))){
+                                    pictureLabel.setIcon(new ImageIcon("data/img/standart.png"));
+                                }else {
+                                    pictureLabel.setIcon(new ImageIcon(ViewComponent.getInstance().getAllPersonOfCompany().get(owner.getIndex()).getImgPath()));
+                                }
                             try {
                                 ViewComponent.getInstance().correctParson(owner.getFirstName(), owner.getLastName(), getNewFirstName(),getNewLastName(),(String) comboBox.getSelectedItem(), path);
                             } catch (NotExistingDepartmentException ex) {
@@ -168,6 +173,7 @@ public class UpCreView extends JDialog{
                 fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
                 if (fileChooser.showOpenDialog(pictureDialog) == JFileChooser.APPROVE_OPTION){
                     path = fileChooser.getSelectedFile().getPath();
+                    addPicture(path);
                 }
             }
         });
@@ -184,10 +190,15 @@ public class UpCreView extends JDialog{
     }
 
     public JPanel picturMaker(){
-         picturePanel.add(pictureLabel, CENTER);
+         picturePanel.add(pictureLabel, EAST);
+         picturePanel2.add(picturePanel, CENTER);
          pictureButtenPanel.add(picturButton, SOUTH);
-         picturePanel.add(pictureButtenPanel, EAST);
-         return picturePanel;
+         picturePanel2.add(pictureButtenPanel, EAST);
+         return picturePanel2;
+    }
+
+    public void addPicture(String path){
+            pictureLabel.setIcon(new ImageIcon(path));
     }
 
 

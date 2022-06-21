@@ -1,5 +1,6 @@
 package ch.bzz.view;
 
+import javax.print.attribute.HashPrintJobAttributeSet;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -13,6 +14,8 @@ public class PersonView extends JPanel {
     private PersonComponent personComponent;
 
     private JSeparator separator = new JSeparator();
+    private JLabel label = new JLabel(" ");
+    private JPanel seperatorPanel = new JPanel(new BorderLayout(10,10));
     private JPanel inDetailPanel2 = new JPanel(new BorderLayout(10,10));
 
     private JCheckBox hrPerson  = new JCheckBox("HR-Person");
@@ -23,15 +26,17 @@ public class PersonView extends JPanel {
 
 
     public PersonView(){
-        personComponent = new PersonComponent(inDetailPanel2);
+        personComponent = new PersonComponent(inDetailPanel2, 1);
         setLayout(new BorderLayout());
 
         checkboxPanel.add(hrPerson);
         checkboxPanel.add(admin);
         inCheckBoxPanel.add(checkboxPanel, NORTH);
 
-        inDetailPanel2.add(separator,CENTER);
-        inDetailPanel2.add(inCheckBoxPanel, SOUTH);
+        seperatorPanel.add(label, NORTH);
+        seperatorPanel.add(separator, CENTER);
+        inDetailPanel2.add(seperatorPanel,NORTH);
+        inDetailPanel2.add(inCheckBoxPanel, CENTER);
 
         add(personComponent, CENTER);
         setVisible(true);
