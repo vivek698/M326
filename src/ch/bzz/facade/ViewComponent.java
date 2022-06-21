@@ -52,6 +52,20 @@ public class ViewComponent {
         changer();
     }
 
+    //TODO
+    public void addJobFunctionForZuordnung(String name){
+        companyInstance.addJobFunction(name);
+        DataHandler.getInstance().setCompany(companyInstance);
+        changer();
+    }
+
+    //TODO
+    public void addTeamForZuordnung(String name){
+        companyInstance.addJobFunction(name);
+        DataHandler.getInstance().setCompany(companyInstance);
+        changer();
+    }
+
     public void correctParson(String firstName, String lastName, String newFirstName, String newLastName, String departmentName){
         Person person = companyInstance.getPerson(companyInstance.getDepartmentIndexByPerson(firstName, lastName),companyInstance.getPersonIndexByName(firstName, lastName));
 
@@ -80,6 +94,18 @@ public class ViewComponent {
         changer();
     }
 
+    //TODO
+    public void correctJobFunctionForZuordnung( int index, String name){
+        companyInstance.setJobFunction(name, index);
+        changer();
+    }
+
+    //TODO
+    public void correctTeamForZuordnung( int index, String name){
+        companyInstance.setJobFunction(name, index);
+        changer();
+    }
+
     public void deleteDepartment(int index){
         companyInstance.removeDepartment(index);
         changer();
@@ -97,6 +123,18 @@ public class ViewComponent {
 
     public void deletePerson(String firstname, String lastName){
         companyInstance.getDepartment(companyInstance.getDepartmentIndexByPerson(firstname, lastName)).removeMember(companyInstance.getPersonIndexByName(firstname, lastName));
+        changer();
+    }
+
+    //TODO
+    public void deleteJobFunctionForZuordnung(int index){
+        companyInstance.removeJobFunction(index);
+        changer();
+    }
+
+    //TODO
+    public void deleteTeamForZuordnung(int index){
+        companyInstance.removeJobFunction(index);
         changer();
     }
 

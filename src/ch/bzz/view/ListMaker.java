@@ -77,7 +77,12 @@ public class ListMaker extends JPanel{
                     case "PersonView":
                         ViewComponent.getInstance().deletePerson(getFirstName(), getLastName());
                         break;
-
+                    case "JobFunctionForZuordnung":
+                        ViewComponent.getInstance().deleteJobFunctionForZuordnung(getIndex());
+                        break;
+                    case "TeamForZuordnung":
+                        ViewComponent.getInstance().deleteTeamForZuordnung(getIndex());
+                        break;
                 }
             }
         });
