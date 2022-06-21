@@ -71,7 +71,7 @@ public class ViewComponent {
     }
 
     public void correctJobFunction( int index, String name){
-        companyInstance.setJobFunction(name, index);
+        companyInstance.setJobFunction(index,name);
         changer();
     }
 
@@ -116,7 +116,7 @@ public class ViewComponent {
     }
 
     public List<Department> getDepartmentList(){
-        return companyInstance.getListofDepartment();
+        return companyInstance.getListOfDepartment();
     }
 
     public List<String> getJobFunctionList(){

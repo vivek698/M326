@@ -1,0 +1,53 @@
+{
+  "companyName" : "NukufelGMBH",
+  "jobFunctions" : {
+    "listOfJobFunctions" : [ "Team Leader", "Executive", "Controller", "Front-End developer", "Back-End developer", "Fullstack developer" ]
+  },
+  "teams" : {
+    "listOfTeams" : [ "Team1", "Team2", "Team3", "Team4", "Team5" ]
+  },
+  "listOfDepartment" : [ {
+    "name" : "General Management",
+    "listOfPersons" : [ {
+      "type" : "HRPerson",
+      "firstName" : "Lorenzo",
+      "lastName" : "Giuntini",
+      "mode" : 1,
+      "participation" : {
+        "listOfJobFunctions" : [ "Team Leader" ],
+        "listOfTeams" : [ "Team1" ]
+      },
+      "password" : "passwort1"
+    }, {
+      "type" : "Person",
+      "firstName" : "Max",
+      "lastName" : "Mustermann",
+      "participation" : {
+        "listOfJobFunctions" : [ "Executive", "Controller" ],
+        "listOfTeams" : [ "Team3", "Team4" ]
+      }
+    } ]
+  }, {
+    "name" : "IT",
+    "listOfPersons" : [ {
+      "type" : "Person",
+      "firstName" : "Mikaela",
+      "lastName" : "Hinton",
+      "participation" : {
+        "listOfJobFunctions" : [ "Team Leader", "Front-End developer" ],
+        "listOfTeams" : [ "Team2" ]
+      }
+    }, {
+      "type" : "Person",
+      "firstName" : "Genesis",
+      "lastName" : "Patrick",
+      "participation" : {
+        "listOfJobFunctions" : [ "Back-End developer" ],
+        "listOfTeams" : [ "Team1", "Team4" ]
+      }
+    } ]
+  }, {
+    "name" : "Finance",
+    "listOfPersons" : [ ]
+  } ]
+}

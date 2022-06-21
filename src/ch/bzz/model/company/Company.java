@@ -1,6 +1,10 @@
 package ch.bzz.model.company;
 
 import ch.bzz.model.employees.Person;
+import ch.bzz.exception.NotExistingDepartmentException;
+import ch.bzz.exception.NotExistingJobFunctionException;
+import ch.bzz.exception.NotExistingTeamException;
+import ch.bzz.exception.SortTypeException;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -44,7 +48,7 @@ public class Company {
     /**
      * sets the Company Name
      *
-     * @param companyName
+     * @param companyName the value to set
      */
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
@@ -66,7 +70,7 @@ public class Company {
      * sets a department
      *
      * @param index of Department
-     * @param department replace Department
+     * @param department the value to set
      */
     public void setDepartment(int index,Department department) {
         departments.set(index,department);
@@ -94,7 +98,7 @@ public class Company {
         int ret = -1;
         for (int i = 0; i<departments.size(); i++) {
             if(departments.get(i).getName()==name){
-              ret = i;
+                ret = i;
             }
         }
         return departments.get(ret);
@@ -124,6 +128,22 @@ public class Company {
 
 
     /**
+     * gets a Department by name
+     * @param departmentName the searching department
+     * @return department
+     * @throws NotExistingDepartmentException Department with this department Name doesn't exist
+     */
+    public Department getDepartmentByName(String departmentName) throws NotExistingDepartmentException {
+        for (Department department:departments) {
+            if (department.getName().equals(departmentName)){
+                return department;
+            }
+        }
+        throw new NotExistingDepartmentException();
+    }
+
+
+    /**
      * get amount of department
      *
      * @return amount of department
@@ -138,16 +158,16 @@ public class Company {
      *
      * @return list of departments
      */
-    public List<Department> getListofDepartment(){
+    public List<Department> getListOfDepartment(){
         return departments;
     }
 
     /**
      * sets all departments
      *
-     * @param departments list of departments
+     * @param departments the value to set
      */
-    public void setListofDepartment(List<Department> departments){
+    public void setListOfDepartment(List<Department> departments){
         this.departments = departments;
     }
 
@@ -166,7 +186,7 @@ public class Company {
     /**
      * set teams
      *
-     * @param teams
+     * @param teams the value to set
      */
     public void setTeams(Teams teams){
         this.teams=teams;
@@ -186,7 +206,7 @@ public class Company {
      * sets a team
      *
      * @param index of team
-     * @param team
+     * @param team the value to set
      */
     public void setTeam(int index,String team) {
         teams.setDesignation(index,team);
@@ -235,9 +255,9 @@ public class Company {
     /**
      * sets JobFunction
      *
-     * @param jobFunctions
+     * @param jobFunctions the value to set
      */
-    public void setJobFunctions(JobFunctions jobFunctions){
+    public void setJobFunction(JobFunctions jobFunctions){
         this.jobFunctions=jobFunctions;
     }
 
@@ -245,12 +265,8 @@ public class Company {
      * get jobFunction designation
      *
      * @param index of the designation
-     * @return jobFunction desigantion
+     * @return jobFunction designation
      */
-    public void setJobFunction(String name, int index){
-        jobFunctions.setDesignation(name, index);
-    }
-
     public String getJobFunction(int index) {
         return jobFunctions.getDesignation(index);
     }
@@ -259,16 +275,16 @@ public class Company {
      * sets a jobFunction
      *
      * @param index of a jobFunction
-     * @param jobFunction
+     * @param jobFunction the value to set
      */
-    public void setJobFunctions(int index,String jobFunction) {
+    public void setJobFunction(int index, String jobFunction) {
         jobFunctions.setDesignation(index,jobFunction);
     }
 
     /**
      * adds a new jobFunction
      *
-     * @param function
+     * @param function the new jobFunction
      */
     public void addJobFunction(String  function) {
         jobFunctions.addDesignation(function);
@@ -293,10 +309,12 @@ public class Company {
         return jobFunctions.getSize();
     }
 
+
+
     /**
-     * get all PersonView of this Company
+     * get all Person of this Company
      *
-     * @return list of all PersonView
+     * @return list of all Person
      */
     @JsonIgnore
     public List<Person> getAllPerson(){
@@ -311,128 +329,104 @@ public class Company {
         return departments.get(index1).getMember(index2);
     }
 
-
-    public List<Person> getAllPersonSort(String sortType){
-        return sortListOfPerson(getAllPerson(),sortType);
-    }
-
-
-
-    public List<Person> getAllPersonFilteredByDepartment(String departmentName){
-        return filterListOfPersonByDepartment(departmentName);
-    }
-
-    public List<Person> getAllPersonFilteredByFunktion(String funktion){
-        return filterListOfPersonByFunction(getAllPerson(),funktion);
-    }
-
-    public List<Person> getAllPersonFilteredByTeams(String teams){
-        return filterListOfPersonByTeams(getAllPerson(),teams);
-    }
-
-    public List<Person> getAllPersonFilteredByDepartmentAndFunction(String departmentName, String function){
-        List<Person> filteredPerson= filterListOfPersonByDepartment(departmentName);
-        filteredPerson= filterListOfPersonByFunction(filteredPerson,function);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonFilteredByDepartmentAndTeams(String departmentName, String teams){
-        List<Person> filteredPerson= filterListOfPersonByDepartment(departmentName);
-        filteredPerson= filterListOfPersonByTeams(filteredPerson,teams);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonFilteredByFunctionAndTeams(String function, String teams){
-        List<Person> filteredPerson= filterListOfPersonByFunction(getAllPerson(),function);
-        filteredPerson= filterListOfPersonByTeams(filteredPerson,teams);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonFilteredByDepartmentAndFunctionAndTeams(String departmentName,String function,String teams){
-        List<Person> filteredPerson= filterListOfPersonByDepartment(departmentName);
-        filteredPerson= filterListOfPersonByTeams(filteredPerson,teams);
-        filteredPerson= filterListOfPersonByTeams(filteredPerson,teams);
-        return filteredPerson;
-    }
-
-
-
-    public List<Person> getAllPersonSortedFilteredByDepartment(String departmentName,String sortType){
-        List<Person> filteredPerson = getAllPersonFilteredByDepartment(departmentName);
-        sortListOfPerson(filteredPerson,sortType);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonSortedFilteredByFunktion(String funktion,String sortType){
-        List<Person> filteredPerson = getAllPersonFilteredByFunktion(funktion);
-        sortListOfPerson(filteredPerson,sortType);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonSortedFilteredByTeams(String teams,String sortType){
-        List<Person> filteredPerson = getAllPersonFilteredByTeams(teams);
-        sortListOfPerson(filteredPerson,sortType);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonSortedFilteredByDepartmentAndFunction(String departmentName, String function,String sortType){
-        List<Person> filteredPerson = getAllPersonFilteredByDepartmentAndFunction(departmentName,function);
-        sortListOfPerson(filteredPerson,sortType);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonSortedFilteredByDepartmentAndTeams(String departmentName, String teams,String sortType){
-        List<Person> filteredPerson = getAllPersonFilteredByDepartmentAndTeams(departmentName,teams);
-        sortListOfPerson(filteredPerson,sortType);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonSortedFilteredByFunctionAndTeams(String function, String teams,String sortType){
-        List<Person> filteredPerson = getAllPersonFilteredByFunctionAndTeams(function,teams);
-        sortListOfPerson(filteredPerson,sortType);
-        return filteredPerson;
-    }
-
-    public List<Person> getAllPersonSortedFilteredByDepartmentAndFunctionAndTeams(String departmentName,String function,String teams,String sortType){
-        List<Person> filteredPerson = getAllPersonFilteredByDepartmentAndFunctionAndTeams(departmentName,function,teams);
-        sortListOfPerson(filteredPerson,sortType);
-        return filteredPerson;
-    }
-
-
-
-
-    private List<Person> sortListOfPerson(List<Person> listOfPerson, String sortType){
-        Collections.sort(listOfPerson);
-
-        if (sortType.equals("asc")){
-            return listOfPerson;
-        }else if (sortType.equals("desc")){
-            return listOfPerson;
-        }
-        return null;
-    }
-
-    private List<Person> filterListOfPersonByDepartment(String departmentName){
-        for (Department department:departments) {
-            if (department.getName().equals(departmentName)){
-                return department.getListOfPersons();
+    //TODO Test
+    //TODO Comment
+    public List<Person> getPersonSearch(String search){
+        List<Person> allPerson=new ArrayList<>();
+        for (Person person:getAllPerson()) {
+            if (person.getFullName().contains(search)){
+                allPerson.add(person);
             }
         }
-        return null;
+        return allPerson;
     }
 
-    private List<Person> filterListOfPersonByFunction(List<Person> listOfPerson, String jobFunction){
+    /**
+     * gets filtered and sortered list of Person
+     *
+     * @param departmentName filter after department  (null if not filtered)
+     * @param function filter after function (null if not filtered)
+     * @param teams filter after teams (null if not filtered)
+     * @param sortType sort ("asc" for ascending, "desc" for descending, null if not sorted)
+     * @return list of person filtered by parameter
+     * @throws NotExistingDepartmentException Department with this name doesn't exist
+     * @throws NotExistingJobFunctionException Job Function with this name doesn't exist
+     * @throws NotExistingTeamException Team with this name doesn't exist
+     * @throws SortTypeException sortType not equals "asc" or "desc" or null
+     */
+    public List<Person> getPersonFilteredAndSorted(String departmentName,String function, String teams,String sortType) throws NotExistingDepartmentException, NotExistingJobFunctionException, NotExistingTeamException, SortTypeException {
+        List<Person> personList=getAllPerson();
+        if (departmentName!=null){
+            personList=filterListOfPersonByDepartment(departmentName);
+        }
+
+        if(function!=null){
+            personList= filterListOfPersonByJobFunction(personList,function);
+        }
+
+        if (teams!=null){
+            personList=filterListOfPersonByTeams(personList,teams);
+        }
+
+        if (sortType!=null){
+            sortListOfPerson(personList,sortType);
+        }
+        return personList;
+    }
+
+
+
+    /**
+     * filter logic for Department
+     *
+     * @param departmentName filter after department
+     * @return list of person filtered by department
+     * @throws NotExistingDepartmentException Department with this name doesn't exist
+     */
+    private List<Person> filterListOfPersonByDepartment(String departmentName) throws NotExistingDepartmentException {
+        if (!departmentExist(departmentName)){
+            throw new NotExistingDepartmentException();
+        }
+
+        Department department = getDepartmentByName(departmentName);
+
+        return department.getListOfPersons();
+    }
+
+    /**
+     * filter logic for jobFunction
+
+     * @param listOfPerson list that will be filtered
+     * @param jobFunction filter after jobFunction
+     * @return list of person filtered by jobFunction
+     * @throws NotExistingJobFunctionException Job Function with this name doesn't exist
+     */
+    private List<Person> filterListOfPersonByJobFunction(List<Person> listOfPerson, String jobFunction) throws NotExistingJobFunctionException{
+        if (!jobFunctionExist(jobFunction)){
+            throw new NotExistingJobFunctionException();
+        }
+
         ArrayList<Person>filteredPerson=new ArrayList<>();
         for (Person person:listOfPerson) {
-            if (person.getParticipation().getListOfTeams().contains(jobFunction)){
+            if (person.getParticipation().getListOfJobFunctions().contains(jobFunction)){
                 filteredPerson.add(person);
             }
         }
         return filteredPerson;
     }
 
-    private List<Person> filterListOfPersonByTeams(List<Person> listOfPerson, String team){
+    /**
+     * filter logic for teams
+
+     * @param listOfPerson list that will be filtered
+     * @param team filter after team
+     * @return list of person filtered by team
+     * @throws NotExistingTeamException Team with this name doesn't exist
+     */
+    private List<Person> filterListOfPersonByTeams(List<Person> listOfPerson, String team) throws NotExistingTeamException {
+        if (!teamExist(team)){
+            throw new NotExistingTeamException();
+        }
         ArrayList<Person>filteredPerson=new ArrayList<>();
         for (Person person:listOfPerson) {
             if (person.getParticipation().getListOfTeams().contains(team)){
@@ -442,4 +436,97 @@ public class Company {
         return filteredPerson;
     }
 
+    /**
+     * sort logic
+     *
+     * @param listOfPerson list that will be sorted
+     * @param sortType sort (asc for ascending, desc for descending, null for not sorted)
+     * @return list of person filtered by jobFunction
+     * @throws SortTypeException sortType not equals "asc" or "desc" or null
+     */
+    private List<Person> sortListOfPerson(List<Person> listOfPerson, String sortType) throws SortTypeException {
+        Collections.sort(listOfPerson);
+
+        if (sortType.equals("asc")){
+            return listOfPerson;
+        }else if (sortType.equals("desc")){
+            Collections.reverse(listOfPerson);
+            return listOfPerson;
+        }else {
+            throw new SortTypeException();
+        }
+    }
+
+
+
+    /**
+     * is this department allowed to delete
+     *
+     * @param departmentName name of the department
+     * @return deletable of department
+     * @throws NotExistingDepartmentException Department with this name doesn't exist
+     */
+    public boolean isDepartmentDeletable(String departmentName) throws NotExistingDepartmentException {
+        departmentExist(departmentName);
+        List<Person>filteredList=filterListOfPersonByDepartment(departmentName);
+        return filteredList.size()==0;
+    }
+
+    /**
+     * is this jobFunction allowed to delete
+     *
+     * @param jobFunction name of the jobFunction
+     * @return deletable of jobFunction
+     * @throws NotExistingJobFunctionException Job Function with this name doesn't exist
+     */
+    public boolean isJobFunctionDeletable(String jobFunction) throws NotExistingJobFunctionException {
+        jobFunctionExist(jobFunction);
+        List<Person>filteredList=filterListOfPersonByJobFunction(getAllPerson(),jobFunction);
+        return filteredList.size()==0;
+    }
+
+    /**
+     * is this team allowed to delete
+     *
+     * @param team name of the team
+     * @return deletable of team
+     * @throws NotExistingTeamException Team with this name doesn't exist
+     */
+    public boolean isTeamDeletable(String team) throws NotExistingTeamException {
+        teamExist(team);
+        List<Person>filteredList=filterListOfPersonByTeams(getAllPerson(),team);
+        return filteredList.size()==0;
+    }
+
+    /**
+     * does the department with name exist
+     * @param departmentName name of the department
+     * @return true if exist
+     */
+    public boolean departmentExist(String departmentName) {
+        try {
+            getDepartmentByName(departmentName);
+            return true;
+        }catch (NotExistingDepartmentException e){
+            return false;
+        }
+    }
+
+    /**
+     * does a Job function with this designation exist
+     * @param jobFunction designation of the jobFunction
+     * @return true if exist
+     */
+    public boolean jobFunctionExist(String jobFunction){
+        return jobFunctions.contains(jobFunction);
+    }
+
+    /**
+     * does a team with this designation exist
+     * @param team designation of the team
+     * @return true if exist
+     */
+    public boolean teamExist(String team) {
+        return teams.contains(team);
+    }
 }

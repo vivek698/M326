@@ -26,7 +26,7 @@ public class Read_JSON_Test {
         String[] actuals = new String[list.size()];
         list.toArray(actuals);
 
-        String[] expected={"Team Leader","Executive","Controller","Front-End developer","Back-End developer"};
+        String[] expected={"Team Leader","Executive","Controller","Front-End developer","Back-End developer","Fullstack developer"};
 
         assertArrayEquals(expected,actuals);
     }
@@ -38,7 +38,7 @@ public class Read_JSON_Test {
         String[] actuals = new String[list.size()];
         list.toArray(actuals);
 
-        String[] expected={"Team1","Team2","Team3","Team4"};
+        String[] expected={"Team1","Team2","Team3","Team4","Team5"};
 
         assertArrayEquals(expected,actuals);
     }
