@@ -1,12 +1,12 @@
 package ch.bzz.facade;
 
 import ch.bzz.dataHandler.DataHandler;
+import ch.bzz.exception.NotExistingDepartmentException;
 import ch.bzz.model.company.Company;
 import ch.bzz.model.company.Department;
 import ch.bzz.model.employees.Person;
 import ch.bzz.view.LogBookView;
 import ch.bzz.view.TestListModel;
-import ch.bzz.view.PersonView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,17 +46,17 @@ public class ViewComponent {
         changer();
     }
 
-    public void addPerson(String departmentName, Person person){
-        companyInstance.getDepartmentbyName(departmentName).addMember(person);
+    public void addPerson(String departmentName, Person person) throws NotExistingDepartmentException {
+        companyInstance.getDepartmentByName(departmentName).addMember(person);
         DataHandler.getInstance().setCompany(companyInstance);
         changer();
     }
 
-    public void correctParson(String firstName, String lastName, String newFirstName, String newLastName, String departmentName){
+    public void correctParson(String firstName, String lastName, String newFirstName, String newLastName, String departmentName) throws NotExistingDepartmentException {
         Person person = companyInstance.getPerson(companyInstance.getDepartmentIndexByPerson(firstName, lastName),companyInstance.getPersonIndexByName(firstName, lastName));
 
         companyInstance.getDepartment(companyInstance.getDepartmentIndexByPerson(firstName, lastName)).removeMember(companyInstance.getPersonIndexByName(firstName, lastName));
-        companyInstance.getDepartmentbyName(departmentName).addMember(person);
+        companyInstance.getDepartmentByName(departmentName).addMember(person);
 
         person.setFirstName(newFirstName);
         person.setLastName(newLastName);
@@ -133,8 +133,9 @@ public class ViewComponent {
 
     public void setLogBookView(LogBookView logBookView){
         this.logBookView = logBookView;
-
     }
+
+
 
 
 

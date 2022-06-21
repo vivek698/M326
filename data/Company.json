@@ -7,7 +7,7 @@
     "listOfTeams" : [ "Team1", "Team2", "Team3", "Team4", "Team5" ]
   },
   "listOfDepartment" : [ {
-    "name" : "General Management",
+    "name" : "General Manager1",
     "listOfPersons" : [ {
       "type" : "HRPerson",
       "firstName" : "Lorenzo",
