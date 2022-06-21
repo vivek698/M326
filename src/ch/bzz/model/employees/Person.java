@@ -1,5 +1,6 @@
 package ch.bzz.model.employees;
 
+import ch.bzz.dataHandler.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
@@ -22,7 +23,7 @@ import java.util.Objects;
 public class Person  implements Comparable{
     private String firstName;
     private String lastName;
-    private String imgName;
+    private String imgPath;
     private Participation participation;
 
     /**
@@ -90,34 +91,14 @@ public class Person  implements Comparable{
      * @return path of Image
      */
     public String getImgPath() {
-        if(imgName!=null && !imgName.equals("")){
-            return "data/img/"+imgName;
-        }else{
-            return null;
-        }
+        return imgPath;
     }
 
-    /**
-     * sets image Name
-     *
-     * @return set Image Name
-     */
-    public void setImgName(String imgName) {
-        this.imgName=imgName;
+
+    public void setImage(String path){
+        this.imgPath = path;
     }
 
-    /**
-     * gets image
-     *
-     * @return Image
-     */
-    public ImageIcon getImage() {
-        if (getImgPath()!=null){
-            return new ImageIcon(Objects.requireNonNull(this.getClass().getResource(getImgPath())));
-        }else {
-            return null;
-        }
-    }
 
     /**
      * gets Participation
@@ -146,6 +127,6 @@ public class Person  implements Comparable{
     @Override
     public int compareTo(Object obj) {
         Person person2=(Person)obj;
-        return this.getFullName()   .compareTo(   person2.getFullName());
+        return this.getFullName().compareTo(person2.getFullName());
     }
 }

@@ -13,7 +13,7 @@ public class ListMaker_Test {
         JFrame jFrame = new JFrame();
 
 
-        ListMaker listMaker = new ListMaker("PersonView");
+        ListMaker listMaker = new ListMaker("PersonView", 1);
         jFrame.add(listMaker);
 
 

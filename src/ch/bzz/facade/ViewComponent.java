@@ -4,6 +4,7 @@ import ch.bzz.dataHandler.DataHandler;
 import ch.bzz.exception.NotExistingDepartmentException;
 import ch.bzz.model.company.Company;
 import ch.bzz.model.company.Department;
+import ch.bzz.model.employees.HRPerson;
 import ch.bzz.model.employees.Person;
 import ch.bzz.view.LogBookView;
 import ch.bzz.view.TestListModel;
@@ -52,14 +53,19 @@ public class ViewComponent {
         changer();
     }
 
-    public void correctParson(String firstName, String lastName, String newFirstName, String newLastName, String departmentName) throws NotExistingDepartmentException {
+    public void correctParson(String firstName, String lastName, String newFirstName, String newLastName, String departmentName, String path) throws NotExistingDepartmentException {
         Person person = companyInstance.getPerson(companyInstance.getDepartmentIndexByPerson(firstName, lastName),companyInstance.getPersonIndexByName(firstName, lastName));
 
         companyInstance.getDepartment(companyInstance.getDepartmentIndexByPerson(firstName, lastName)).removeMember(companyInstance.getPersonIndexByName(firstName, lastName));
         companyInstance.getDepartmentByName(departmentName).addMember(person);
 
+
         person.setFirstName(newFirstName);
         person.setLastName(newLastName);
+        person.setImage(path);
+
+
+
 
         DataHandler.getInstance().setCompany(companyInstance);
         changer();
@@ -80,6 +86,18 @@ public class ViewComponent {
         changer();
     }
 
+    //TODO
+    public void correctJobFunctionForZuordnung( int index, String name){
+        companyInstance.setJobFunction(index, name);
+        changer();
+    }
+
+    //TODO
+    public void correctTeamForZuordnung( int index, String name){
+        companyInstance.setJobFunction(index, name);
+        changer();
+    }
+
     public void deleteDepartment(int index){
         companyInstance.removeDepartment(index);
         changer();
@@ -97,6 +115,18 @@ public class ViewComponent {
 
     public void deletePerson(String firstname, String lastName){
         companyInstance.getDepartment(companyInstance.getDepartmentIndexByPerson(firstname, lastName)).removeMember(companyInstance.getPersonIndexByName(firstname, lastName));
+        changer();
+    }
+
+    //TODO
+    public void deleteJobFunctionForZuordnung(int index){
+        companyInstance.removeJobFunction(index);
+        changer();
+    }
+
+    //TODO
+    public void deleteTeamForZuordnung(int index){
+        companyInstance.removeJobFunction(index);
         changer();
     }
 
@@ -131,9 +161,16 @@ public class ViewComponent {
         return companyInstance.getAllPerson();
     }
 
-    public void setLogBookView(LogBookView logBookView){
-        this.logBookView = logBookView;
+    public String getPicture(int index1, int index2){
+        return companyInstance.getPerson(index1,index2).getImgPath();
     }
+
+    public List<HRPerson> getAllHRPerson(){
+        return companyInstance.getListOfHRPerson();
+    }
+
+
+
 
 
 

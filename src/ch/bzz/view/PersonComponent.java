@@ -15,13 +15,13 @@ public class PersonComponent extends JPanel{
     private JPanel personPanel = new JPanel(new BorderLayout());
     private JPanel uebersichtLabelPanel = new JPanel(new FlowLayout());
     private JPanel personUebersichtPanel = new JPanel(new BorderLayout());
-    ListMaker listMaker = new ListMaker("PersonView");
+    ListMaker listMaker;
     private JLabel uebersicht = new JLabel("Übersicht:");
 
     //Detail
 
     private JPanel detailPanel = new JPanel(new BorderLayout());
-    private JPanel inDeatilPabel = new JPanel(new GridLayout(3,2));
+    private JPanel inDeatilPabel = new JPanel(new BorderLayout());
     private JPanel namePanel = new JPanel(new FlowLayout());
     private JPanel abteilungPanel = new JPanel(new FlowLayout());
     private JPanel pictureLabelPanel = new JPanel(new FlowLayout());
@@ -31,10 +31,17 @@ public class PersonComponent extends JPanel{
     private JLabel abteilung = new JLabel("Abteilung:");
     private JLabel pictureLabel = new JLabel("");
 
+    private JPanel nameGrid = new JPanel(new GridLayout(1,2));
+    private JPanel abteilungGrid = new JPanel(new GridLayout(1,2));
+    private JPanel pictureGrid = new JPanel(new GridLayout(1,2));
+    private JLabel pltzh3 = new JLabel();
+
     private JTextField nameField = new JTextField();
     private JTextField abteilungField = new JTextField();
 
-    public PersonComponent(JPanel extentionPanel){
+    public PersonComponent(JPanel extentionPanel, int index){
+       listMaker = new ListMaker("PersonView" ,index);
+
         setLayout(new BorderLayout());
         personPanel.setBorder(BorderFactory.createTitledBorder("Personen"));
 
@@ -52,20 +59,24 @@ public class PersonComponent extends JPanel{
 
         nameField.setEditable(false);
         abteilungField.setEditable(false);
-        nameField.setText(listMaker.getSelectedFullName());
-
 
         namePanel.add(name);
         abteilungPanel.add(abteilung);
         pictureLabelPanel.add(pltzh2);
         picturePanel.add(pictureLabel);
+        pictureLabel.setIcon(new ImageIcon("data/img/standart.png"));
 
-        inDeatilPabel.add(namePanel);
-        inDeatilPabel.add(nameField);
-        inDeatilPabel.add(pictureLabelPanel);
-        inDeatilPabel.add(picturePanel);
-        inDeatilPabel.add(abteilungPanel);
-        inDeatilPabel.add(abteilungField);
+        nameGrid.add(namePanel);
+        nameGrid.add(nameField);
+        pictureGrid.add(pltzh3);
+        pictureGrid.add(picturePanel);
+        abteilungGrid.add(abteilungPanel);
+        abteilungGrid.add(abteilungField);
+
+        inDeatilPabel.add(nameGrid, NORTH);
+        inDeatilPabel.add(pictureGrid, CENTER);
+        inDeatilPabel.add(abteilungGrid, SOUTH);
+
 
         detailPanel.add(inDeatilPabel, NORTH);
         detailPanel.add(extentionPanel, CENTER);
@@ -83,8 +94,11 @@ public class PersonComponent extends JPanel{
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 setFieldText();
+                changePicture();
             }
         });
+
+
     }
 
     public void setFieldText(){
@@ -94,6 +108,15 @@ public class PersonComponent extends JPanel{
             for (int j = 0; j<ViewComponent.getInstance().getDepartmentList().get(i).getNumberOfMembers(); j++)
                 if(ViewComponent.getInstance().getDepartmentList().get(i).getMember(j).getFullName().equals(listMaker.getSelectedFullName()))
                     abteilungField.setText(ViewComponent.getInstance().getDepartmentList().get(i).getName());
+        }
+        ViewComponent.getInstance().changer();
+    }
+
+    public void changePicture(){
+        if (ViewComponent.getInstance().getAllPersonOfCompany().get(listMaker.getIndex()).getImgPath()==null){
+            pictureLabel.setIcon(new ImageIcon("data/img/standart.png"));
+        }else {
+            pictureLabel.setIcon(new ImageIcon(ViewComponent.getInstance().getAllPersonOfCompany().get(listMaker.getIndex()).getImgPath()));
         }
         ViewComponent.getInstance().changer();
     }
