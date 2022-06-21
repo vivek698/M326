@@ -9,6 +9,7 @@ public class MainView extends JFrame {
     public MainView(){
         setTitle("MainGUI");
 
+        tabbedPane.add("Übersicht", new UebersichtView());
         tabbedPane.add("Zuordnen", new ZuordenenView());
         tabbedPane.add("Personen", new PersonView());
         tabbedPane.addTab("Stammdaten", new Stammdaten());
