@@ -94,16 +94,6 @@ public class Company {
         departments.remove(index);
     }
 
-    public Department getDepartmentbyName(String name){
-        int ret = -1;
-        for (int i = 0; i<departments.size(); i++) {
-            if(departments.get(i).getName()==name){
-                ret = i;
-            }
-        }
-        return departments.get(ret);
-    }
-
     public int getPersonIndexByName(String firstName, String lastName){
         for (int j = 0; j<departments.size(); j++) {
             for (int i = 0; i < getDepartment(j).getNumberOfMembers(); i++) {

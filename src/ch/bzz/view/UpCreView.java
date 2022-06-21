@@ -1,5 +1,6 @@
 package ch.bzz.view;
 
+import ch.bzz.exception.NotExistingDepartmentException;
 import ch.bzz.facade.*;
 import ch.bzz.model.company.Department;
 import ch.bzz.model.employees.Person;
@@ -113,7 +114,11 @@ public class UpCreView extends JDialog{
                         ViewComponent.getInstance().addTeam(textField.getText());
                         break;
                     case "PersonView":
+                        try {
                             ViewComponent.getInstance().addPerson((String) comboBox.getSelectedItem(), new Person(textField.getText().split(" ")[0],textField.getText().split(" ")[1]));
+                        } catch (NotExistingDepartmentException ex) {
+                            ex.printStackTrace();
+                        }
                         break;
                 }
                 }else if(modus == "correct"){
@@ -128,7 +133,11 @@ public class UpCreView extends JDialog{
                             ViewComponent.getInstance().correctTeam(owner.getIndex(), textField.getText());
                             break;
                         case "PersonView":
-                            ViewComponent.getInstance().correctParson(owner.getFirstName(), owner.getLastName(), getNewFirstName(),getNewLastName(),(String) comboBox.getSelectedItem());
+                            try {
+                                ViewComponent.getInstance().correctParson(owner.getFirstName(), owner.getLastName(), getNewFirstName(),getNewLastName(),(String) comboBox.getSelectedItem());
+                            } catch (NotExistingDepartmentException ex) {
+                                ex.printStackTrace();
+                            }
                             break;
                 }
             }
