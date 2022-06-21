@@ -1,16 +1,15 @@
 package ch.bzz.view;
 
+import ch.bzz.facade.ViewComponent;
+
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-import ch.bzz.facade.ViewComponent;
-
 
 import static java.awt.BorderLayout.*;
 
-public class PersonView extends JPanel {
-
+public class ZuordenenView extends JPanel {
     private JLabel pltzh1 = new JLabel(" ");
     private JLabel pltzh2 = new JLabel(" ");
 
@@ -36,14 +35,8 @@ public class PersonView extends JPanel {
     private JTextField nameField = new JTextField();
     private JTextField abteilungField = new JTextField();
 
-    private JSeparator separator = new JSeparator();
-    private JPanel inDetailPanel2 = new JPanel(new BorderLayout(10,10));
-
-
-
-    public PersonView(){
+    public ZuordenenView(){
         setLayout(new BorderLayout());
-
         personPanel.setBorder(BorderFactory.createTitledBorder("Personen"));
 
         uebersicht.setBackground(Color.GRAY);
@@ -75,9 +68,7 @@ public class PersonView extends JPanel {
         inDeatilPabel.add(abteilungPanel);
         inDeatilPabel.add(abteilungField);
 
-        inDetailPanel2.add(inDeatilPabel, NORTH);
-        inDetailPanel2.add(separator,CENTER);
-        detailPanel.add(inDetailPanel2, NORTH);
+        detailPanel.add(inDeatilPabel, NORTH);
         detailPanel.setBorder(BorderFactory.createTitledBorder("Detail:"));
 
 
@@ -99,11 +90,12 @@ public class PersonView extends JPanel {
     public void setFieldText(){
         nameField.setText(listMaker.getSelectedFullName());
 
-        for (int i = 0; i<ViewComponent.getInstance().getDepartmentList().size(); i++) {
+        for (int i = 0; i< ViewComponent.getInstance().getDepartmentList().size(); i++) {
             for (int j = 0; j<ViewComponent.getInstance().getDepartmentList().get(i).getSize(); j++)
                 if(ViewComponent.getInstance().getDepartmentList().get(i).getMember(j).getFullName().equals(listMaker.getSelectedFullName()))
-            abteilungField.setText(ViewComponent.getInstance().getDepartmentList().get(i).getName());
+                    abteilungField.setText(ViewComponent.getInstance().getDepartmentList().get(i).getName());
         }
         ViewComponent.getInstance().changer();
     }
 }
+

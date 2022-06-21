@@ -21,7 +21,7 @@ public class LogBook {
      * @throws IOException
      */
     private LogBook() {
-        File f = new File("/asas/logbook.log");
+        File f = new File("logbook.log");
         if (new File("Path").exists()) {
             try {
                 Files.createDirectory(Paths.get("path"));

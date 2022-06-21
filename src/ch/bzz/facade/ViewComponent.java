@@ -4,6 +4,7 @@ import ch.bzz.dataHandler.DataHandler;
 import ch.bzz.model.company.Company;
 import ch.bzz.model.company.Department;
 import ch.bzz.model.employees.Person;
+import ch.bzz.view.LogBookView;
 import ch.bzz.view.TestListModel;
 import ch.bzz.view.PersonView;
 
@@ -14,9 +15,11 @@ public class ViewComponent {
     private List<TestListModel> models = new ArrayList<>();
     private static ViewComponent instance = null;
     private Company companyInstance;
-    private ViewComponent(){
+    private LogBookView logBookView = null;
+    public ViewComponent(){
         companyInstance = DataHandler.getInstance().getCompany();
     }
+
 
     public static ViewComponent getInstance(){
         if(instance == null){
@@ -126,6 +129,11 @@ public class ViewComponent {
 
     public List<Person> getAllPersonOfCompany(){
         return companyInstance.getAllPerson();
+    }
+
+    public void setLogBookView(LogBookView logBookView){
+        this.logBookView = logBookView;
+
     }
 
 
