@@ -112,7 +112,11 @@ public class Person  implements Comparable{
      * @return Image
      */
     public ImageIcon getImage() {
-        return new ImageIcon(Objects.requireNonNull(this.getClass().getResource(getImgPath())));
+        if (getImgPath()!=null){
+            return new ImageIcon(Objects.requireNonNull(this.getClass().getResource(getImgPath())));
+        }else {
+            return null;
+        }
     }
 
     /**
