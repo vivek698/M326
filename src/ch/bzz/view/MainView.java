@@ -1,8 +1,13 @@
 package ch.bzz.view;
 
+import ch.bzz.dataHandler.DataHandler;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class MainView extends JFrame {
     private JTabbedPane tabbedPane = new JTabbedPane();
@@ -31,6 +36,18 @@ public class MainView extends JFrame {
             }
         });
 
+
+        WindowListener wl = new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Saves everything before closing the programm
+                DataHandler.getInstance().writeCompanyJSON();
+            }
+        };
+        this.addWindowListener(wl);
+
+
+
         pack();
         setSize(700,700);
 
@@ -38,6 +55,7 @@ public class MainView extends JFrame {
 
 
     }
+
 
     public static void main(String[] args) {
         new MainView();

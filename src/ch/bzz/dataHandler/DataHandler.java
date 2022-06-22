@@ -76,7 +76,7 @@ public class DataHandler {
     /**
      * writes the company to the JSON-file
      */
-    private void writeCompanyJSON() {
+    public void writeCompanyJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
         FileOutputStream fileOutputStream;
