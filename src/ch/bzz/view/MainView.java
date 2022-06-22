@@ -3,16 +3,22 @@ package ch.bzz.view;
 import ch.bzz.dataHandler.DataHandler;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+/**
+ * Creates the StartView with the TabbedPane
+ * @author Niklas Vogel (Nukufel), Vivek Viruthiyel
+ * @since 22.06.2022
+ * @version 2
+ */
 public class MainView extends JFrame {
     JTabbedPane tabbedPane = new JTabbedPane();
 
-
+    /**
+     * Creates the View and stuf vor Login
+     */
     public MainView(){
         setTitle("MainGUI");
 
@@ -52,7 +58,6 @@ public class MainView extends JFrame {
 
 
     }
-
 
     public static void main(String[] args) {
         new MainView();

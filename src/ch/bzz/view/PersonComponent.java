@@ -8,6 +8,12 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import static java.awt.BorderLayout.*;
 
+/**
+ * Creates a Component which is used many times
+ * @author Niklas Vogel (Nukufel)
+ * @since 22.06.2022
+ * @version 1.2
+ */
 public class PersonComponent extends JPanel{
     private JLabel pltzh1 = new JLabel(" ");
     private JLabel pltzh2 = new JLabel(" ");
@@ -39,6 +45,11 @@ public class PersonComponent extends JPanel{
     private JTextField nameField = new JTextField();
     private JTextField abteilungField = new JTextField();
 
+    /**
+     * Creates GUI
+     * @param extentionPanel JPanel that will be added for extra stuff
+     * @param index int to know which list needs buttons
+     */
     public PersonComponent(JPanel extentionPanel, int index){
        listMaker = new ListMaker("PersonView" ,index);
 
@@ -103,6 +114,9 @@ public class PersonComponent extends JPanel{
 
     }
 
+    /**
+     * sets the TextFields
+     */
     public void setFieldText(){
         nameField.setText(listMaker.getSelectedFullName());
 
@@ -114,6 +128,9 @@ public class PersonComponent extends JPanel{
         ViewComponent.getInstance().changer();
     }
 
+    /**
+     * changes the Picture
+     */
     public void changePicture(){
         if (ViewComponent.getInstance().getAllPersonOfCompany().get(listMaker.getIndex()).getImgPath()==null){
             pictureLabel.setIcon(new ImageIcon("data/img/standart.png"));

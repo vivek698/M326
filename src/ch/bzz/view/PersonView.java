@@ -15,6 +15,12 @@ import ch.bzz.facade.ViewComponent;
 
 import static java.awt.BorderLayout.*;
 
+/**
+ * Creates a View
+ * @author Niklas Vogel (Nukufel)
+ * @since 22.06.2022
+ * @version 3
+ */
 public class PersonView extends JPanel {
     private PersonComponent personComponent;
 
@@ -28,8 +34,9 @@ public class PersonView extends JPanel {
     private JPanel checkboxPanel = new JPanel(new GridLayout(2,1,5,5));
     private JPanel inCheckBoxPanel = new JPanel(new BorderLayout());
 
-
-
+    /**
+     * Creates a view for the Person Tab
+     */
     public PersonView(){
         personComponent = new PersonComponent(inDetailPanel2, 1);
         setLayout(new BorderLayout());
