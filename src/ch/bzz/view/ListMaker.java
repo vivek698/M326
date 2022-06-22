@@ -1,6 +1,8 @@
 package ch.bzz.view;
 
 import ch.bzz.facade.ViewComponent;
+import ch.bzz.model.log.LogBook;
+import ch.bzz.model.log.UserAction;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -8,6 +10,7 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 
 public class ListMaker extends JPanel{
@@ -81,6 +84,12 @@ public class ListMaker extends JPanel{
                         ViewComponent.getInstance().deleteTeam(getIndex());
                         break;
                     case "PersonView":
+
+                        try {
+                            LogBook.getLogBookInstance().addEntry(new UserAction(ViewComponent.getInstance().getEditor(),ViewComponent.getInstance().getPersonByFullName(getFirstName()+" "+getLastName()), UserAction.DELETE_PERSON).getEntry());
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
                         ViewComponent.getInstance().deletePerson(getFirstName(), getLastName());
                         break;
                 }
