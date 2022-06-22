@@ -9,7 +9,8 @@ import java.awt.*;
 import java.io.IOException;
 
 /**
- * Creates a the LogBook View
+ * Creates a LogBook View
+ *
  * @author Niklas Vogel (Nukufel)
  * @since 22.06.2022
  * @version 3

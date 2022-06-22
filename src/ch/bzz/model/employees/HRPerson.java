@@ -11,6 +11,7 @@ import java.io.IOException;
  *
  * @author Vivek Viruthiyel
  * @version 1.0
+ * @since 22.06.2020
  */
 public class HRPerson extends Person{
     private int mode;

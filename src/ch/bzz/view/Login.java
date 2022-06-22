@@ -11,9 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
-import javax.swing.text.View;
 
-
+/**
+ * Creates the Login Formular
+ *
+ * @author Vivek Viruthiyel
+ * @version 1.0
+ * @since 22.06.2020
+ */
 public class Login extends JDialog{
 
     private JComboBox<String> hrPersonComboBox = new JComboBox<>();
@@ -22,7 +27,12 @@ public class Login extends JDialog{
 
     private List <HRPerson> listOfHRPerson=new ArrayList<>();
 
-
+    /**
+     * Constuctor of Login
+     *
+     * @param pane for wich Panes it is used 0
+     * @param mainView instance of owner
+     */
     public Login(int pane,MainView mainView) {
         super();
 

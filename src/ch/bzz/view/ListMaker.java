@@ -15,6 +15,7 @@ import java.io.IOException;
 
 /**
  * Creates a Component with a List and Buttons
+ *
  * @author Niklas Vogel (Nukufel)
  * @since 22.06.2022
  * @version 1.1
@@ -133,6 +134,7 @@ public class ListMaker extends JPanel{
         lastName = lastName.split(" ")[1];
         return lastName;
     }
+
     /**
      * gets the fullName of selected item
      * @return String
@@ -145,9 +147,10 @@ public class ListMaker extends JPanel{
         }
     }
 
-
-
-
+    /**
+     * Adds a listSelectionListener
+     * @param listSelectionListener value of listSelectionListener
+     */
     public void addListSelectionListener(ListSelectionListener listSelectionListener) {
         list.addListSelectionListener(listSelectionListener);
     }

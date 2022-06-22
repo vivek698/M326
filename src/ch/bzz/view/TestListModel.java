@@ -6,9 +6,20 @@ import ch.bzz.facade.ViewComponent;
 import javax.swing.*;
 import java.util.List;
 
+/**
+ * List model for ListMaker
+ *
+ * @author Niklas Vogel (Nukufel), Vivek Viruthiyel
+ * @since 22.06.2022
+ * @version 1
+ */
 public class TestListModel extends AbstractListModel<String> {
     private String art;
 
+    /**
+     * Creates TestListModel
+     * @param art usage type
+     */
     public TestListModel(String art) {
         ViewComponent.getInstance().addModel(this);
         this.art = art;
@@ -25,12 +36,15 @@ public class TestListModel extends AbstractListModel<String> {
                 return ViewComponent.getInstance().getTeamList().size();
             case "PersonView":
                 return ViewComponent.getInstance().getAllPersonOfCompany().size();
-
-
         }
         return 0;
     }
 
+    /**
+     * gets Element by index
+     * @param index of Element
+     * @return Element
+     */
     @Override
     public String getElementAt(int index) {
         switch (art) {
@@ -46,6 +60,12 @@ public class TestListModel extends AbstractListModel<String> {
         return null;
     }
 
+    /**
+     * sends message, that something has changed
+     * @param source
+     * @param index0
+     * @param index1
+     */
     @Override
     public void fireContentsChanged(Object source, int index0, int index1) {
         if (index1 == -1) {

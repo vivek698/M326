@@ -10,6 +10,7 @@ import java.util.List;
  *
  * @author Vivek Viruthiyel
  * @version 1.0
+ * @since 22.06.2022
  */
 public class Teams {
     private List<String> designations;

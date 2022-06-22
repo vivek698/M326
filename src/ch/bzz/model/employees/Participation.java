@@ -10,6 +10,7 @@ import java.util.List;
  *
  * @author Vivek Viruthiyel
  * @version 1.0
+ * @since 22.06.2020
  */
 public class Participation {
     private List<String> jobFunctions;

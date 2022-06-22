@@ -2,18 +2,21 @@ package ch.bzz.view;
 
 
 import ch.bzz.facade.ViewComponent;
-import ch.bzz.model.company.Company;
 import ch.bzz.model.employees.HRPerson;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.Serializable;
 
 import javax.swing.*;
-import javax.swing.text.View;
 
-
+/**
+ * JDialog for Seting the Passwort
+ *
+ * @author Vivek Viruthiyel
+ * @version 1.0
+ * @since 22.06.2020
+ */
 public class SetPassword extends JDialog{
 
 
@@ -21,6 +24,10 @@ public class SetPassword extends JDialog{
     private JPasswordField passwordFieldConfirm = new JPasswordField(15);
     private HRPerson hrPerson;
 
+    /**
+     * Creates SetPassword
+     * @param fullName of HrPerson
+     */
     public SetPassword(String fullName) {
         super();
         hrPerson = (HRPerson) ViewComponent.getInstance().getPersonByFullName(fullName);

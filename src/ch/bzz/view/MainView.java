@@ -57,6 +57,10 @@ public class MainView extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Starts Programm
+     * @param args
+     */
     public static void main(String[] args) {
         new MainView();
     }

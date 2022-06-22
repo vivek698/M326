@@ -5,7 +5,13 @@ import ch.bzz.model.employees.Person;
 
 import java.time.LocalDate;
 
-
+/**
+ * The Model-Class Participation is storing data.
+ *
+ * @author Niklas Vogel
+ * @version 1.0
+ * @since 22.06.2020
+ */
 public class UserAction {
     public static int CREATE_PERSON = 0;
     public static int CHANGE_VALUE = 1;

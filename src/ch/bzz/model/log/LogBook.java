@@ -6,7 +6,13 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Vector;
 
-
+/**
+ * The Model-Class Participation is storing data.
+ *
+ * @author Niklas Vogel
+ * @version 1.0
+ * @since 22.06.2020
+ */
 public class LogBook {
     private List<String> entries = new Vector<>();
     static LogBook instance;
