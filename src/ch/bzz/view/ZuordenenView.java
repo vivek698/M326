@@ -1,6 +1,8 @@
 
 package ch.bzz.view;
 
+import ch.bzz.facade.ViewComponent;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,8 +10,8 @@ public class ZuordenenView extends JPanel {
     private PersonComponent personComponent;
     private JPanel panel = new JPanel(new BorderLayout(5,5));
 
-    private ListMaker listFunctions = new ListMaker("JobFunctionForZuordnung", 5);
-    private ListMaker listTeams = new ListMaker("TeamForZuordnung", 5);
+    private JComboBox<String> listFunctions = new JComboBox<>();
+    private JComboBox<String> listTeams = new JComboBox<>();
     private JPanel panel1 = new JPanel(new BorderLayout());
     private JPanel panel2 = new JPanel(new BorderLayout());
     private JPanel panel11 = new JPanel(new BorderLayout());
@@ -23,6 +25,8 @@ public class ZuordenenView extends JPanel {
     private JPanel gridPanel = new JPanel(new GridLayout(1,2,10,10));
 
     public ZuordenenView(){
+
+
         setLayout(new BorderLayout(5,5));
 
         personComponent = new PersonComponent(panel, 0);
@@ -44,6 +48,20 @@ public class ZuordenenView extends JPanel {
 
         add(personComponent, BorderLayout.CENTER);
         setVisible(true);
+        setCombobox();
+
+
+
+
+    }
+
+    private void setCombobox(){
+        for (int i = 0; i< ViewComponent.getInstance().getTeamList().size(); i++){
+            listTeams.addItem(ViewComponent.getInstance().getTeamList().get(i));
+        }
+        for (int i = 0; i< ViewComponent.getInstance().getJobFunctionList().size(); i++){
+            listFunctions.addItem(ViewComponent.getInstance().getJobFunctionList().get(i));
+        }
     }
 }
 

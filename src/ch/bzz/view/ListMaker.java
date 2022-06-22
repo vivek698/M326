@@ -21,7 +21,11 @@ public class ListMaker extends JPanel{
 
     //Speicher GUI
 
-
+    /**
+     *
+     * @param art
+     * @param index
+     */
     public ListMaker(String art, int index){
         listMaker = this;
 
@@ -41,7 +45,7 @@ public class ListMaker extends JPanel{
         buttonPanel.add(deleteButton);
         buttonPanel.add(corectButton);
 
-        if (index==1) {
+                    if (index==1) {
             this.add(buttonPanel, BorderLayout.SOUTH);
         }
         this.setVisible(true);
@@ -78,12 +82,6 @@ public class ListMaker extends JPanel{
                         break;
                     case "PersonView":
                         ViewComponent.getInstance().deletePerson(getFirstName(), getLastName());
-                        break;
-                    case "JobFunctionForZuordnung":
-                        ViewComponent.getInstance().deleteJobFunctionForZuordnung(getIndex());
-                        break;
-                    case "TeamForZuordnung":
-                        ViewComponent.getInstance().deleteTeamForZuordnung(getIndex());
                         break;
                 }
             }

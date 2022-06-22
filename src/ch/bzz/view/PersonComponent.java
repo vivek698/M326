@@ -90,6 +90,8 @@ public class PersonComponent extends JPanel{
         setVisible(true);
 
 
+
+
         listMaker.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {

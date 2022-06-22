@@ -31,6 +31,8 @@ public class MainView extends JFrame {
             }
         });
 
+
+
         pack();
         setSize(700,700);
 

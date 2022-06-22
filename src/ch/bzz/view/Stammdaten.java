@@ -56,8 +56,6 @@ public class Stammdaten extends JPanel {
         panelGrid.add(panel, WEST);
         add(panelGrid);
 
-
-
         setVisible(true);
     }
 }
