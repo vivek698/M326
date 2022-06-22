@@ -13,6 +13,12 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 
+/**
+ * Creates a Component with a List and Buttons
+ * @author Niklas Vogel (Nukufel)
+ * @since 22.06.2022
+ * @version 1.1
+ */
 public class ListMaker extends JPanel{
     private JScrollPane scrollPane;
     private JButton addButton = new JButton("+");
@@ -25,9 +31,9 @@ public class ListMaker extends JPanel{
     //Speicher GUI
 
     /**
-     *
-     * @param art
-     * @param index
+     *Creates a the Component
+     * @param art String for switch case decision
+     * @param index int to know if the List has buttons for adding and correcting
      */
     public ListMaker(String art, int index){
         listMaker = this;
@@ -100,22 +106,37 @@ public class ListMaker extends JPanel{
 
     }
 
+    /**
+     * gets the index of the selected item
+     * @return int
+     */
     public int getIndex(){
         return list.getSelectedIndex();
     }
 
+    /**
+     * gets the fullName and turns it into the first name
+     * @return String
+     */
     public String getFirstName(){
         String firstName = list.getSelectedValue();
         firstName = firstName.split(" ")[0];
         return firstName;
     }
 
+    /**
+     * gets the fullName and turns it into the last name
+     * @return String
+     */
     public String getLastName() {
         String lastName = list.getSelectedValue();
         lastName = lastName.split(" ")[1];
         return lastName;
     }
-
+    /**
+     * gets the fullName of selected item
+     * @return String
+     */
     public String getSelectedFullName(){
         if (list.getSelectedValue()==null){
             return "Vorname Nachname";

@@ -1,6 +1,6 @@
 package ch.bzz.view;
 
-import ch.bzz.dataHandler.DataHandler;
+
 import ch.bzz.exception.NotExistingDepartmentException;
 import ch.bzz.facade.*;
 import ch.bzz.model.company.Department;
@@ -13,11 +13,16 @@ import java.awt.event.ActionListener;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import static java.awt.BorderLayout.*;
 
+/**
+ * Creats an View
+ * @author Niklas Vogel (Nukufel)
+ * @since 22.06.2022
+ * @version 2
+ */
 public class UpCreView extends JDialog{
     private List<Department> departmentNameList = new ArrayList<>(ViewComponent.getInstance().getDepartmentList());
     private JDialog pictureDialog = new JDialog();
@@ -50,8 +55,14 @@ public class UpCreView extends JDialog{
     private String path = "";
     private ListMaker owner;
 
+    /**
+     * creates an GUI for adding or correcting person, Department, Team, Function
+     * @param what String (for witch itme this upcre vie is)
+     * @param modus String (if the UPCreView is for add or correct)
+     * @param owner a instance of Listmaker
+     */
     public UpCreView(String what, String modus, ListMaker owner){
-        for (int i = 0; i<departmentNameList.size(); i++){
+         for (int i = 0; i<departmentNameList.size(); i++){
             comboBox.addItem(departmentNameList.get(i).getName());
         }
         this.owner = owner;
@@ -178,16 +189,28 @@ public class UpCreView extends JDialog{
         });
     }
 
+    /**
+     * gets you the new last part of the string
+     * @return
+     */
     public String getNewLastName(){
         String name = textField.getText().split(" ")[1];
         return name;
     }
 
+    /**
+     * gets you the new first part of the name
+     * @return String
+     */
     public String getNewFirstName(){
         String name = textField.getText().split(" ")[0];
         return name;
     }
 
+    /**
+     * maks a panel in witch you will add a picture
+     * @return a JPpanel
+     */
     public JPanel picturMaker(){
          picturePanel.add(pictureLabel, EAST);
          picturePanel2.add(picturePanel, CENTER);
@@ -196,6 +219,10 @@ public class UpCreView extends JDialog{
          return picturePanel2;
     }
 
+    /**
+     * Adds a picture after choosing it
+     * @param path
+     */
     public void addPicture(String path){
             pictureLabel.setIcon(new ImageIcon(path));
     }

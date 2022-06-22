@@ -5,7 +5,12 @@ import ch.bzz.facade.ViewComponent;
 
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * Creates the View for Zuordnug
+ * @author Niklas Vogel (Nukufel), Vivek Viruthiyel
+ * @since 22.06.2022
+ * @version 1.1
+ */
 public class ZuordenenView extends JPanel {
     private PersonComponent personComponent;
     private JPanel panel = new JPanel(new BorderLayout(5,5));
@@ -24,6 +29,9 @@ public class ZuordenenView extends JPanel {
 
     private JPanel gridPanel = new JPanel(new GridLayout(1,2,10,10));
 
+    /**
+     * Creates the View for Zuordnug
+     */
     public ZuordenenView(){
 
 
@@ -55,6 +63,9 @@ public class ZuordenenView extends JPanel {
 
     }
 
+    /**
+     * sets the content of the comboboxes
+     */
     private void setCombobox(){
         for (int i = 0; i< ViewComponent.getInstance().getTeamList().size(); i++){
             listTeams.addItem(ViewComponent.getInstance().getTeamList().get(i));

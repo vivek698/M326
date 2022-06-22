@@ -2,10 +2,16 @@ package ch.bzz.view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
+
 
 import static java.awt.BorderLayout.*;
 
+/**
+ * Creats a View for Stamdaten
+ * @author Niklas Vogel (Nukufel)
+ * @since 22.06.2022
+ * @version 1.2
+ */
 public class Stammdaten extends JPanel {
 
     private JPanel labelPanel = new JPanel(new BorderLayout());
@@ -30,6 +36,9 @@ public class Stammdaten extends JPanel {
     private JPanel panelName1 = new JPanel(new BorderLayout());
     private JPanel panelGrid = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
+    /**
+     * Creat GUI
+     */
     public Stammdaten(){
         textField.setColumns(18);
 
