@@ -15,9 +15,10 @@ import java.util.List;
 public class ViewComponent {
     private List<TestListModel> models = new ArrayList<>();
     private static ViewComponent instance = null;
-    private Company companyInstance;
+    private Company companyInstance=DataHandler.getInstance().getCompany();
     private LogBookView logBookView = null;
-    public ViewComponent(){
+
+    private ViewComponent(){
         companyInstance = DataHandler.getInstance().getCompany();
     }
 
@@ -189,9 +190,15 @@ public class ViewComponent {
         companyInstance.setConvertToPerson(indexDepartment,indexPerson);
     }
 
+    public void setPasswordPerson(HRPerson person,String password){
+        person.setPassword(password);
+    }
 
 
 
+    public Person getPersonByFullName(String fullName){
+        return companyInstance.getPersonByName(fullName);
+    }
 
 
 

@@ -41,6 +41,8 @@ public class PersonView extends JPanel {
 
                 if (hrPerson.isSelected()) {
                     ViewComponent.getInstance().convertToHRPerson(fullName, 0);
+                    new SetPassword(fullName);
+
                 }else {
                     admin.setSelected(false);
                     ViewComponent.getInstance().convertToPerson(fullName);
