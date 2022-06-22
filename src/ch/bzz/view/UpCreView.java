@@ -94,10 +94,7 @@ public class UpCreView extends JDialog{
 
             panel.add(extraPanel, CENTER);
             setSize(300,300);
-
-
         }
-
 
         add(panel);
 
@@ -118,6 +115,7 @@ public class UpCreView extends JDialog{
         speichern.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (textField.getText()!=null && !textField.getText().isEmpty()) {
                 if (modus == "add"){
                 switch (what) {
                     case "Department":
@@ -137,7 +135,7 @@ public class UpCreView extends JDialog{
                         }
                         break;
                 }
-                }else if(modus == "correct"){
+                }else if(modus == "correct") {
                     switch (what) {
                         case "Department":
                             ViewComponent.getInstance().correctDepartment(textField.getText(), owner.getIndex());
@@ -149,20 +147,21 @@ public class UpCreView extends JDialog{
                             ViewComponent.getInstance().correctTeam(owner.getIndex(), textField.getText());
                             break;
                         case "PersonView":
-                                if(ViewComponent.getInstance().getAllPersonOfCompany().get(owner.getIndex()).getImgPath()==null || !Files.exists(Paths.get(ViewComponent.getInstance().getAllPersonOfCompany().get(owner.getIndex()).getImgPath()))){
-                                    pictureLabel.setIcon(new ImageIcon("data/img/standart.png"));
-                                }else {
-                                    pictureLabel.setIcon(new ImageIcon(ViewComponent.getInstance().getAllPersonOfCompany().get(owner.getIndex()).getImgPath()));
-                                }
+                            if (ViewComponent.getInstance().getAllPersonOfCompany().get(owner.getIndex()).getImgPath() == null || !Files.exists(Paths.get(ViewComponent.getInstance().getAllPersonOfCompany().get(owner.getIndex()).getImgPath()))) {
+                                pictureLabel.setIcon(new ImageIcon("data/img/standart.png"));
+                            } else {
+                                pictureLabel.setIcon(new ImageIcon(ViewComponent.getInstance().getAllPersonOfCompany().get(owner.getIndex()).getImgPath()));
+                            }
                             try {
-                                ViewComponent.getInstance().correctParson(owner.getFirstName(), owner.getLastName(), getNewFirstName(),getNewLastName(),(String) comboBox.getSelectedItem(), path);
+                                ViewComponent.getInstance().correctParson(owner.getFirstName(), owner.getLastName(), getNewFirstName(), getNewLastName(), (String) comboBox.getSelectedItem(), path);
                             } catch (NotExistingDepartmentException ex) {
                                 ex.printStackTrace();
                             }
                             break;
+                    }
                 }
+                dispose();
             }
-            dispose();
         }
         });
 

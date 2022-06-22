@@ -15,8 +15,8 @@
       "mode" : 0,
       "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ "Team Leader" ],
-        "listOfTeams" : [ "Team1" ]
+        "listOfTeams" : [ "Team1" ],
+        "listOfJobFunctions" : [ "Team Leader" ]
       },
       "password" : "passwort1"
     }, {
@@ -25,8 +25,8 @@
       "lastName" : "Mustermann",
       "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ ],
-        "listOfTeams" : [ ]
+        "listOfTeams" : [ ],
+        "listOfJobFunctions" : [ ]
       }
     } ]
   }, {
@@ -38,18 +38,27 @@
       "mode" : 1,
       "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ ],
-        "listOfTeams" : [ ]
+        "listOfTeams" : [ ],
+        "listOfJobFunctions" : [ ]
       },
-      "password" : null
+      "password" : "1"
     }, {
       "type" : "Person",
       "firstName" : "Genesis",
       "lastName" : "Patrick",
       "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ ],
-        "listOfTeams" : [ ]
+        "listOfTeams" : [ ],
+        "listOfJobFunctions" : [ ]
+      }
+    }, {
+      "type" : "Person",
+      "firstName" : "Bla",
+      "lastName" : "Bkla",
+      "imgPath" : null,
+      "participation" : {
+        "listOfTeams" : [ ],
+        "listOfJobFunctions" : [ ]
       }
     } ]
   }, {

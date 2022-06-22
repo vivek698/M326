@@ -45,7 +45,7 @@ public class ListMaker extends JPanel{
         buttonPanel.add(deleteButton);
         buttonPanel.add(corectButton);
 
-                    if (index==1) {
+        if (index==1) {
             this.add(buttonPanel, BorderLayout.SOUTH);
         }
         this.setVisible(true);
