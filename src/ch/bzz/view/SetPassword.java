@@ -56,8 +56,4 @@ public class SetPassword extends JDialog{
         pack();
         setVisible(true);
     }
-
-    public static void main(String[] args) {
-        new SetPassword("Lorenzo Giuntini");
-    }
 }
