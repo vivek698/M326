@@ -15,21 +15,19 @@
       "mode" : 0,
       "imgPath" : null,
       "participation" : {
-        "listOfTeams" : [ "Team1" ],
-        "listOfJobFunctions" : [ "Team Leader" ]
+        "listOfJobFunctions" : [ "Team Leader" ],
+        "listOfTeams" : [ "Team1" ]
       },
       "password" : "passwort1"
     }, {
-      "type" : "HRPerson",
+      "type" : "Person",
       "firstName" : "Max",
       "lastName" : "Mustermann",
-      "mode" : 0,
       "imgPath" : null,
       "participation" : {
-        "listOfTeams" : [ ],
-        "listOfJobFunctions" : [ ]
-      },
-      "password" : null
+        "listOfJobFunctions" : [ ],
+        "listOfTeams" : [ ]
+      }
     } ]
   }, {
     "name" : "IT",
@@ -40,8 +38,8 @@
       "mode" : 1,
       "imgPath" : null,
       "participation" : {
-        "listOfTeams" : [ ],
-        "listOfJobFunctions" : [ ]
+        "listOfJobFunctions" : [ ],
+        "listOfTeams" : [ ]
       },
       "password" : null
     }, {
@@ -51,8 +49,8 @@
       "mode" : 0,
       "imgPath" : null,
       "participation" : {
-        "listOfTeams" : [ ],
-        "listOfJobFunctions" : [ ]
+        "listOfJobFunctions" : [ ],
+        "listOfTeams" : [ ]
       },
       "password" : null
     } ]

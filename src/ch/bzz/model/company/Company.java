@@ -106,10 +106,19 @@ public class Company {
         return -1;
     }
 
+    public Person getPersonByName(String fullName){
+        for (Person person:getAllPerson()) {
+            if (person.getFullName().equals(fullName)){
+                return person;
+            }
+        }
+        return null;
+    }
+
     public int getDepartmentIndexByPerson(String firstName, String lastName){
         for (int j = 0; j<departments.size(); j++) {
             for (int i = 0; i < getDepartment(j).getNumberOfMembers(); i++) {
-                if ((firstName+" "+lastName).equals(departments.get(j).getMember(i).getFullName())){
+                if (departments.get(j).getMember(i).getFullName().equals(firstName+" "+lastName)){
                     return j;
                 }
             }

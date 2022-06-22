@@ -51,6 +51,7 @@ public class Login extends JDialog{
         JButton submit = new JButton("done");
         add(new Panel());
         add(submit);
+
         submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -62,6 +63,7 @@ public class Login extends JDialog{
                 }
             }
         });
+
         pack();
         setVisible(true);
     }
