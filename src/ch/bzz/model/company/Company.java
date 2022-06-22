@@ -540,7 +540,20 @@ public class Company {
         return hrPersonList;
     }
 
-    public void setConvertToHRPerson(int indexDepartment,int indexPerson,int mode){
+    @JsonIgnore
+    public List<HRPerson> getListOfHRPersonMode1() {
+        List<HRPerson> hrPersonList=new ArrayList<>();
+
+        for (HRPerson hrPerson:getListOfHRPerson()) {
+            if (hrPerson.getMode()==1){
+                hrPersonList.add(hrPerson);
+            }
+        }
+
+        return hrPersonList;
+    }
+
+        public void setConvertToHRPerson(int indexDepartment,int indexPerson,int mode){
         getDepartment(indexDepartment).convertToHRPerson(indexPerson, mode);
     }
 

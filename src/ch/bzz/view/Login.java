@@ -3,10 +3,12 @@ package ch.bzz.view;
 
 import ch.bzz.facade.ViewComponent;
 import ch.bzz.model.employees.HRPerson;
+import ch.bzz.model.employees.Person;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
@@ -14,17 +16,29 @@ import javax.swing.*;
 
 public class Login extends JDialog{
 
-    JComboBox<String> hrPersonComboBox = new JComboBox<>();
+    private JComboBox<String> hrPersonComboBox = new JComboBox<>();
 
-    JPasswordField passwordField = new JPasswordField(15);
+    private JPasswordField passwordField = new JPasswordField(15);
 
-    public Login() {
+    private List <HRPerson> listOfHRPerson=new ArrayList<>();
+
+
+    public Login(int pane) {
         super();
+
         setTitle("Login");
         setModal(true);
         setLayout(new GridLayout(3, 2));
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
-        for (HRPerson person:ViewComponent.getInstance().getAllHRPerson()) {
+        if (pane==1){
+            listOfHRPerson=ViewComponent.getInstance().getAllHRPerson();
+        }else if (pane==2){
+            listOfHRPerson=ViewComponent.getInstance().getAllHRPersonMode1();
+        }
+
+
+        for (HRPerson person:listOfHRPerson) {
             hrPersonComboBox.addItem(person.getFullName());
         }
 
@@ -40,7 +54,7 @@ public class Login extends JDialog{
         submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                HRPerson person= ViewComponent.getInstance().getAllHRPerson().get(  hrPersonComboBox.getSelectedIndex()  );
+                HRPerson person= listOfHRPerson.get(  hrPersonComboBox.getSelectedIndex()  );
                 if (person.getPassword().equals(new String(passwordField.getPassword()))){
                     dispose();
                 }else{

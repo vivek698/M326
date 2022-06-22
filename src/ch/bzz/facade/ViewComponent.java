@@ -169,6 +169,10 @@ public class ViewComponent {
         return companyInstance.getListOfHRPerson();
     }
 
+    public List<HRPerson> getAllHRPersonMode1(){
+        return companyInstance.getListOfHRPersonMode1();
+    }
+
     public void convertToHRPerson(String fullName, int mode){
         String[] name= fullName.split(" ");
 
