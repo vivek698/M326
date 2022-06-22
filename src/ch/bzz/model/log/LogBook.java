@@ -43,8 +43,8 @@ public class LogBook {
     }
 
     /**
-     *
-     * @return
+     * gets instance of LogBook
+     * @return LogBook Instance
      * @throws IOException
      */
     public static LogBook getLogBookInstance() throws IOException {
@@ -70,7 +70,7 @@ public class LogBook {
 
     /**
      * Returns an entry from a position
-     * @param index
+     * @param index of entry
      * @return String at the position of index from the Vector entries
      */
     public String  getEntry(int index){

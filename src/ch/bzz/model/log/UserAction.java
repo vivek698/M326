@@ -16,9 +16,9 @@ public class UserAction {
 
     /**
      * Constructor
-     * @param hrPerson
-     * @param person
-     * @param action
+     * @param hrPerson who made the Action
+     * @param person where is the Action
+     * @param action what is the Action
      */
     public UserAction(HRPerson hrPerson, Person person, int action){
         entry = LocalDate.now()+": ";
@@ -34,10 +34,18 @@ public class UserAction {
         }
     }
 
+    /**
+     * gets a Entry
+     * @return entry
+     */
     public String getEntry() {
         return entry;
     }
 
+    /**
+     * sets a Entry
+     * @param entry
+     */
     public void setEntry(String entry) {
         this.entry = entry;
     }
