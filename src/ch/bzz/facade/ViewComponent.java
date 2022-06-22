@@ -169,6 +169,21 @@ public class ViewComponent {
         return companyInstance.getListOfHRPerson();
     }
 
+    public void convertToHRPerson(String fullName, int mode){
+        String[] name= fullName.split(" ");
+
+        int indexDepartment = companyInstance.getDepartmentIndexByPerson(name[0],name[1]);
+        int indexPerson = companyInstance.getDepartment(indexDepartment).getMemberIndexByFullname(fullName);
+        companyInstance.setConvertToHRPerson(indexDepartment,indexPerson,mode);
+    }
+
+    public void convertToPerson(String fullName){
+        String[] name= fullName.split(" ");
+
+        int indexDepartment = companyInstance.getDepartmentIndexByPerson(name[0],name[1]);
+        int indexPerson = companyInstance.getDepartment(indexDepartment).getMemberIndexByFullname(fullName);
+        companyInstance.setConvertToPerson(indexDepartment,indexPerson);
+    }
 
 
 

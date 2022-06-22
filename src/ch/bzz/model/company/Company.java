@@ -539,4 +539,12 @@ public class Company {
         }
         return hrPersonList;
     }
+
+    public void setConvertToHRPerson(int indexDepartment,int indexPerson,int mode){
+        getDepartment(indexDepartment).convertToHRPerson(indexPerson, mode);
+    }
+
+    public void setConvertToPerson(int indexDepartment,int indexPerson){
+        getDepartment(indexDepartment).convertToPerson(indexPerson);
+    }
 }

@@ -1,5 +1,6 @@
 package ch.bzz.model.company;
 
+import ch.bzz.model.employees.HRPerson;
 import ch.bzz.model.employees.Person;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -55,6 +56,30 @@ public class Department {
     }
 
     /**
+     * get a Member
+     *
+     * @param fullname of a Member
+     * @return member
+     */
+    public int getMemberIndexByFullname(String fullname) {
+        for (int i = 0; i < getNumberOfMembers(); i++) {
+            if (getMember(i).getFullName().equals(fullname)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * adds a Member
+     *
+     * @param person value of member
+     */
+    public void setMember(int index,Person person) {
+        members.set(index,person);
+    }
+
+    /**
      * adds a Member
      *
      * @param person value of member
@@ -98,5 +123,13 @@ public class Department {
     @JsonIgnore
     public int getNumberOfMembers(){
         return members.size();
+    }
+
+    public void convertToHRPerson(int index,int mode){
+        setMember(index , getMember(index).convertToHRPerson(mode));
+    }
+
+    public void convertToPerson(int index){
+        setMember(index , ((HRPerson)getMember(index)).convertToPerson());
     }
 }

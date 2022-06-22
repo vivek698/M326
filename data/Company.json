@@ -1,34 +1,63 @@
 {
   "companyName" : "NukufelGMBH",
   "jobFunctions" : {
-    "listOfJobFunctions" : [ ]
+    "listOfJobFunctions" : [ "Team Leader", "Executive", "Controller", "Front-End developer", "Back-End developer", "Fullstack developer" ]
   },
   "teams" : {
     "listOfTeams" : [ "Team1", "Team2", "Team3", "Team4", "Team5" ]
   },
   "listOfDepartment" : [ {
-    "name" : "IT",
+    "name" : "General Management",
     "listOfPersons" : [ {
-      "type" : "Person",
-      "firstName" : "Mikaela",
-      "lastName" : "Hinton",
+      "type" : "HRPerson",
+      "firstName" : "Lorenzo",
+      "lastName" : "Giuntini",
+      "mode" : 1,
       "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ "Team Leader", "Front-End developer" ],
-        "listOfTeams" : [ "Team2" ]
-      }
+        "listOfJobFunctions" : [ "Team Leader" ],
+        "listOfTeams" : [ "Team1" ]
+      },
+      "password" : "passwort1"
     }, {
-      "type" : "Person",
-      "firstName" : "Genesis",
-      "lastName" : "Patrick",
+      "type" : "HRPerson",
+      "firstName" : "Max",
+      "lastName" : "Mustermann",
+      "mode" : 1,
       "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ "Back-End developer" ],
-        "listOfTeams" : [ "Team1", "Team4" ]
-      }
+        "listOfJobFunctions" : [ ],
+        "listOfTeams" : [ ]
+      },
+      "password" : null
     } ]
   }, {
-    "name" : "Abarcus",
+    "name" : "IT",
+    "listOfPersons" : [ {
+      "type" : "HRPerson",
+      "firstName" : "Mikaela",
+      "lastName" : "Hinton",
+      "mode" : 0,
+      "imgPath" : null,
+      "participation" : {
+        "listOfJobFunctions" : [ ],
+        "listOfTeams" : [ ]
+      },
+      "password" : null
+    }, {
+      "type" : "HRPerson",
+      "firstName" : "Genesis",
+      "lastName" : "Patrick",
+      "mode" : 1,
+      "imgPath" : null,
+      "participation" : {
+        "listOfJobFunctions" : [ ],
+        "listOfTeams" : [ ]
+      },
+      "password" : null
+    } ]
+  }, {
+    "name" : "Finance",
     "listOfPersons" : [ ]
   } ]
 }
