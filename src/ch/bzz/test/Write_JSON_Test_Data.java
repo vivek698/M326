@@ -19,6 +19,8 @@ public class Write_JSON_Test_Data {
 
         DataHandler dataHandler=DataHandler.getInstance();
         dataHandler.setCompany(company);
+
+        company.getAllPerson().get(1).convertToHRPerson(1);
     }
 
     public static void setCompanyDepartments(Company company){

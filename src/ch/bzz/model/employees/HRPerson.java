@@ -81,4 +81,10 @@ public class HRPerson extends Person{
         log.addEntry(entry);
     }
 
+    public Person convertToPerson(){
+        return new Person(this.getFirstName(),this.getLastName());
+    }
+
+
+
 }

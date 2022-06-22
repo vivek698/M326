@@ -118,6 +118,17 @@ public class Person  implements Comparable{
         this.participation = participation;
     }
 
+    public HRPerson convertToHRPerson(int mode){
+        if (this.getClass()!=HRPerson.class){
+            return new HRPerson(this.getFirstName(),this.getLastName(),mode);
+        }else{
+            ((HRPerson) this).setMode(mode);
+            return (HRPerson) this;
+        }
+    }
+
+
+
     /**
      * Compares this persons full Name with an others
      *
