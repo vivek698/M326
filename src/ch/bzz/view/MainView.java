@@ -10,7 +10,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 public class MainView extends JFrame {
-    private JTabbedPane tabbedPane = new JTabbedPane();
+    JTabbedPane tabbedPane = new JTabbedPane();
 
 
     public MainView(){
@@ -25,14 +25,11 @@ public class MainView extends JFrame {
 
         add(tabbedPane);
 
-        tabbedPane.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                if (tabbedPane.getSelectedIndex()==1||tabbedPane.getSelectedIndex()==2){
-                    new Login(1);
-                }else if (tabbedPane.getSelectedIndex()==3||tabbedPane.getSelectedIndex()==4){
-                    new Login(2);
-                }
+        tabbedPane.addChangeListener(e -> {
+            if (tabbedPane.getSelectedIndex()==1||tabbedPane.getSelectedIndex()==2){
+                new Login(1,this);
+            }else if (tabbedPane.getSelectedIndex()==3||tabbedPane.getSelectedIndex()==4){
+                new Login(2,this);
             }
         });
 

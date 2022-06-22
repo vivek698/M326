@@ -3,7 +3,6 @@ package ch.bzz.view;
 
 import ch.bzz.facade.ViewComponent;
 import ch.bzz.model.employees.HRPerson;
-import ch.bzz.model.employees.Person;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -23,12 +22,13 @@ public class Login extends JDialog{
     private List <HRPerson> listOfHRPerson=new ArrayList<>();
 
 
-    public Login(int pane) {
+    public Login(int pane,MainView mainView) {
         super();
+
 
         setTitle("Login");
         setModal(true);
-        setLayout(new GridLayout(3, 2));
+        setLayout(new GridLayout(3, 2,15,15));
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
         if (pane==1){
@@ -48,8 +48,16 @@ public class Login extends JDialog{
         add(new JLabel("Password"));
         add(passwordField);
 
-        JButton submit = new JButton("done");
-        add(new Panel());
+        JButton cancel = new JButton("Abbrechen");
+        add(cancel);
+        cancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainView.tabbedPane.setSelectedIndex(0);
+                dispose();
+            }
+        });
+        JButton submit = new JButton("Weiter");
         add(submit);
 
         submit.addActionListener(new ActionListener() {
