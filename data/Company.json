@@ -12,7 +12,7 @@
       "type" : "HRPerson",
       "firstName" : "Lorenzo",
       "lastName" : "Giuntini",
-      "mode" : 0,
+      "mode" : 1,
       "imgPath" : null,
       "participation" : {
         "listOfJobFunctions" : [ "Team Leader" ],
@@ -25,41 +25,33 @@
       "lastName" : "Mustermann",
       "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ ],
-        "listOfTeams" : [ ]
+        "listOfJobFunctions" : [ "Executive", "Controller" ],
+        "listOfTeams" : [ "Team3", "Team4" ]
       }
     } ]
   }, {
     "name" : "IT",
     "listOfPersons" : [ {
-      "type" : "HRPerson",
+      "type" : "Person",
       "firstName" : "Mikaela",
       "lastName" : "Hinton",
-      "mode" : 1,
       "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ ],
-        "listOfTeams" : [ ]
-      },
-      "password" : "1"
+        "listOfJobFunctions" : [ "Team Leader", "Front-End developer" ],
+        "listOfTeams" : [ "Team2" ]
+      }
     }, {
       "type" : "Person",
       "firstName" : "Genesis",
       "lastName" : "Patrick",
       "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ ],
-        "listOfTeams" : [ ]
-      }
-    }, {
-      "type" : "Person",
-      "firstName" : "Bla",
-      "lastName" : "Bkla",
-      "imgPath" : null,
-      "participation" : {
-        "listOfJobFunctions" : [ ],
-        "listOfTeams" : [ ]
+        "listOfJobFunctions" : [ "Back-End developer" ],
+        "listOfTeams" : [ "Team1", "Team4" ]
       }
     } ]
+  }, {
+    "name" : "Finance",
+    "listOfPersons" : [ ]
   } ]
 }

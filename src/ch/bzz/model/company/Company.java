@@ -95,6 +95,12 @@ public class Company {
         departments.remove(index);
     }
 
+    /**
+     * Gets a Person index in Department
+     * @param firstName prename of the Person
+     * @param lastName lastname of the Person
+     * @return index Person
+     */
     public int getPersonIndexByName(String firstName, String lastName){
         for (int j = 0; j<departments.size(); j++) {
             for (int i = 0; i < getDepartment(j).getNumberOfMembers(); i++) {
@@ -106,6 +112,11 @@ public class Company {
         return -1;
     }
 
+    /**
+     * gets a Person by full name
+     * @param fullName name of the Person
+     * @return Person
+     */
     public Person getPersonByName(String fullName){
         for (Person person:getAllPerson()) {
             if (person.getFullName().equals(fullName)){
@@ -115,6 +126,12 @@ public class Company {
         return null;
     }
 
+    /**
+     * get a Department Index by Member Full name
+     * @param firstName prename of a member
+     * @param lastName lastname of a member
+     * @return index of Department
+     */
     public int getDepartmentIndexByPerson(String firstName, String lastName){
         for (int j = 0; j<departments.size(); j++) {
             for (int i = 0; i < getDepartment(j).getNumberOfMembers(); i++) {
@@ -325,6 +342,12 @@ public class Company {
         return allPerson;
     }
 
+    /**
+     * gets a Person by index of Department and Person
+     * @param index1 of Department
+     * @param index2 of Person
+     * @return Person
+     */
     public Person getPerson(int index1, int index2){
         return departments.get(index1).getMember(index2);
     }
@@ -357,11 +380,11 @@ public class Company {
         }
 
         if (sortType!=null){
-            sortListOfPerson(personList,sortType);
+            personList=sortListOfPerson(personList,sortType);
         }
 
         if (search!=null){
-            searchPerson(personList,sortType);
+            personList=searchPerson(personList,search);
         }
 
         return personList;
@@ -385,6 +408,7 @@ public class Company {
 
         return department.getListOfPersons();
     }
+
 
     /**
      * filter logic for jobFunction
@@ -549,6 +573,10 @@ public class Company {
         return hrPersonList;
     }
 
+    /**
+     * gets a all admins
+     * @return list of admins
+     */
     @JsonIgnore
     public List<HRPerson> getListOfHRPersonMode1() {
         List<HRPerson> hrPersonList=new ArrayList<>();
@@ -562,10 +590,21 @@ public class Company {
         return hrPersonList;
     }
 
-        public void setConvertToHRPerson(int indexDepartment,int indexPerson,int mode){
+    /**
+     * Converts a Person to a HRPerson
+     * @param indexDepartment index of the Department
+     * @param indexPerson index of Person
+     * @param mode 0 = HRPerson, 1 = Admin
+     */
+    public void setConvertToHRPerson(int indexDepartment,int indexPerson,int mode){
         getDepartment(indexDepartment).convertToHRPerson(indexPerson, mode);
     }
 
+    /**
+     * Convertes a HRPerson to a Admin
+     * @param indexDepartment index of the Department
+     * @param indexPerson index of the Person
+     */
     public void setConvertToPerson(int indexDepartment,int indexPerson){
         getDepartment(indexDepartment).convertToPerson(indexPerson);
     }
