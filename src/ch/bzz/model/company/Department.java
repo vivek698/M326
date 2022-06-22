@@ -125,10 +125,20 @@ public class Department {
         return members.size();
     }
 
+    /**
+     * Converts a Person to a HRPerson
+     *
+     * @param index of the Person
+     * @param mode 0 = HRPerson, 1 = admin
+     */
     public void convertToHRPerson(int index,int mode){
         setMember(index , getMember(index).convertToHRPerson(mode));
     }
 
+    /**
+     * Converts a HRPerson to a Person
+     * @param index of the HRPerson
+     */
     public void convertToPerson(int index){
         setMember(index , ((HRPerson)getMember(index)).convertToPerson());
     }

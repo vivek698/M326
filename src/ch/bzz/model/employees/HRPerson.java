@@ -27,11 +27,6 @@ public class HRPerson extends Person{
         this.mode = mode;
     }
 
-    //TODO comment
-    public void change(Person person, int mode){
-        //TODO
-    }
-
     /**
      * gets the mode
      *
@@ -81,6 +76,10 @@ public class HRPerson extends Person{
         log.addEntry(entry);
     }
 
+    /**
+     * Converts a HRPerson to a Person
+     * @return converted Person
+     */
     public Person convertToPerson(){
         return new Person(this.getFirstName(),this.getLastName());
     }

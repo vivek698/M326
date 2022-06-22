@@ -94,7 +94,10 @@ public class Person  implements Comparable{
         return imgPath;
     }
 
-
+    /**
+     * Sets Image Path
+     * @param path of the Image
+     */
     public void setImage(String path){
         this.imgPath = path;
     }
@@ -118,6 +121,10 @@ public class Person  implements Comparable{
         this.participation = participation;
     }
 
+    /**
+     * Converts a Person to a HRPerson
+     * @return a converted Person
+     */
     public HRPerson convertToHRPerson(int mode){
         if (this.getClass()!=HRPerson.class){
             return new HRPerson(this.getFirstName(),this.getLastName(),mode);

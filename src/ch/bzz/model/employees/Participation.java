@@ -88,8 +88,11 @@ public class Participation {
     }
 
 
-
-
+    /**
+     * gets Teams
+     * @param index of team designation
+     * @return team designation
+     */
     public String getTeams(int index) {
         return teams.get(index);
     }
