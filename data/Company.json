@@ -43,16 +43,14 @@
       },
       "password" : null
     }, {
-      "type" : "HRPerson",
+      "type" : "Person",
       "firstName" : "Genesis",
       "lastName" : "Patrick",
-      "mode" : 0,
       "imgPath" : null,
       "participation" : {
         "listOfJobFunctions" : [ ],
         "listOfTeams" : [ ]
-      },
-      "password" : null
+      }
     } ]
   }, {
     "name" : "Finance",
