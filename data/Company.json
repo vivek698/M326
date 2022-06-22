@@ -15,8 +15,8 @@
       "mode" : 0,
       "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ "Team Leader" ],
-        "listOfTeams" : [ "Team1" ]
+        "listOfTeams" : [ "Team1" ],
+        "listOfJobFunctions" : [ "Team Leader" ]
       },
       "password" : "passwort1"
     }, {
@@ -25,8 +25,8 @@
       "lastName" : "Mustermann",
       "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ ],
-        "listOfTeams" : [ ]
+        "listOfTeams" : [ ],
+        "listOfJobFunctions" : [ ]
       }
     } ]
   }, {
@@ -38,21 +38,19 @@
       "mode" : 1,
       "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ ],
-        "listOfTeams" : [ ]
+        "listOfTeams" : [ ],
+        "listOfJobFunctions" : [ ]
       },
       "password" : null
     }, {
-      "type" : "HRPerson",
+      "type" : "Person",
       "firstName" : "Genesis",
       "lastName" : "Patrick",
-      "mode" : 0,
       "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ ],
-        "listOfTeams" : [ ]
-      },
-      "password" : null
+        "listOfTeams" : [ ],
+        "listOfJobFunctions" : [ ]
+      }
     } ]
   }, {
     "name" : "Finance",
