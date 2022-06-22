@@ -1,6 +1,7 @@
 package ch.bzz.view;
 
 import ch.bzz.dataHandler.DataHandler;
+import ch.bzz.model.employees.HRPerson;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
@@ -15,6 +16,7 @@ import java.awt.event.WindowListener;
  */
 public class MainView extends JFrame {
     JTabbedPane tabbedPane = new JTabbedPane();
+    HRPerson editor;
 
     /**
      * Creates the View and stuf vor Login
@@ -28,9 +30,6 @@ public class MainView extends JFrame {
         tabbedPane.addTab("Stammdaten", new Stammdaten());
         tabbedPane.addTab("Logbuch", new LogBookView());
 
-
-        add(tabbedPane);
-
         tabbedPane.addChangeListener(e -> {
             if (tabbedPane.getSelectedIndex()==1||tabbedPane.getSelectedIndex()==2){
                 new Login(1,this);
@@ -39,7 +38,9 @@ public class MainView extends JFrame {
             }
         });
 
+        add(tabbedPane);
 
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         WindowListener wl = new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -50,13 +51,10 @@ public class MainView extends JFrame {
         this.addWindowListener(wl);
 
 
-
         pack();
         setSize(700,700);
 
         setVisible(true);
-
-
     }
 
     public static void main(String[] args) {

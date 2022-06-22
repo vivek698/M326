@@ -1,6 +1,9 @@
 package ch.bzz.view;
 
+import ch.bzz.facade.ViewComponent;
 import ch.bzz.model.log.LogBook;
+import ch.bzz.model.log.UserAction;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -28,12 +31,16 @@ public class LogBookView extends JPanel {
               e.printStackTrace();
           }
 
+
+          textArea=new JTextArea();
+
           String text="";
           for (int i = 0; i < logBookInstace.getSize(); i++) {
               text+=logBookInstace.getEntry(i)+"\n";
           }
 
-          textArea=new JTextArea(text);
+          textArea.setText(text);
+
 
           textArea.setEditable(false);
           textArea.setLineWrap(true);
@@ -54,7 +61,7 @@ public class LogBookView extends JPanel {
       public void setLogBookText() throws IOException {
           String text = "";
           for (int i = 0; i< logBookInstace.getSize();i++){
-              text += logBookInstace.getEntry(i);
+              text += logBookInstace.getEntry(i)+"\n";
           }
           textArea.setText(text);
       }

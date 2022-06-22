@@ -9,6 +9,7 @@ import ch.bzz.model.employees.Person;
 import ch.bzz.view.LogBookView;
 import ch.bzz.view.TestListModel;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class ViewComponent {
     private static ViewComponent instance = null;
     private Company companyInstance;
     private LogBookView logBookView = null;
+    private HRPerson editor;
 
     /**
      * Constructor
@@ -203,6 +205,11 @@ public class ViewComponent {
         for (TestListModel tml: models){
             tml.fireContentsChanged(this,0,-1);
         }
+        try {
+            logBookView.setLogBookText();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         DataHandler.getInstance().setCompany(companyInstance);
     }
 
@@ -308,8 +315,15 @@ public class ViewComponent {
         return companyInstance.getPersonByName(fullName);
     }
 
+    public HRPerson getEditor() {
+        return editor;
+    }
 
+    public void setEditor(HRPerson editor) {
+        this.editor = editor;
+    }
 
-
-
+    public void setLogBookView(LogBookView logBookView) {
+        this.logBookView = logBookView;
+    }
 }

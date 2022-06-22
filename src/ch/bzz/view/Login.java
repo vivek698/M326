@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
+import javax.swing.text.View;
 
 
 public class Login extends JDialog{
@@ -63,8 +64,9 @@ public class Login extends JDialog{
         submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                HRPerson person= listOfHRPerson.get(  hrPersonComboBox.getSelectedIndex()  );
-                if (person.getPassword().equals(new String(passwordField.getPassword()))){
+                HRPerson editor= listOfHRPerson.get(  hrPersonComboBox.getSelectedIndex()  );
+                if (editor.getPassword().equals(new String(passwordField.getPassword()))){
+                    ViewComponent.getInstance().setEditor(editor);
                     dispose();
                 }else{
                     passwordField.setText("");
