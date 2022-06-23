@@ -56,6 +56,13 @@ public class ViewComponent {
     }
 
     /**
+     * sets LogBookView
+     * @param logBookView value of Logbook View
+     */
+    public void setLogBookView(LogBookView logBookView){
+        this.logBookView=logBookView;
+    }
+    /**
      * adds a jobFunction
      * @param name String name of jobFunction
      */

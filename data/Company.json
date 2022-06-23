@@ -20,34 +20,54 @@
       },
       "password" : "passwort1"
     }, {
-      "type" : "Person",
+      "type" : "HRPerson",
       "firstName" : "Max",
       "lastName" : "Mustermann",
+      "mode" : 1,
       "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ "Executive", "Controller" ],
-        "listOfTeams" : [ "Team3", "Team4" ]
-      }
-    } ]
-  }, {
-    "name" : "IT",
-    "listOfPersons" : [ {
+        "listOfJobFunctions" : [ ],
+        "listOfTeams" : [ ]
+      },
+      "password" : "passwort2"
+    }, {
       "type" : "Person",
       "firstName" : "Mikaela",
-      "lastName" : "Hinton",
-      "imgPath" : null,
+      "lastName" : "Hinston",
+      "imgPath" : "",
       "participation" : {
         "listOfJobFunctions" : [ "Team Leader", "Front-End developer" ],
         "listOfTeams" : [ "Team2" ]
       }
     }, {
       "type" : "Person",
-      "firstName" : "Genesis",
-      "lastName" : "Patrick",
+      "firstName" : "Niklas",
+      "lastName" : "Vogel",
       "imgPath" : null,
       "participation" : {
-        "listOfJobFunctions" : [ "Back-End developer" ],
-        "listOfTeams" : [ "Team1", "Team4" ]
+        "listOfJobFunctions" : [ ],
+        "listOfTeams" : [ ]
+      }
+    }, {
+      "type" : "Person",
+      "firstName" : "Andras",
+      "lastName" : "Tarlos",
+      "imgPath" : null,
+      "participation" : {
+        "listOfJobFunctions" : [ ],
+        "listOfTeams" : [ ]
+      }
+    } ]
+  }, {
+    "name" : "IT",
+    "listOfPersons" : [ {
+      "type" : "Person",
+      "firstName" : "Kevin",
+      "lastName" : "Stupar",
+      "imgPath" : null,
+      "participation" : {
+        "listOfJobFunctions" : [ ],
+        "listOfTeams" : [ ]
       }
     } ]
   }, {

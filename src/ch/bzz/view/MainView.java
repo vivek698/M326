@@ -1,9 +1,11 @@
 package ch.bzz.view;
 
 import ch.bzz.dataHandler.DataHandler;
+import ch.bzz.facade.ViewComponent;
 import ch.bzz.model.employees.HRPerson;
 
 import javax.swing.*;
+import javax.swing.text.View;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;

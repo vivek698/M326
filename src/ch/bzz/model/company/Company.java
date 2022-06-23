@@ -563,6 +563,10 @@ public class Company {
         return teams.contains(team);
     }
 
+    /**
+     * gets all HR-Persons
+     * @return List of HR-Persons
+     */
     @JsonIgnore
     public List<HRPerson> getListOfHRPerson(){
         List<HRPerson> hrPersonList=new ArrayList<>();

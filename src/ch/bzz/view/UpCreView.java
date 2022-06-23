@@ -5,11 +5,14 @@ import ch.bzz.exception.NotExistingDepartmentException;
 import ch.bzz.facade.*;
 import ch.bzz.model.company.Department;
 import ch.bzz.model.employees.Person;
+import ch.bzz.model.log.LogBook;
+import ch.bzz.model.log.UserAction;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -139,9 +142,11 @@ public class UpCreView extends JDialog{
                         ViewComponent.getInstance().addTeam(textField.getText());
                         break;
                     case "PersonView":
+                        Person person=new Person(textField.getText().split(" ")[0],textField.getText().split(" ")[1]);
                         try {
-                            ViewComponent.getInstance().addPerson((String) comboBox.getSelectedItem(), new Person(textField.getText().split(" ")[0],textField.getText().split(" ")[1]));
-                        } catch (NotExistingDepartmentException ex) {
+                            LogBook.getLogBookInstance().addEntry(new UserAction(ViewComponent.getInstance().getEditor(),person, UserAction.CREATE_PERSON).getEntry());
+                            ViewComponent.getInstance().addPerson((String) comboBox.getSelectedItem(), person);
+                        } catch (NotExistingDepartmentException | IOException ex) {
                             ex.printStackTrace();
                         }
                         break;
@@ -164,8 +169,10 @@ public class UpCreView extends JDialog{
                                 pictureLabel.setIcon(new ImageIcon(ViewComponent.getInstance().getAllPersonOfCompany().get(owner.getIndex()).getImgPath()));
                             }
                             try {
+                                Person person=ViewComponent.getInstance().getPersonByFullName( owner.getFirstName() + " " + owner.getLastName());
+                                LogBook.getLogBookInstance().addEntry(new UserAction(ViewComponent.getInstance().getEditor(),person, UserAction.CHANGE_VALUE).getEntry());
                                 ViewComponent.getInstance().correctParson(owner.getFirstName(), owner.getLastName(), getNewFirstName(), getNewLastName(), (String) comboBox.getSelectedItem(), path);
-                            } catch (NotExistingDepartmentException ex) {
+                            } catch (NotExistingDepartmentException | IOException ex) {
                                 ex.printStackTrace();
                             }
                             break;

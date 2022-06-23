@@ -25,7 +25,7 @@ public class LogBookView extends JPanel {
      * Creates the LogBook view
      */
       public LogBookView(){
-
+          ViewComponent.getInstance().setLogBookView(this);
           try {
               logBookInstace=LogBook.getLogBookInstance();
           } catch (IOException e) {
