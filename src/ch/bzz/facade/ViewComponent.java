@@ -315,15 +315,19 @@ public class ViewComponent {
         return companyInstance.getPersonByName(fullName);
     }
 
+    /**
+     * gets the HRPerson, who is logged right know
+     * @return editor
+     */
     public HRPerson getEditor() {
         return editor;
     }
 
+    /**
+     * sets the HRPerson, who is logged right know
+     * @return editor
+     */
     public void setEditor(HRPerson editor) {
         this.editor = editor;
-    }
-
-    public void setLogBookView(LogBookView logBookView) {
-        this.logBookView = logBookView;
     }
 }
